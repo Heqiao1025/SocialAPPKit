@@ -15,6 +15,7 @@
 		817DB77120885B6900E77082 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 817DB76F20885B6900E77082 /* LaunchScreen.storyboard */; };
 		817DB77420885B6900E77082 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 817DB77320885B6900E77082 /* main.m */; };
 		817DB77920885B7900E77082 /* SocialAPPKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 817DB75320885B2C00E77082 /* SocialAPPKit.framework */; };
+		817DB77B2088B01300E77082 /* SocialAPPKit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 817DB77A2088B01300E77082 /* SocialAPPKit.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		817DB77020885B6900E77082 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		817DB77220885B6900E77082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		817DB77320885B6900E77082 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		817DB77A2088B01300E77082 /* SocialAPPKit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SocialAPPKit.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				817DB75620885B2C00E77082 /* SocialAPPKit.h */,
+				817DB77A2088B01300E77082 /* SocialAPPKit.xcassets */,
 				817DB75720885B2C00E77082 /* Info.plist */,
 			);
 			path = SocialAPPKit;
@@ -195,6 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				817DB77B2088B01300E77082 /* SocialAPPKit.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
