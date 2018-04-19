@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.author           = { 'ForC' => 'heqiao.china@gmail.com' }
   s.source           = { :git => 'https://github.com/Heqiao1025/SocialAPPKit.git', :tag => s.version.to_s }
   s.resource_bundles = {
-    'SocialAPPKitAssets' => ['SocialAPPKit/*.xcassets','SocialAPPKit/**/*.{xib}']
+    'SocialAPPKit' => ['SocialAPPKit/*.xcassets','SocialAPPKit/**/*.{xib}']
   }
   s.requires_arc = true
   s.ios.deployment_target = '9.0'
