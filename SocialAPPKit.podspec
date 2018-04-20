@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SocialAPPKit"
-  s.version      = "0.0.7"
+  s.version      = "0.0.8"
   s.summary      = "社交化APP轻量级功能组件"
   s.homepage     = "https://github.com/Heqiao1025/SocialAPPKit"
   s.license      = {
@@ -19,13 +19,14 @@ Pod::Spec.new do |s|
   }
 
     #SocialAPPCore
-   # s.subspec 'SocialAPPCore' do |subspec|
-   #    subspec.source_files = 'SocialAPPKit/SocialAppCode/**/*.{h,m}'
-   #  end
+    s.subspec 'SocialAPPCore' do |subspec|
+      subspec.source_files = 'SocialAPPKit/SocialAppCode/**/*.{h,m}'
+    end
 
     # wechat
     s.subspec 'WechatAppKit' do |subspec|
-      subspec.source_files = 'SocialAPPKit/SocialAppCode/**/*.{h,m}', 'SocialAPPKit/WechatAppKit/**/*.{h,m}'
+      subspec.source_files = 'SocialAPPKit/WechatAppKit/**/*.{h,m}'
+      subspec.denpendency 'SocialAPPCore'
     end
 
     #TencentQQ
