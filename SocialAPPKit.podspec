@@ -14,14 +14,14 @@ Pod::Spec.new do |s|
   s.frameworks   = 'UIKit', 'Foundation'
   s.requires_arc = true
   s.ios.deployment_target = '9.0'
+  s.resource_bundles = {
+      'SocialAPPKitAssets' => ['SocialAPPKit/*.xcassets']
+  }
 
   #Wechat
-    s.subsepc 'wechatAppKit' do |wechatAppKit|
+    s.subspec 'WechatAppKit' do |wechatAppKit|
       wechatAppKit.source_files = 'SocialAPPKit/WechatAppKit/**/*.{h,m}'
-      wechatAppKit.resource_bundles = = {
-           'SocialAPPKitAssets' => ['SocialAPPKit/*.xcassets']
-      }
-      wechatAppKit.sependency 'SocialAPPKit/SocialAppCode'
+      wechatAppKit.dependency 'SocialAPPKit/SocialAppCode'
     end
 
 end
