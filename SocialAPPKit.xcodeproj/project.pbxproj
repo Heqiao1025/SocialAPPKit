@@ -22,6 +22,14 @@
 		81F6A70D208997C900AB6A7E /* UIView+FCViewFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F6A70B208997C900AB6A7E /* UIView+FCViewFrame.m */; };
 		81F6A7112089CDBA00AB6A7E /* FCTencentQQAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 81F6A70F2089CDBA00AB6A7E /* FCTencentQQAppKit.h */; };
 		81F6A7122089CDBA00AB6A7E /* FCTencentQQAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F6A7102089CDBA00AB6A7E /* FCTencentQQAppKit.m */; };
+		81F6A71F2089DDB100AB6A7E /* FCFaceBookAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 81F6A7142089DDB000AB6A7E /* FCFaceBookAppKit.h */; };
+		81F6A7202089DDB100AB6A7E /* FCFaceBookAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F6A7152089DDB000AB6A7E /* FCFaceBookAppKit.m */; };
+		81F6A7212089DDB100AB6A7E /* FCSinaWeiBoAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 81F6A7172089DDB000AB6A7E /* FCSinaWeiBoAppKit.h */; };
+		81F6A7222089DDB100AB6A7E /* FCSinaWeiBoAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F6A7182089DDB000AB6A7E /* FCSinaWeiBoAppKit.m */; };
+		81F6A7232089DDB100AB6A7E /* FCTwitterAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 81F6A71A2089DDB100AB6A7E /* FCTwitterAppKit.h */; };
+		81F6A7242089DDB100AB6A7E /* FCTwitterAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F6A71B2089DDB100AB6A7E /* FCTwitterAppKit.m */; };
+		81F6A7252089DDB100AB6A7E /* FCAlipayAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 81F6A71D2089DDB100AB6A7E /* FCAlipayAppKit.h */; };
+		81F6A7262089DDB100AB6A7E /* FCAlipayAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F6A71E2089DDB100AB6A7E /* FCAlipayAppKit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +53,14 @@
 		81F6A70B208997C900AB6A7E /* UIView+FCViewFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+FCViewFrame.m"; sourceTree = "<group>"; };
 		81F6A70F2089CDBA00AB6A7E /* FCTencentQQAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCTencentQQAppKit.h; sourceTree = "<group>"; };
 		81F6A7102089CDBA00AB6A7E /* FCTencentQQAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCTencentQQAppKit.m; sourceTree = "<group>"; };
+		81F6A7142089DDB000AB6A7E /* FCFaceBookAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCFaceBookAppKit.h; sourceTree = "<group>"; };
+		81F6A7152089DDB000AB6A7E /* FCFaceBookAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCFaceBookAppKit.m; sourceTree = "<group>"; };
+		81F6A7172089DDB000AB6A7E /* FCSinaWeiBoAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSinaWeiBoAppKit.h; sourceTree = "<group>"; };
+		81F6A7182089DDB000AB6A7E /* FCSinaWeiBoAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSinaWeiBoAppKit.m; sourceTree = "<group>"; };
+		81F6A71A2089DDB100AB6A7E /* FCTwitterAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCTwitterAppKit.h; sourceTree = "<group>"; };
+		81F6A71B2089DDB100AB6A7E /* FCTwitterAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCTwitterAppKit.m; sourceTree = "<group>"; };
+		81F6A71D2089DDB100AB6A7E /* FCAlipayAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCAlipayAppKit.h; sourceTree = "<group>"; };
+		81F6A71E2089DDB100AB6A7E /* FCAlipayAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCAlipayAppKit.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +105,10 @@
 			isa = PBXGroup;
 			children = (
 				817DB75620885B2C00E77082 /* SocialAPPKit.h */,
+				81F6A71C2089DDB100AB6A7E /* AlipayAppKit */,
+				81F6A7132089DDB000AB6A7E /* FaceBookAppKit */,
+				81F6A7162089DDB000AB6A7E /* SinaWeiboAppKit */,
+				81F6A7192089DDB100AB6A7E /* TwitterAppKit */,
 				81F6A70E2089CDBA00AB6A7E /* TencentQQAppKit */,
 				81F6A709208997A700AB6A7E /* SocialAppCode */,
 				81F6A6EB2089965A00AB6A7E /* WechatAppKit */,
@@ -148,6 +168,42 @@
 			path = TencentQQAppKit;
 			sourceTree = "<group>";
 		};
+		81F6A7132089DDB000AB6A7E /* FaceBookAppKit */ = {
+			isa = PBXGroup;
+			children = (
+				81F6A7142089DDB000AB6A7E /* FCFaceBookAppKit.h */,
+				81F6A7152089DDB000AB6A7E /* FCFaceBookAppKit.m */,
+			);
+			path = FaceBookAppKit;
+			sourceTree = "<group>";
+		};
+		81F6A7162089DDB000AB6A7E /* SinaWeiboAppKit */ = {
+			isa = PBXGroup;
+			children = (
+				81F6A7172089DDB000AB6A7E /* FCSinaWeiBoAppKit.h */,
+				81F6A7182089DDB000AB6A7E /* FCSinaWeiBoAppKit.m */,
+			);
+			path = SinaWeiboAppKit;
+			sourceTree = "<group>";
+		};
+		81F6A7192089DDB100AB6A7E /* TwitterAppKit */ = {
+			isa = PBXGroup;
+			children = (
+				81F6A71A2089DDB100AB6A7E /* FCTwitterAppKit.h */,
+				81F6A71B2089DDB100AB6A7E /* FCTwitterAppKit.m */,
+			);
+			path = TwitterAppKit;
+			sourceTree = "<group>";
+		};
+		81F6A71C2089DDB100AB6A7E /* AlipayAppKit */ = {
+			isa = PBXGroup;
+			children = (
+				81F6A71D2089DDB100AB6A7E /* FCAlipayAppKit.h */,
+				81F6A71E2089DDB100AB6A7E /* FCAlipayAppKit.m */,
+			);
+			path = AlipayAppKit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -155,9 +211,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81F6A7252089DDB100AB6A7E /* FCAlipayAppKit.h in Headers */,
 				81F6A707208996DF00AB6A7E /* FCWechatAppKit.h in Headers */,
+				81F6A7232089DDB100AB6A7E /* FCTwitterAppKit.h in Headers */,
 				81F6A70C208997C900AB6A7E /* UIView+FCViewFrame.h in Headers */,
+				81F6A71F2089DDB100AB6A7E /* FCFaceBookAppKit.h in Headers */,
 				81F6A7112089CDBA00AB6A7E /* FCTencentQQAppKit.h in Headers */,
+				81F6A7212089DDB100AB6A7E /* FCSinaWeiBoAppKit.h in Headers */,
 				817DB75820885B2C00E77082 /* SocialAPPKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,9 +325,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81F6A7262089DDB100AB6A7E /* FCAlipayAppKit.m in Sources */,
 				81F6A708208996DF00AB6A7E /* FCWechatAppKit.m in Sources */,
+				81F6A7242089DDB100AB6A7E /* FCTwitterAppKit.m in Sources */,
+				81F6A7202089DDB100AB6A7E /* FCFaceBookAppKit.m in Sources */,
 				81F6A70D208997C900AB6A7E /* UIView+FCViewFrame.m in Sources */,
 				81F6A7122089CDBA00AB6A7E /* FCTencentQQAppKit.m in Sources */,
+				81F6A7222089DDB100AB6A7E /* FCSinaWeiBoAppKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

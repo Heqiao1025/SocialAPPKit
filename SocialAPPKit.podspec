@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SocialAPPKit"
-  s.version      = "0.0.5"
+  s.version      = "0.0.6"
   s.summary      = "社交化APP轻量级功能组件"
   s.homepage     = "https://github.com/Heqiao1025/SocialAPPKit"
   s.license      = {
@@ -20,11 +20,31 @@ Pod::Spec.new do |s|
 
     #wechat
     s.subspec 'WechatAppKit' do |subspec|
-      subspec.source_files = 'SocialAPPKit/SocialAppCode/**/*.{h,m}, SocialAPPKit/WechatAppKit/**/*.{h,m}'
+      subspec.source_files = 'SocialAPPKit/SocialAppCode/**/*.{h,m}', 'SocialAPPKit/WechatAppKit/**/*.{h,m}'
     end
 
+    #TencentQQ
     s.subspec 'TencentQQAppKit' do |subspec|
-      subspec.source_files = 'SocialAPPKit/SocialAppCode/**/*.{h,m}, SocialAPPKit/TencentQQAppKit/**/*.{h,m}'
+      subspec.source_files = 'SocialAPPKit/SocialAppCode/**/*.{h,m}', 'SocialAPPKit/TencentQQAppKit/**/*.{h,m}'
     end
     
+    #facebook
+    s.subspec 'FaceBookAppKit' do |subspec|
+      subspec.source_files = 'SocialAPPKit/SocialAppCode/**/*.{h,m}', 'SocialAPPKit/FaceBookAppKit/**/*.{h,m}'
+    end
+
+    #twitter
+    s.subspec 'TwitterAppKit' do |subspec|
+      subspec.source_files = 'SocialAPPKit/SocialAppCode/**/*.{h,m}', 'SocialAPPKit/TwitterAppKit/**/*.{h,m}'
+    end
+
+    #alipay
+    s.subspec 'AlipayAppKit' do |subspec|
+      subspec.source_files = 'SocialAPPKit/SocialAppCode/**/*.{h,m}', 'SocialAPPKit/AlipayAppKit/**/*.{h,m}'
+    end
+
+    #SinaWeibo
+    s.subspec 'SinaWeiboAppKit' do |subspec|
+      subspec.source_files = 'SocialAPPKit/SocialAppCode/**/*.{h,m}', 'SocialAPPKit/SinaWeiboAppKit/**/*.{h,m}'
+    end
 end
