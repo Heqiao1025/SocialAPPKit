@@ -7,8 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "SocialAPPKit.h"
-#import "WechatSocialKit.h"
 
 @interface ViewController ()
 
@@ -18,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    WechatSocialKit *kit = [WechatSocialKit new];
+    
     NSLog(@"1");
     
 }

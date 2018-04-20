@@ -16,8 +16,10 @@
 		817DB77420885B6900E77082 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 817DB77320885B6900E77082 /* main.m */; };
 		817DB77920885B7900E77082 /* SocialAPPKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 817DB75320885B2C00E77082 /* SocialAPPKit.framework */; };
 		817DB77B2088B01300E77082 /* SocialAPPKit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 817DB77A2088B01300E77082 /* SocialAPPKit.xcassets */; };
-		817DB77E2088BFA900E77082 /* WechatSocialKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 817DB77C2088BFA900E77082 /* WechatSocialKit.h */; };
-		817DB77F2088BFA900E77082 /* WechatSocialKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 817DB77D2088BFA900E77082 /* WechatSocialKit.m */; };
+		81F6A707208996DF00AB6A7E /* FCWechatAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 81F6A705208996DF00AB6A7E /* FCWechatAppKit.h */; };
+		81F6A708208996DF00AB6A7E /* FCWechatAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F6A706208996DF00AB6A7E /* FCWechatAppKit.m */; };
+		81F6A70C208997C900AB6A7E /* UIView+FCViewFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = 81F6A70A208997C900AB6A7E /* UIView+FCViewFrame.h */; };
+		81F6A70D208997C900AB6A7E /* UIView+FCViewFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F6A70B208997C900AB6A7E /* UIView+FCViewFrame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +37,10 @@
 		817DB77220885B6900E77082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		817DB77320885B6900E77082 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		817DB77A2088B01300E77082 /* SocialAPPKit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SocialAPPKit.xcassets; sourceTree = "<group>"; };
-		817DB77C2088BFA900E77082 /* WechatSocialKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WechatSocialKit.h; sourceTree = "<group>"; };
-		817DB77D2088BFA900E77082 /* WechatSocialKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WechatSocialKit.m; sourceTree = "<group>"; };
+		81F6A705208996DF00AB6A7E /* FCWechatAppKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCWechatAppKit.h; sourceTree = "<group>"; };
+		81F6A706208996DF00AB6A7E /* FCWechatAppKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCWechatAppKit.m; sourceTree = "<group>"; };
+		81F6A70A208997C900AB6A7E /* UIView+FCViewFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+FCViewFrame.h"; sourceTree = "<group>"; };
+		81F6A70B208997C900AB6A7E /* UIView+FCViewFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+FCViewFrame.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +85,8 @@
 			isa = PBXGroup;
 			children = (
 				817DB75620885B2C00E77082 /* SocialAPPKit.h */,
-				817DB77C2088BFA900E77082 /* WechatSocialKit.h */,
-				817DB77D2088BFA900E77082 /* WechatSocialKit.m */,
+				81F6A709208997A700AB6A7E /* SocialAppCode */,
+				81F6A6EB2089965A00AB6A7E /* WechatAppKit */,
 				817DB77A2088B01300E77082 /* SocialAPPKit.xcassets */,
 				817DB75720885B2C00E77082 /* Info.plist */,
 			);
@@ -112,6 +116,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		81F6A6EB2089965A00AB6A7E /* WechatAppKit */ = {
+			isa = PBXGroup;
+			children = (
+				81F6A705208996DF00AB6A7E /* FCWechatAppKit.h */,
+				81F6A706208996DF00AB6A7E /* FCWechatAppKit.m */,
+			);
+			path = WechatAppKit;
+			sourceTree = "<group>";
+		};
+		81F6A709208997A700AB6A7E /* SocialAppCode */ = {
+			isa = PBXGroup;
+			children = (
+				81F6A70A208997C900AB6A7E /* UIView+FCViewFrame.h */,
+				81F6A70B208997C900AB6A7E /* UIView+FCViewFrame.m */,
+			);
+			path = SocialAppCode;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -119,7 +141,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				817DB77E2088BFA900E77082 /* WechatSocialKit.h in Headers */,
+				81F6A707208996DF00AB6A7E /* FCWechatAppKit.h in Headers */,
+				81F6A70C208997C900AB6A7E /* UIView+FCViewFrame.h in Headers */,
 				817DB75820885B2C00E77082 /* SocialAPPKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,6 +191,7 @@
 		817DB74A20885B2C00E77082 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = FC;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = ForC;
 				TargetAttributes = {
@@ -226,7 +250,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				817DB77F2088BFA900E77082 /* WechatSocialKit.m in Sources */,
+				81F6A708208996DF00AB6A7E /* FCWechatAppKit.m in Sources */,
+				81F6A70D208997C900AB6A7E /* UIView+FCViewFrame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
