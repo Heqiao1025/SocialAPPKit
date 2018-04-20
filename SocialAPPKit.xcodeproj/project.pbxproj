@@ -31,6 +31,8 @@
 		81F6A7242089DDB100AB6A7E /* FCTwitterAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F6A71B2089DDB100AB6A7E /* FCTwitterAppKit.m */; };
 		81F6A7252089DDB100AB6A7E /* FCAlipayAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 81F6A71D2089DDB100AB6A7E /* FCAlipayAppKit.h */; };
 		81F6A7262089DDB100AB6A7E /* FCAlipayAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F6A71E2089DDB100AB6A7E /* FCAlipayAppKit.m */; };
+		81F6A7292089EB9E00AB6A7E /* FCWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 81F6A7272089EB9E00AB6A7E /* FCWebViewController.h */; };
+		81F6A72A2089EB9E00AB6A7E /* FCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F6A7282089EB9E00AB6A7E /* FCWebViewController.m */; };
 		D08963D5C5B95DED1FE8E9B9 /* libPods-SocialAPPKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2445E2113B16A93A5AF339AA /* libPods-SocialAPPKit.a */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +69,8 @@
 		81F6A71B2089DDB100AB6A7E /* FCTwitterAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCTwitterAppKit.m; sourceTree = "<group>"; };
 		81F6A71D2089DDB100AB6A7E /* FCAlipayAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCAlipayAppKit.h; sourceTree = "<group>"; };
 		81F6A71E2089DDB100AB6A7E /* FCAlipayAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCAlipayAppKit.m; sourceTree = "<group>"; };
+		81F6A7272089EB9E00AB6A7E /* FCWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCWebViewController.h; sourceTree = "<group>"; };
+		81F6A7282089EB9E00AB6A7E /* FCWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCWebViewController.m; sourceTree = "<group>"; };
 		B8569F38BDDE1BD14719E51B /* Pods-RunDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RunDemo/Pods-RunDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		B86792835888013C00118075 /* Pods-SocialAPPKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialAPPKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialAPPKit/Pods-SocialAPPKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,6 +172,8 @@
 			children = (
 				81F6A70A208997C900AB6A7E /* UIView+FCViewFrame.h */,
 				81F6A70B208997C900AB6A7E /* UIView+FCViewFrame.m */,
+				81F6A7272089EB9E00AB6A7E /* FCWebViewController.h */,
+				81F6A7282089EB9E00AB6A7E /* FCWebViewController.m */,
 			);
 			path = SocialAppCode;
 			sourceTree = "<group>";
@@ -242,6 +248,7 @@
 				81F6A71F2089DDB100AB6A7E /* FCFaceBookAppKit.h in Headers */,
 				81F6A7112089CDBA00AB6A7E /* FCTencentQQAppKit.h in Headers */,
 				81F6A7212089DDB100AB6A7E /* FCSinaWeiBoAppKit.h in Headers */,
+				81F6A7292089EB9E00AB6A7E /* FCWebViewController.h in Headers */,
 				817DB75820885B2C00E77082 /* SocialAPPKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,6 +403,7 @@
 				81F6A7202089DDB100AB6A7E /* FCFaceBookAppKit.m in Sources */,
 				81F6A70D208997C900AB6A7E /* UIView+FCViewFrame.m in Sources */,
 				81F6A7122089CDBA00AB6A7E /* FCTencentQQAppKit.m in Sources */,
+				81F6A72A2089EB9E00AB6A7E /* FCWebViewController.m in Sources */,
 				81F6A7222089DDB100AB6A7E /* FCSinaWeiBoAppKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
