@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 
     #SocialAPPCore
     s.subspec 'SocialAPPCore' do |subspec|
-      subspec.source_files = 'SocialAPPKit/SocialAppCode/**/*.{h,m}', 
+      subspec.source_files = 'SocialAPPKit/SocialAppCode/**/*.{h,m}'
     end
 
     #wechat
