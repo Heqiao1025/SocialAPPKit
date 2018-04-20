@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		059884C0AD259C5750B9DC5C /* libPods-RunDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 201565641CB4E7B0C8EC3F03 /* libPods-RunDemo.a */; };
 		817DB75820885B2C00E77082 /* SocialAPPKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 817DB75620885B2C00E77082 /* SocialAPPKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		817DB76620885B6900E77082 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 817DB76520885B6900E77082 /* AppDelegate.m */; };
 		817DB76920885B6900E77082 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 817DB76820885B6900E77082 /* ViewController.m */; };
@@ -30,9 +31,14 @@
 		81F6A7242089DDB100AB6A7E /* FCTwitterAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F6A71B2089DDB100AB6A7E /* FCTwitterAppKit.m */; };
 		81F6A7252089DDB100AB6A7E /* FCAlipayAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 81F6A71D2089DDB100AB6A7E /* FCAlipayAppKit.h */; };
 		81F6A7262089DDB100AB6A7E /* FCAlipayAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F6A71E2089DDB100AB6A7E /* FCAlipayAppKit.m */; };
+		D08963D5C5B95DED1FE8E9B9 /* libPods-SocialAPPKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2445E2113B16A93A5AF339AA /* libPods-SocialAPPKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0FD5572FEE7F4D7F3CDEB4F9 /* Pods-RunDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RunDemo/Pods-RunDemo.release.xcconfig"; sourceTree = "<group>"; };
+		201565641CB4E7B0C8EC3F03 /* libPods-RunDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RunDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2445E2113B16A93A5AF339AA /* libPods-SocialAPPKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SocialAPPKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FB35EC163BCFC198EA45B57 /* Pods-SocialAPPKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialAPPKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialAPPKit/Pods-SocialAPPKit.release.xcconfig"; sourceTree = "<group>"; };
 		817DB75320885B2C00E77082 /* SocialAPPKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SocialAPPKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		817DB75620885B2C00E77082 /* SocialAPPKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocialAPPKit.h; sourceTree = "<group>"; };
 		817DB75720885B2C00E77082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,6 +67,8 @@
 		81F6A71B2089DDB100AB6A7E /* FCTwitterAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCTwitterAppKit.m; sourceTree = "<group>"; };
 		81F6A71D2089DDB100AB6A7E /* FCAlipayAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCAlipayAppKit.h; sourceTree = "<group>"; };
 		81F6A71E2089DDB100AB6A7E /* FCAlipayAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCAlipayAppKit.m; sourceTree = "<group>"; };
+		B8569F38BDDE1BD14719E51B /* Pods-RunDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RunDemo/Pods-RunDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		B86792835888013C00118075 /* Pods-SocialAPPKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialAPPKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialAPPKit/Pods-SocialAPPKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D08963D5C5B95DED1FE8E9B9 /* libPods-SocialAPPKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				817DB77920885B7900E77082 /* SocialAPPKit.framework in Frameworks */,
+				059884C0AD259C5750B9DC5C /* libPods-RunDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +99,7 @@
 				817DB76320885B6900E77082 /* RunDemo */,
 				817DB75420885B2C00E77082 /* Products */,
 				817DB77820885B7900E77082 /* Frameworks */,
+				9D292890DF62A4E1839C1DBB /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,6 +148,8 @@
 		817DB77820885B7900E77082 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				201565641CB4E7B0C8EC3F03 /* libPods-RunDemo.a */,
+				2445E2113B16A93A5AF339AA /* libPods-SocialAPPKit.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -204,6 +217,17 @@
 			path = AlipayAppKit;
 			sourceTree = "<group>";
 		};
+		9D292890DF62A4E1839C1DBB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B8569F38BDDE1BD14719E51B /* Pods-RunDemo.debug.xcconfig */,
+				0FD5572FEE7F4D7F3CDEB4F9 /* Pods-RunDemo.release.xcconfig */,
+				B86792835888013C00118075 /* Pods-SocialAPPKit.debug.xcconfig */,
+				4FB35EC163BCFC198EA45B57 /* Pods-SocialAPPKit.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -229,6 +253,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 817DB75B20885B2C00E77082 /* Build configuration list for PBXNativeTarget "SocialAPPKit" */;
 			buildPhases = (
+				E7B459A1434FD6DB9922C908 /* [CP] Check Pods Manifest.lock */,
 				817DB74E20885B2C00E77082 /* Sources */,
 				817DB74F20885B2C00E77082 /* Frameworks */,
 				817DB75020885B2C00E77082 /* Headers */,
@@ -247,6 +272,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 817DB77720885B6900E77082 /* Build configuration list for PBXNativeTarget "RunDemo" */;
 			buildPhases = (
+				4D8BE6CE4A91A62B684CD09E /* [CP] Check Pods Manifest.lock */,
 				817DB75E20885B6900E77082 /* Sources */,
 				817DB75F20885B6900E77082 /* Frameworks */,
 				817DB76020885B6900E77082 /* Resources */,
@@ -319,6 +345,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4D8BE6CE4A91A62B684CD09E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RunDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7B459A1434FD6DB9922C908 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SocialAPPKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		817DB74E20885B2C00E77082 /* Sources */ = {
@@ -479,6 +544,7 @@
 		};
 		817DB75C20885B2C00E77082 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B86792835888013C00118075 /* Pods-SocialAPPKit.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -498,6 +564,7 @@
 		};
 		817DB75D20885B2C00E77082 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FB35EC163BCFC198EA45B57 /* Pods-SocialAPPKit.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -517,6 +584,7 @@
 		};
 		817DB77520885B6900E77082 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8569F38BDDE1BD14719E51B /* Pods-RunDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -530,6 +598,7 @@
 		};
 		817DB77620885B6900E77082 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FD5572FEE7F4D7F3CDEB4F9 /* Pods-RunDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
