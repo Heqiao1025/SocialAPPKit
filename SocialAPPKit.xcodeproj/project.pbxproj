@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		059884C0AD259C5750B9DC5C /* libPods-RunDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 201565641CB4E7B0C8EC3F03 /* libPods-RunDemo.a */; };
+		81035691208AF50B005CB6FC /* FCError.h in Headers */ = {isa = PBXBuildFile; fileRef = 8103568F208AF50B005CB6FC /* FCError.h */; };
+		81035692208AF50B005CB6FC /* FCError.m in Sources */ = {isa = PBXBuildFile; fileRef = 81035690208AF50B005CB6FC /* FCError.m */; };
 		817DB75820885B2C00E77082 /* SocialAPPKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 817DB75620885B2C00E77082 /* SocialAPPKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		817DB76620885B6900E77082 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 817DB76520885B6900E77082 /* AppDelegate.m */; };
 		817DB76920885B6900E77082 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 817DB76820885B6900E77082 /* ViewController.m */; };
@@ -41,6 +43,8 @@
 		201565641CB4E7B0C8EC3F03 /* libPods-RunDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RunDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2445E2113B16A93A5AF339AA /* libPods-SocialAPPKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SocialAPPKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FB35EC163BCFC198EA45B57 /* Pods-SocialAPPKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialAPPKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialAPPKit/Pods-SocialAPPKit.release.xcconfig"; sourceTree = "<group>"; };
+		8103568F208AF50B005CB6FC /* FCError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCError.h; sourceTree = "<group>"; };
+		81035690208AF50B005CB6FC /* FCError.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCError.m; sourceTree = "<group>"; };
 		817DB75320885B2C00E77082 /* SocialAPPKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SocialAPPKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		817DB75620885B2C00E77082 /* SocialAPPKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocialAPPKit.h; sourceTree = "<group>"; };
 		817DB75720885B2C00E77082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -174,6 +178,8 @@
 				81F6A70B208997C900AB6A7E /* UIView+FCViewFrame.m */,
 				81F6A7272089EB9E00AB6A7E /* FCWebViewController.h */,
 				81F6A7282089EB9E00AB6A7E /* FCWebViewController.m */,
+				8103568F208AF50B005CB6FC /* FCError.h */,
+				81035690208AF50B005CB6FC /* FCError.m */,
 			);
 			path = SocialAppCode;
 			sourceTree = "<group>";
@@ -245,6 +251,7 @@
 				81F6A707208996DF00AB6A7E /* FCWechatAppKit.h in Headers */,
 				81F6A7232089DDB100AB6A7E /* FCTwitterAppKit.h in Headers */,
 				81F6A70C208997C900AB6A7E /* UIView+FCViewFrame.h in Headers */,
+				81035691208AF50B005CB6FC /* FCError.h in Headers */,
 				81F6A71F2089DDB100AB6A7E /* FCFaceBookAppKit.h in Headers */,
 				81F6A7112089CDBA00AB6A7E /* FCTencentQQAppKit.h in Headers */,
 				81F6A7212089DDB100AB6A7E /* FCSinaWeiBoAppKit.h in Headers */,
@@ -405,6 +412,7 @@
 				81F6A7122089CDBA00AB6A7E /* FCTencentQQAppKit.m in Sources */,
 				81F6A72A2089EB9E00AB6A7E /* FCWebViewController.m in Sources */,
 				81F6A7222089DDB100AB6A7E /* FCSinaWeiBoAppKit.m in Sources */,
+				81035692208AF50B005CB6FC /* FCError.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
