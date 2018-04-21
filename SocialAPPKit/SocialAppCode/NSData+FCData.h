@@ -10,4 +10,6 @@
 
 @interface NSData (FCData)
 
+- (NSDictionary *)transformData;
+
 @end

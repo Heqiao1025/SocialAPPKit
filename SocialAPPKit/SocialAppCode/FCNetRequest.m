@@ -7,6 +7,7 @@
 //
 
 #import "FCNetRequest.h"
+#import "NSData+FCData.h"
 
 @interface FCNetRequest()
 
@@ -33,11 +34,12 @@
         if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
             httpReponse = (NSHTTPURLResponse *)response;
         }
-        if (error || httpReponse.statusCode < 200 || httpReponse.statusCode > 200) {
+        if (error || httpReponse.statusCode < 200 || httpReponse.statusCode >= 300) {
             FCError *customError = [FCError errorWithCode:0 message:error.userInfo[@"message"]];
             [callBack sendError:customError];
         } else {
-            
+            NSDictionary *json = [data transformData];
+            [callBack sendSuccess:json];
         }
     }];
     return callBack;
