@@ -11,7 +11,7 @@
 @implementation FCError
 
 + (instancetype)errorWithMessage: (NSString *)message {
-    return [self errorWithCode:-1000 message:message];
+    return [self errorWithCode:-1 message:message];
 }
 
 + (instancetype)errorWithCode: (NSInteger)code message: (NSString *)message {
