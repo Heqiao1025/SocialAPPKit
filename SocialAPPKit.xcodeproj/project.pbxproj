@@ -14,6 +14,10 @@
 		8103569A208AF8A6005CB6FC /* FCCallBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 81035698208AF8A6005CB6FC /* FCCallBack.m */; };
 		810356A1208B07BA005CB6FC /* FCBaseRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 8103569F208B07BA005CB6FC /* FCBaseRequest.h */; };
 		810356A2208B07BA005CB6FC /* FCBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 810356A0208B07BA005CB6FC /* FCBaseRequest.m */; };
+		810356A5208B3EB4005CB6FC /* NSString+FCString.h in Headers */ = {isa = PBXBuildFile; fileRef = 810356A3208B3EB4005CB6FC /* NSString+FCString.h */; };
+		810356A6208B3EB4005CB6FC /* NSString+FCString.m in Sources */ = {isa = PBXBuildFile; fileRef = 810356A4208B3EB4005CB6FC /* NSString+FCString.m */; };
+		810356A9208B3F16005CB6FC /* NSData+FCData.h in Headers */ = {isa = PBXBuildFile; fileRef = 810356A7208B3F16005CB6FC /* NSData+FCData.h */; };
+		810356AA208B3F16005CB6FC /* NSData+FCData.m in Sources */ = {isa = PBXBuildFile; fileRef = 810356A8208B3F16005CB6FC /* NSData+FCData.m */; };
 		817DB75820885B2C00E77082 /* SocialAPPKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 817DB75620885B2C00E77082 /* SocialAPPKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		817DB76620885B6900E77082 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 817DB76520885B6900E77082 /* AppDelegate.m */; };
 		817DB76920885B6900E77082 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 817DB76820885B6900E77082 /* ViewController.m */; };
@@ -53,6 +57,10 @@
 		81035698208AF8A6005CB6FC /* FCCallBack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCCallBack.m; sourceTree = "<group>"; };
 		8103569F208B07BA005CB6FC /* FCBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCBaseRequest.h; sourceTree = "<group>"; };
 		810356A0208B07BA005CB6FC /* FCBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCBaseRequest.m; sourceTree = "<group>"; };
+		810356A3208B3EB4005CB6FC /* NSString+FCString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+FCString.h"; sourceTree = "<group>"; };
+		810356A4208B3EB4005CB6FC /* NSString+FCString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+FCString.m"; sourceTree = "<group>"; };
+		810356A7208B3F16005CB6FC /* NSData+FCData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+FCData.h"; sourceTree = "<group>"; };
+		810356A8208B3F16005CB6FC /* NSData+FCData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+FCData.m"; sourceTree = "<group>"; };
 		817DB75320885B2C00E77082 /* SocialAPPKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SocialAPPKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		817DB75620885B2C00E77082 /* SocialAPPKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocialAPPKit.h; sourceTree = "<group>"; };
 		817DB75720885B2C00E77082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -184,6 +192,10 @@
 			children = (
 				81F6A70A208997C900AB6A7E /* UIView+FCViewFrame.h */,
 				81F6A70B208997C900AB6A7E /* UIView+FCViewFrame.m */,
+				810356A3208B3EB4005CB6FC /* NSString+FCString.h */,
+				810356A4208B3EB4005CB6FC /* NSString+FCString.m */,
+				810356A7208B3F16005CB6FC /* NSData+FCData.h */,
+				810356A8208B3F16005CB6FC /* NSData+FCData.m */,
 				81F6A7272089EB9E00AB6A7E /* FCWebViewController.h */,
 				81F6A7282089EB9E00AB6A7E /* FCWebViewController.m */,
 				8103569F208B07BA005CB6FC /* FCBaseRequest.h */,
@@ -263,9 +275,11 @@
 				81F6A707208996DF00AB6A7E /* FCWechatAppKit.h in Headers */,
 				81F6A7232089DDB100AB6A7E /* FCTwitterAppKit.h in Headers */,
 				81F6A70C208997C900AB6A7E /* UIView+FCViewFrame.h in Headers */,
+				810356A5208B3EB4005CB6FC /* NSString+FCString.h in Headers */,
 				81035691208AF50B005CB6FC /* FCError.h in Headers */,
 				81F6A71F2089DDB100AB6A7E /* FCFaceBookAppKit.h in Headers */,
 				81F6A7112089CDBA00AB6A7E /* FCTencentQQAppKit.h in Headers */,
+				810356A9208B3F16005CB6FC /* NSData+FCData.h in Headers */,
 				81035699208AF8A6005CB6FC /* FCCallBack.h in Headers */,
 				81F6A7212089DDB100AB6A7E /* FCSinaWeiBoAppKit.h in Headers */,
 				81F6A7292089EB9E00AB6A7E /* FCWebViewController.h in Headers */,
@@ -425,8 +439,10 @@
 				81F6A7242089DDB100AB6A7E /* FCTwitterAppKit.m in Sources */,
 				81F6A7202089DDB100AB6A7E /* FCFaceBookAppKit.m in Sources */,
 				81F6A70D208997C900AB6A7E /* UIView+FCViewFrame.m in Sources */,
+				810356AA208B3F16005CB6FC /* NSData+FCData.m in Sources */,
 				81F6A7122089CDBA00AB6A7E /* FCTencentQQAppKit.m in Sources */,
 				81F6A72A2089EB9E00AB6A7E /* FCWebViewController.m in Sources */,
+				810356A6208B3EB4005CB6FC /* NSString+FCString.m in Sources */,
 				81F6A7222089DDB100AB6A7E /* FCSinaWeiBoAppKit.m in Sources */,
 				81035692208AF50B005CB6FC /* FCError.m in Sources */,
 			);
