@@ -16,6 +16,8 @@
 		810356A6208B3EB4005CB6FC /* NSString+FCString.m in Sources */ = {isa = PBXBuildFile; fileRef = 810356A4208B3EB4005CB6FC /* NSString+FCString.m */; };
 		810356A9208B3F16005CB6FC /* NSData+FCData.h in Headers */ = {isa = PBXBuildFile; fileRef = 810356A7208B3F16005CB6FC /* NSData+FCData.h */; };
 		810356AA208B3F16005CB6FC /* NSData+FCData.m in Sources */ = {isa = PBXBuildFile; fileRef = 810356A8208B3F16005CB6FC /* NSData+FCData.m */; };
+		810356B5208B4037005CB6FC /* FCNetRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 810356B3208B4037005CB6FC /* FCNetRequest.h */; };
+		810356B6208B4037005CB6FC /* FCNetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 810356B4208B4037005CB6FC /* FCNetRequest.m */; };
 		817DB75820885B2C00E77082 /* SocialAPPKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 817DB75620885B2C00E77082 /* SocialAPPKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		817DB76620885B6900E77082 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 817DB76520885B6900E77082 /* AppDelegate.m */; };
 		817DB76920885B6900E77082 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 817DB76820885B6900E77082 /* ViewController.m */; };
@@ -57,6 +59,8 @@
 		810356A4208B3EB4005CB6FC /* NSString+FCString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+FCString.m"; sourceTree = "<group>"; };
 		810356A7208B3F16005CB6FC /* NSData+FCData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+FCData.h"; sourceTree = "<group>"; };
 		810356A8208B3F16005CB6FC /* NSData+FCData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+FCData.m"; sourceTree = "<group>"; };
+		810356B3208B4037005CB6FC /* FCNetRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCNetRequest.h; sourceTree = "<group>"; };
+		810356B4208B4037005CB6FC /* FCNetRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCNetRequest.m; sourceTree = "<group>"; };
 		817DB75320885B2C00E77082 /* SocialAPPKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SocialAPPKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		817DB75620885B2C00E77082 /* SocialAPPKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocialAPPKit.h; sourceTree = "<group>"; };
 		817DB75720885B2C00E77082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 				810356A8208B3F16005CB6FC /* NSData+FCData.m */,
 				81F6A7272089EB9E00AB6A7E /* FCWebViewController.h */,
 				81F6A7282089EB9E00AB6A7E /* FCWebViewController.m */,
+				810356B3208B4037005CB6FC /* FCNetRequest.h */,
+				810356B4208B4037005CB6FC /* FCNetRequest.m */,
 				8103568F208AF50B005CB6FC /* FCError.h */,
 				81035690208AF50B005CB6FC /* FCError.m */,
 				81035697208AF8A6005CB6FC /* FCCallBack.h */,
@@ -276,6 +282,7 @@
 				810356A9208B3F16005CB6FC /* NSData+FCData.h in Headers */,
 				81035699208AF8A6005CB6FC /* FCCallBack.h in Headers */,
 				81F6A7212089DDB100AB6A7E /* FCSinaWeiBoAppKit.h in Headers */,
+				810356B5208B4037005CB6FC /* FCNetRequest.h in Headers */,
 				81F6A7292089EB9E00AB6A7E /* FCWebViewController.h in Headers */,
 				817DB75820885B2C00E77082 /* SocialAPPKit.h in Headers */,
 			);
@@ -432,6 +439,7 @@
 				81F6A7202089DDB100AB6A7E /* FCFaceBookAppKit.m in Sources */,
 				81F6A70D208997C900AB6A7E /* UIView+FCViewFrame.m in Sources */,
 				810356AA208B3F16005CB6FC /* NSData+FCData.m in Sources */,
+				810356B6208B4037005CB6FC /* FCNetRequest.m in Sources */,
 				81F6A7122089CDBA00AB6A7E /* FCTencentQQAppKit.m in Sources */,
 				81F6A72A2089EB9E00AB6A7E /* FCWebViewController.m in Sources */,
 				810356A6208B3EB4005CB6FC /* NSString+FCString.m in Sources */,
