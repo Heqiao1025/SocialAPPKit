@@ -38,8 +38,8 @@
             FCError *customError = [FCError errorWithCode:0 message:error.userInfo[@"message"]];
             [callBack sendError:customError];
         } else {
-            NSDictionary *json = [data transformData];
-            [callBack sendSuccess:json];
+//            NSDictionary *json = [data transformData];
+            [callBack sendSuccess:data];
         }
     }];
     return callBack;
@@ -57,7 +57,7 @@
     for (NSString *paramter in self.paramters) {
         [requestParamters stringByAppendingFormat:@"%@=%@&", paramter, self.paramters[paramter]];
     }
-    return [[requestParamters substringToIndex:requestParamters.length-1] dataUsingEncoding:NSUTF8StringEncoding];
+    return requestParamters.length ?[[requestParamters substringToIndex:requestParamters.length-1] dataUsingEncoding:NSUTF8StringEncoding]: nil;
 }
 
 - (NSString *)HttpMethodString {
@@ -68,7 +68,7 @@
     }
 }
 
-- (NSString *)requestURLString {
+- (NSString *)requestURL {
     NSString *urlBase = [self.path hasPrefix:@"/"] ? [self.baseHost stringByAppendingString:self.path] : [self.baseHost stringByAppendingFormat:@"/%@", self.path];
     NSString *urlEncode = [urlBase stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     return [NSURL URLWithString:urlEncode];

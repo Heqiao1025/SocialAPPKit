@@ -22,7 +22,7 @@
     [self subscriberSuccess:successCallBack error:nil];
 }
 
-- (void)subscriberSuccess :(void (^)(id))successCallBack error :(void (^) (FCError *))errorCallBlock {
+- (void)subscriberSuccess :(void (^)(id x))successCallBack error :(void (^) (FCError *error))errorCallBlock {
     self.successCallBack = successCallBack;
     self.errorCallBack = errorCallBlock;
 }

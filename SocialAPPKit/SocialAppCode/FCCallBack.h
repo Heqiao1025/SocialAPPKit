@@ -13,7 +13,7 @@
 
 - (void)subscriberSuccess :(void (^)(id x))successCallBack;
 
-- (void)subscriberSuccess :(void (^)(id))successCallBack error :(void (^) (FCError *))errorCallBlock;
+- (void)subscriberSuccess :(void (^)(id x))successCallBack error :(void (^) (FCError *error))errorCallBlock;
 
 - (void)sendError :(FCError *)error;
 
