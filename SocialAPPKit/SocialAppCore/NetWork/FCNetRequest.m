@@ -8,6 +8,7 @@
 
 #import "FCNetRequest.h"
 #import "NSData+FCData.h"
+#import "NSString+FCString.h"
 #import "NSURLResponse+FCNetRequest.h"
 
 @interface FCNetRequest()
@@ -41,10 +42,9 @@
     return callBack;
 }
 
-#pragma mark Profession
+#pragma mark Private Profession
 - (BOOL)isAvailableURL {
-    BOOL isAvailable = self.requestURL.absoluteString.length ? YES : NO;
-    return isAvailable;
+    return self.requestURL.absoluteString.length ? YES : NO;
 }
 
 #pragma mark Private HttpConfig
@@ -55,11 +55,11 @@
 }
 
 - (NSData *)httpParamters {
-    NSString *requestParamters = [NSString string];
-    for (NSString *paramter in self.paramters) {
-        [requestParamters stringByAppendingFormat:@"%@=%@&", paramter, self.paramters[paramter]];
+    NSString *requestParamters = [NSString getRequestBodyString:self.paramters];
+    if (!requestParamters.length) {
+        return nil;
     }
-    return requestParamters.length ?[[requestParamters substringToIndex:requestParamters.length-1] dataUsingEncoding:NSUTF8StringEncoding]: nil;
+    return [requestParamters dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 - (NSString *)HttpMethodString {
@@ -71,9 +71,7 @@
 }
 
 - (NSURL *)requestURL {
-    NSString *urlBase = [self.path hasPrefix:@"/"] ? [self.baseHost stringByAppendingString:self.path] : [self.baseHost stringByAppendingFormat:@"/%@", self.path];
-    NSString *urlEncode = [urlBase stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    return [NSURL URLWithString:urlEncode];
+    return [NSURL URLWithString:[self.baseHost appendAbsolutString:self.path]];
 }
 
 @end
