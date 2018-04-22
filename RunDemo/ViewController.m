@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "FCNetRequest.h"
 
 @interface ViewController ()
 
@@ -18,6 +19,20 @@
     [super viewDidLoad];
     
     NSLog(@"1");
+    [self testNetWork];
+}
+
+- (void)testNetWork {
+    FCNetRequest *api = [FCNetRequest new];
+    api.baseHost = @"http://www.kuaidi100.com";
+    api.path = @"/query";
+    api.paramters = @{@"type":@"yuantong",
+                      @"postid":@"11111111111"};
+    [[api startRequest] subscriberSuccess:^(id x) {
+        NSLog(@"1");
+    } error:^(FCError *error) {
+        NSLog(@"2");
+    }];
     
 }
 

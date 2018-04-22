@@ -21,7 +21,7 @@
 
 - (FCCallBack *)startRequest {
     FCCallBack *callBack = [FCCallBack new];
-    if ([self isAvailableURL]) {
+    if (![self isAvailableURL]) {
         FCError *urlError = [FCError errorWithMessage:@"不可用的URL"];
         [callBack afterSendError:urlError];
         return callBack;
@@ -30,15 +30,15 @@
     request.HTTPMethod = [self HttpMethodString];
     [self configRequestHeader:request];
     request.HTTPBody = [self httpParamters];
-    [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if (error || [response fc_requestSuccess]) {
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error || ![response fc_requestSuccess]) {
             FCError *customError = [FCError errorWithCode:0 message:error.userInfo[@"message"]];
             [callBack sendError:customError];
         } else {
             //            NSDictionary *json = [data transformData];
             [callBack sendSuccess:data];
         }
-    }];
+    }] resume];
     return callBack;
 }
 
