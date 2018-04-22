@@ -21,10 +21,8 @@
 - (FCCallBack *)startRequest {
     FCCallBack *callBack = [FCCallBack new];
     if ([self isAvailableURL]) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            FCError *urlError = [FCError errorWithMessage:@"不可用的URL"];
-            [callBack sendError:urlError];
-        });
+        FCError *urlError = [FCError errorWithMessage:@"不可用的URL"];
+        [callBack afterSendError:urlError];
         return callBack;
     }
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.requestURL];

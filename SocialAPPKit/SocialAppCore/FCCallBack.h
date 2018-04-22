@@ -19,4 +19,8 @@
 
 - (void)sendSuccess :(id)success;
 
+- (void)afterSendError :(FCError *)error;
+
+- (void)afterSendSuccess :(id)success;
+
 @end
