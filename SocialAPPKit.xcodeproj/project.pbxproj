@@ -8,16 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		059884C0AD259C5750B9DC5C /* libPods-RunDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 201565641CB4E7B0C8EC3F03 /* libPods-RunDemo.a */; };
-		81035691208AF50B005CB6FC /* FCError.h in Headers */ = {isa = PBXBuildFile; fileRef = 8103568F208AF50B005CB6FC /* FCError.h */; };
-		81035692208AF50B005CB6FC /* FCError.m in Sources */ = {isa = PBXBuildFile; fileRef = 81035690208AF50B005CB6FC /* FCError.m */; };
-		81035699208AF8A6005CB6FC /* FCCallBack.h in Headers */ = {isa = PBXBuildFile; fileRef = 81035697208AF8A6005CB6FC /* FCCallBack.h */; };
-		8103569A208AF8A6005CB6FC /* FCCallBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 81035698208AF8A6005CB6FC /* FCCallBack.m */; };
-		810356A5208B3EB4005CB6FC /* NSString+FCString.h in Headers */ = {isa = PBXBuildFile; fileRef = 810356A3208B3EB4005CB6FC /* NSString+FCString.h */; };
-		810356A6208B3EB4005CB6FC /* NSString+FCString.m in Sources */ = {isa = PBXBuildFile; fileRef = 810356A4208B3EB4005CB6FC /* NSString+FCString.m */; };
-		810356A9208B3F16005CB6FC /* NSData+FCData.h in Headers */ = {isa = PBXBuildFile; fileRef = 810356A7208B3F16005CB6FC /* NSData+FCData.h */; };
-		810356AA208B3F16005CB6FC /* NSData+FCData.m in Sources */ = {isa = PBXBuildFile; fileRef = 810356A8208B3F16005CB6FC /* NSData+FCData.m */; };
-		810356B5208B4037005CB6FC /* FCNetRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 810356B3208B4037005CB6FC /* FCNetRequest.h */; };
-		810356B6208B4037005CB6FC /* FCNetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 810356B4208B4037005CB6FC /* FCNetRequest.m */; };
 		817DB75820885B2C00E77082 /* SocialAPPKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 817DB75620885B2C00E77082 /* SocialAPPKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		817DB76620885B6900E77082 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 817DB76520885B6900E77082 /* AppDelegate.m */; };
 		817DB76920885B6900E77082 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 817DB76820885B6900E77082 /* ViewController.m */; };
@@ -27,10 +17,24 @@
 		817DB77420885B6900E77082 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 817DB77320885B6900E77082 /* main.m */; };
 		817DB77920885B7900E77082 /* SocialAPPKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 817DB75320885B2C00E77082 /* SocialAPPKit.framework */; };
 		817DB77B2088B01300E77082 /* SocialAPPKit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 817DB77A2088B01300E77082 /* SocialAPPKit.xcassets */; };
+		81B580CD208C99B10088BA2D /* FCCallBack.h in Headers */ = {isa = PBXBuildFile; fileRef = 81B580BE208C99B00088BA2D /* FCCallBack.h */; };
+		81B580CE208C99B10088BA2D /* FCCallBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B580BF208C99B00088BA2D /* FCCallBack.m */; };
+		81B580CF208C99B10088BA2D /* FCError.h in Headers */ = {isa = PBXBuildFile; fileRef = 81B580C0208C99B00088BA2D /* FCError.h */; };
+		81B580D0208C99B10088BA2D /* FCError.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B580C1208C99B00088BA2D /* FCError.m */; };
+		81B580D1208C99B10088BA2D /* FCWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 81B580C2208C99B00088BA2D /* FCWebViewController.h */; };
+		81B580D2208C99B10088BA2D /* FCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B580C3208C99B00088BA2D /* FCWebViewController.m */; };
+		81B580D3208C99B10088BA2D /* FCNetRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 81B580C5208C99B00088BA2D /* FCNetRequest.h */; };
+		81B580D4208C99B10088BA2D /* FCNetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B580C6208C99B00088BA2D /* FCNetRequest.m */; };
+		81B580D5208C99B10088BA2D /* NSData+FCData.h in Headers */ = {isa = PBXBuildFile; fileRef = 81B580C7208C99B00088BA2D /* NSData+FCData.h */; };
+		81B580D6208C99B10088BA2D /* NSData+FCData.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B580C8208C99B00088BA2D /* NSData+FCData.m */; };
+		81B580D7208C99B10088BA2D /* NSString+FCString.h in Headers */ = {isa = PBXBuildFile; fileRef = 81B580C9208C99B00088BA2D /* NSString+FCString.h */; };
+		81B580D8208C99B10088BA2D /* NSString+FCString.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B580CA208C99B00088BA2D /* NSString+FCString.m */; };
+		81B580D9208C99B10088BA2D /* UIView+FCViewFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = 81B580CB208C99B00088BA2D /* UIView+FCViewFrame.h */; };
+		81B580DA208C99B10088BA2D /* UIView+FCViewFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B580CC208C99B00088BA2D /* UIView+FCViewFrame.m */; };
+		81B580E1208C9A900088BA2D /* NSURLResponse+FCNetRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 81B580DF208C9A900088BA2D /* NSURLResponse+FCNetRequest.h */; };
+		81B580E2208C9A900088BA2D /* NSURLResponse+FCNetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B580E0208C9A900088BA2D /* NSURLResponse+FCNetRequest.m */; };
 		81F6A707208996DF00AB6A7E /* FCWechatAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 81F6A705208996DF00AB6A7E /* FCWechatAppKit.h */; };
 		81F6A708208996DF00AB6A7E /* FCWechatAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F6A706208996DF00AB6A7E /* FCWechatAppKit.m */; };
-		81F6A70C208997C900AB6A7E /* UIView+FCViewFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = 81F6A70A208997C900AB6A7E /* UIView+FCViewFrame.h */; };
-		81F6A70D208997C900AB6A7E /* UIView+FCViewFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F6A70B208997C900AB6A7E /* UIView+FCViewFrame.m */; };
 		81F6A7112089CDBA00AB6A7E /* FCTencentQQAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 81F6A70F2089CDBA00AB6A7E /* FCTencentQQAppKit.h */; };
 		81F6A7122089CDBA00AB6A7E /* FCTencentQQAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F6A7102089CDBA00AB6A7E /* FCTencentQQAppKit.m */; };
 		81F6A71F2089DDB100AB6A7E /* FCFaceBookAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 81F6A7142089DDB000AB6A7E /* FCFaceBookAppKit.h */; };
@@ -41,8 +45,6 @@
 		81F6A7242089DDB100AB6A7E /* FCTwitterAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F6A71B2089DDB100AB6A7E /* FCTwitterAppKit.m */; };
 		81F6A7252089DDB100AB6A7E /* FCAlipayAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 81F6A71D2089DDB100AB6A7E /* FCAlipayAppKit.h */; };
 		81F6A7262089DDB100AB6A7E /* FCAlipayAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F6A71E2089DDB100AB6A7E /* FCAlipayAppKit.m */; };
-		81F6A7292089EB9E00AB6A7E /* FCWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 81F6A7272089EB9E00AB6A7E /* FCWebViewController.h */; };
-		81F6A72A2089EB9E00AB6A7E /* FCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F6A7282089EB9E00AB6A7E /* FCWebViewController.m */; };
 		D08963D5C5B95DED1FE8E9B9 /* libPods-SocialAPPKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2445E2113B16A93A5AF339AA /* libPods-SocialAPPKit.a */; };
 /* End PBXBuildFile section */
 
@@ -51,16 +53,6 @@
 		201565641CB4E7B0C8EC3F03 /* libPods-RunDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RunDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2445E2113B16A93A5AF339AA /* libPods-SocialAPPKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SocialAPPKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FB35EC163BCFC198EA45B57 /* Pods-SocialAPPKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialAPPKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialAPPKit/Pods-SocialAPPKit.release.xcconfig"; sourceTree = "<group>"; };
-		8103568F208AF50B005CB6FC /* FCError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCError.h; sourceTree = "<group>"; };
-		81035690208AF50B005CB6FC /* FCError.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCError.m; sourceTree = "<group>"; };
-		81035697208AF8A6005CB6FC /* FCCallBack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCCallBack.h; sourceTree = "<group>"; };
-		81035698208AF8A6005CB6FC /* FCCallBack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCCallBack.m; sourceTree = "<group>"; };
-		810356A3208B3EB4005CB6FC /* NSString+FCString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+FCString.h"; sourceTree = "<group>"; };
-		810356A4208B3EB4005CB6FC /* NSString+FCString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+FCString.m"; sourceTree = "<group>"; };
-		810356A7208B3F16005CB6FC /* NSData+FCData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+FCData.h"; sourceTree = "<group>"; };
-		810356A8208B3F16005CB6FC /* NSData+FCData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+FCData.m"; sourceTree = "<group>"; };
-		810356B3208B4037005CB6FC /* FCNetRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCNetRequest.h; sourceTree = "<group>"; };
-		810356B4208B4037005CB6FC /* FCNetRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCNetRequest.m; sourceTree = "<group>"; };
 		817DB75320885B2C00E77082 /* SocialAPPKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SocialAPPKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		817DB75620885B2C00E77082 /* SocialAPPKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocialAPPKit.h; sourceTree = "<group>"; };
 		817DB75720885B2C00E77082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,10 +67,24 @@
 		817DB77220885B6900E77082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		817DB77320885B6900E77082 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		817DB77A2088B01300E77082 /* SocialAPPKit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SocialAPPKit.xcassets; sourceTree = "<group>"; };
+		81B580BE208C99B00088BA2D /* FCCallBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCCallBack.h; sourceTree = "<group>"; };
+		81B580BF208C99B00088BA2D /* FCCallBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCCallBack.m; sourceTree = "<group>"; };
+		81B580C0208C99B00088BA2D /* FCError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCError.h; sourceTree = "<group>"; };
+		81B580C1208C99B00088BA2D /* FCError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCError.m; sourceTree = "<group>"; };
+		81B580C2208C99B00088BA2D /* FCWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCWebViewController.h; sourceTree = "<group>"; };
+		81B580C3208C99B00088BA2D /* FCWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCWebViewController.m; sourceTree = "<group>"; };
+		81B580C5208C99B00088BA2D /* FCNetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCNetRequest.h; sourceTree = "<group>"; };
+		81B580C6208C99B00088BA2D /* FCNetRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCNetRequest.m; sourceTree = "<group>"; };
+		81B580C7208C99B00088BA2D /* NSData+FCData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+FCData.h"; sourceTree = "<group>"; };
+		81B580C8208C99B00088BA2D /* NSData+FCData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+FCData.m"; sourceTree = "<group>"; };
+		81B580C9208C99B00088BA2D /* NSString+FCString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FCString.h"; sourceTree = "<group>"; };
+		81B580CA208C99B00088BA2D /* NSString+FCString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FCString.m"; sourceTree = "<group>"; };
+		81B580CB208C99B00088BA2D /* UIView+FCViewFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FCViewFrame.h"; sourceTree = "<group>"; };
+		81B580CC208C99B00088BA2D /* UIView+FCViewFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FCViewFrame.m"; sourceTree = "<group>"; };
+		81B580DF208C9A900088BA2D /* NSURLResponse+FCNetRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLResponse+FCNetRequest.h"; sourceTree = "<group>"; };
+		81B580E0208C9A900088BA2D /* NSURLResponse+FCNetRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURLResponse+FCNetRequest.m"; sourceTree = "<group>"; };
 		81F6A705208996DF00AB6A7E /* FCWechatAppKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCWechatAppKit.h; sourceTree = "<group>"; };
 		81F6A706208996DF00AB6A7E /* FCWechatAppKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCWechatAppKit.m; sourceTree = "<group>"; };
-		81F6A70A208997C900AB6A7E /* UIView+FCViewFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+FCViewFrame.h"; sourceTree = "<group>"; };
-		81F6A70B208997C900AB6A7E /* UIView+FCViewFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+FCViewFrame.m"; sourceTree = "<group>"; };
 		81F6A70F2089CDBA00AB6A7E /* FCTencentQQAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCTencentQQAppKit.h; sourceTree = "<group>"; };
 		81F6A7102089CDBA00AB6A7E /* FCTencentQQAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCTencentQQAppKit.m; sourceTree = "<group>"; };
 		81F6A7142089DDB000AB6A7E /* FCFaceBookAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCFaceBookAppKit.h; sourceTree = "<group>"; };
@@ -89,8 +95,6 @@
 		81F6A71B2089DDB100AB6A7E /* FCTwitterAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCTwitterAppKit.m; sourceTree = "<group>"; };
 		81F6A71D2089DDB100AB6A7E /* FCAlipayAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCAlipayAppKit.h; sourceTree = "<group>"; };
 		81F6A71E2089DDB100AB6A7E /* FCAlipayAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCAlipayAppKit.m; sourceTree = "<group>"; };
-		81F6A7272089EB9E00AB6A7E /* FCWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCWebViewController.h; sourceTree = "<group>"; };
-		81F6A7282089EB9E00AB6A7E /* FCWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCWebViewController.m; sourceTree = "<group>"; };
 		B8569F38BDDE1BD14719E51B /* Pods-RunDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RunDemo/Pods-RunDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		B86792835888013C00118075 /* Pods-SocialAPPKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialAPPKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialAPPKit/Pods-SocialAPPKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,12 +144,12 @@
 			isa = PBXGroup;
 			children = (
 				817DB75620885B2C00E77082 /* SocialAPPKit.h */,
+				81B580BD208C99B00088BA2D /* SocialAppCore */,
 				81F6A71C2089DDB100AB6A7E /* AlipayAppKit */,
 				81F6A7132089DDB000AB6A7E /* FaceBookAppKit */,
 				81F6A7162089DDB000AB6A7E /* SinaWeiboAppKit */,
 				81F6A7192089DDB100AB6A7E /* TwitterAppKit */,
 				81F6A70E2089CDBA00AB6A7E /* TencentQQAppKit */,
-				81F6A709208997A700AB6A7E /* SocialAppCode */,
 				81F6A6EB2089965A00AB6A7E /* WechatAppKit */,
 				817DB77A2088B01300E77082 /* SocialAPPKit.xcassets */,
 				817DB75720885B2C00E77082 /* Info.plist */,
@@ -178,6 +182,37 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		81B580BD208C99B00088BA2D /* SocialAppCore */ = {
+			isa = PBXGroup;
+			children = (
+				81B580C4208C99B00088BA2D /* NetWork */,
+				81B580BE208C99B00088BA2D /* FCCallBack.h */,
+				81B580BF208C99B00088BA2D /* FCCallBack.m */,
+				81B580C0208C99B00088BA2D /* FCError.h */,
+				81B580C1208C99B00088BA2D /* FCError.m */,
+				81B580C2208C99B00088BA2D /* FCWebViewController.h */,
+				81B580C3208C99B00088BA2D /* FCWebViewController.m */,
+				81B580C7208C99B00088BA2D /* NSData+FCData.h */,
+				81B580C8208C99B00088BA2D /* NSData+FCData.m */,
+				81B580C9208C99B00088BA2D /* NSString+FCString.h */,
+				81B580CA208C99B00088BA2D /* NSString+FCString.m */,
+				81B580CB208C99B00088BA2D /* UIView+FCViewFrame.h */,
+				81B580CC208C99B00088BA2D /* UIView+FCViewFrame.m */,
+			);
+			path = SocialAppCore;
+			sourceTree = "<group>";
+		};
+		81B580C4208C99B00088BA2D /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				81B580C5208C99B00088BA2D /* FCNetRequest.h */,
+				81B580C6208C99B00088BA2D /* FCNetRequest.m */,
+				81B580DF208C9A900088BA2D /* NSURLResponse+FCNetRequest.h */,
+				81B580E0208C9A900088BA2D /* NSURLResponse+FCNetRequest.m */,
+			);
+			path = NetWork;
+			sourceTree = "<group>";
+		};
 		81F6A6EB2089965A00AB6A7E /* WechatAppKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,27 +220,6 @@
 				81F6A706208996DF00AB6A7E /* FCWechatAppKit.m */,
 			);
 			path = WechatAppKit;
-			sourceTree = "<group>";
-		};
-		81F6A709208997A700AB6A7E /* SocialAppCode */ = {
-			isa = PBXGroup;
-			children = (
-				81F6A70A208997C900AB6A7E /* UIView+FCViewFrame.h */,
-				81F6A70B208997C900AB6A7E /* UIView+FCViewFrame.m */,
-				810356A3208B3EB4005CB6FC /* NSString+FCString.h */,
-				810356A4208B3EB4005CB6FC /* NSString+FCString.m */,
-				810356A7208B3F16005CB6FC /* NSData+FCData.h */,
-				810356A8208B3F16005CB6FC /* NSData+FCData.m */,
-				81F6A7272089EB9E00AB6A7E /* FCWebViewController.h */,
-				81F6A7282089EB9E00AB6A7E /* FCWebViewController.m */,
-				810356B3208B4037005CB6FC /* FCNetRequest.h */,
-				810356B4208B4037005CB6FC /* FCNetRequest.m */,
-				8103568F208AF50B005CB6FC /* FCError.h */,
-				81035690208AF50B005CB6FC /* FCError.m */,
-				81035697208AF8A6005CB6FC /* FCCallBack.h */,
-				81035698208AF8A6005CB6FC /* FCCallBack.m */,
-			);
-			path = SocialAppCode;
 			sourceTree = "<group>";
 		};
 		81F6A70E2089CDBA00AB6A7E /* TencentQQAppKit */ = {
@@ -271,20 +285,21 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81B580CD208C99B10088BA2D /* FCCallBack.h in Headers */,
+				81B580D3208C99B10088BA2D /* FCNetRequest.h in Headers */,
 				81F6A7252089DDB100AB6A7E /* FCAlipayAppKit.h in Headers */,
 				81F6A707208996DF00AB6A7E /* FCWechatAppKit.h in Headers */,
+				81B580D7208C99B10088BA2D /* NSString+FCString.h in Headers */,
 				81F6A7232089DDB100AB6A7E /* FCTwitterAppKit.h in Headers */,
-				81F6A70C208997C900AB6A7E /* UIView+FCViewFrame.h in Headers */,
-				810356A5208B3EB4005CB6FC /* NSString+FCString.h in Headers */,
-				81035691208AF50B005CB6FC /* FCError.h in Headers */,
 				81F6A71F2089DDB100AB6A7E /* FCFaceBookAppKit.h in Headers */,
 				81F6A7112089CDBA00AB6A7E /* FCTencentQQAppKit.h in Headers */,
-				810356A9208B3F16005CB6FC /* NSData+FCData.h in Headers */,
-				81035699208AF8A6005CB6FC /* FCCallBack.h in Headers */,
+				81B580E1208C9A900088BA2D /* NSURLResponse+FCNetRequest.h in Headers */,
 				81F6A7212089DDB100AB6A7E /* FCSinaWeiBoAppKit.h in Headers */,
-				810356B5208B4037005CB6FC /* FCNetRequest.h in Headers */,
-				81F6A7292089EB9E00AB6A7E /* FCWebViewController.h in Headers */,
+				81B580D9208C99B10088BA2D /* UIView+FCViewFrame.h in Headers */,
+				81B580D1208C99B10088BA2D /* FCWebViewController.h in Headers */,
 				817DB75820885B2C00E77082 /* SocialAPPKit.h in Headers */,
+				81B580D5208C99B10088BA2D /* NSData+FCData.h in Headers */,
+				81B580CF208C99B10088BA2D /* FCError.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,19 +447,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8103569A208AF8A6005CB6FC /* FCCallBack.m in Sources */,
+				81B580E2208C9A900088BA2D /* NSURLResponse+FCNetRequest.m in Sources */,
 				81F6A7262089DDB100AB6A7E /* FCAlipayAppKit.m in Sources */,
 				81F6A708208996DF00AB6A7E /* FCWechatAppKit.m in Sources */,
+				81B580D4208C99B10088BA2D /* FCNetRequest.m in Sources */,
 				81F6A7242089DDB100AB6A7E /* FCTwitterAppKit.m in Sources */,
 				81F6A7202089DDB100AB6A7E /* FCFaceBookAppKit.m in Sources */,
-				81F6A70D208997C900AB6A7E /* UIView+FCViewFrame.m in Sources */,
-				810356AA208B3F16005CB6FC /* NSData+FCData.m in Sources */,
-				810356B6208B4037005CB6FC /* FCNetRequest.m in Sources */,
 				81F6A7122089CDBA00AB6A7E /* FCTencentQQAppKit.m in Sources */,
-				81F6A72A2089EB9E00AB6A7E /* FCWebViewController.m in Sources */,
-				810356A6208B3EB4005CB6FC /* NSString+FCString.m in Sources */,
+				81B580CE208C99B10088BA2D /* FCCallBack.m in Sources */,
+				81B580DA208C99B10088BA2D /* UIView+FCViewFrame.m in Sources */,
 				81F6A7222089DDB100AB6A7E /* FCSinaWeiBoAppKit.m in Sources */,
-				81035692208AF50B005CB6FC /* FCError.m in Sources */,
+				81B580D2208C99B10088BA2D /* FCWebViewController.m in Sources */,
+				81B580D8208C99B10088BA2D /* NSString+FCString.m in Sources */,
+				81B580D0208C99B10088BA2D /* FCError.m in Sources */,
+				81B580D6208C99B10088BA2D /* NSData+FCData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

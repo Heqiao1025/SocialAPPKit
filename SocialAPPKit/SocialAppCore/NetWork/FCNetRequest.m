@@ -8,6 +8,7 @@
 
 #import "FCNetRequest.h"
 #import "NSData+FCData.h"
+#import "NSURLResponse+FCNetRequest.h"
 
 @interface FCNetRequest()
 
@@ -19,33 +20,36 @@
 
 - (FCCallBack *)startRequest {
     FCCallBack *callBack = [FCCallBack new];
-    if (!self.requestURL.absoluteString.length) {
-        FCError *urlError = [FCError errorWithMessage:@"不可用的URL"];
-        [callBack sendError:urlError];
+    if ([self isAvailableURL]) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            FCError *urlError = [FCError errorWithMessage:@"不可用的URL"];
+            [callBack sendError:urlError];
+        });
         return callBack;
     }
-    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.requestURL];
     request.HTTPMethod = [self HttpMethodString];
     [self configRequestHeader:request];
     request.HTTPBody = [self httpParamters];
     [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSHTTPURLResponse *httpReponse;
-        if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
-            httpReponse = (NSHTTPURLResponse *)response;
-        }
-        if (error || httpReponse.statusCode < 200 || httpReponse.statusCode >= 300) {
+        if (error || [response fc_requestSuccess]) {
             FCError *customError = [FCError errorWithCode:0 message:error.userInfo[@"message"]];
             [callBack sendError:customError];
         } else {
-//            NSDictionary *json = [data transformData];
+            //            NSDictionary *json = [data transformData];
             [callBack sendSuccess:data];
         }
     }];
     return callBack;
 }
 
-#pragma mark Private
+#pragma mark Profession
+- (BOOL)isAvailableURL {
+    BOOL isAvailable = self.requestURL.absoluteString.length ? YES : NO;
+    return isAvailable;
+}
+
+#pragma mark Private HttpConfig
 - (void)configRequestHeader: (NSMutableURLRequest *)request {
     for (NSString *key in self.httpHeader) {
         [request setValue:self.httpHeader[key] forHTTPHeaderField:key];
@@ -68,7 +72,7 @@
     }
 }
 
-- (NSString *)requestURL {
+- (NSURL *)requestURL {
     NSString *urlBase = [self.path hasPrefix:@"/"] ? [self.baseHost stringByAppendingString:self.path] : [self.baseHost stringByAppendingFormat:@"/%@", self.path];
     NSString *urlEncode = [urlBase stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     return [NSURL URLWithString:urlEncode];
