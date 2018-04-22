@@ -10,14 +10,10 @@
 
 @implementation NSString (FCString)
 
-#pragma mark netRequest
+#pragma mark public
 - (NSString *)appendAbsolutString: (NSString *)path {
     NSString *absolutStr = [self stringByAppendingFormat:@"%@%@", [path getAppendString], path];
     return [absolutStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-}
-
-- (NSString *)getAppendString {
-    return [self isAvailablePath] ? @"" : @"/";
 }
 
 - (BOOL)isAvailablePath {
@@ -34,6 +30,11 @@
 
 - (NSString *)subStringToSecondLast {
     return self.length ? [self substringToIndex:self.length-1] : nil;
+}
+
+#pragma mark Private
+- (NSString *)getAppendString {
+    return [self isAvailablePath] ? @"" : @"/";
 }
 
 @end

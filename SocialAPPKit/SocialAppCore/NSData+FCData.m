@@ -10,4 +10,9 @@
 
 @implementation NSData (FCData)
 
+- (NSDictionary *)transformData {
+    return nil;
+}
+
+
 @end
