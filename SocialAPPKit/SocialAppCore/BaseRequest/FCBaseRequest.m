@@ -6,18 +6,18 @@
 //  Copyright © 2018年 ForC. All rights reserved.
 //
 
-#import "FCNetRequest.h"
+#import "FCBaseRequest.h"
 #import "NSData+FCData.h"
 #import "NSString+FCString.h"
 #import "NSURLResponse+FCNetRequest.h"
 
-@interface FCNetRequest()
+@interface FCBaseRequest()
 
 @property (nonatomic, copy) NSURL *requestURL;
 
 @end
 
-@implementation FCNetRequest
+@implementation FCBaseRequest
 
 - (FCCallBack *)startRequest {
     FCCallBack *callBack = [FCCallBack new];
@@ -75,3 +75,4 @@
 }
 
 @end
+

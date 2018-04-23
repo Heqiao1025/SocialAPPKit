@@ -1,8 +1,8 @@
 //
-//  FCNetRequest.h
+//  FCBaseRequest.h
 //  SocialAPPKit
 //
-//  Created by ForC on 2018/4/21.
+//  Created by ForC on 2018/4/23.
 //  Copyright © 2018年 ForC. All rights reserved.
 //
 
@@ -14,7 +14,7 @@ typedef enum : NSUInteger {
     FCHttpMethodPOST,
 } FCHttpMethod;
 
-@interface FCNetRequest : NSObject
+@interface FCBaseRequest : NSObject
 
 @property (nonatomic) FCHttpMethod httpMethod;
 

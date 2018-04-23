@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "FCNetRequest.h"
+#import "FCBaseRequest.h"
 
 @interface ViewController ()
 
@@ -23,7 +23,7 @@
 }
 
 - (void)testNetWork {
-    FCNetRequest *api = [FCNetRequest new];
+    FCBaseRequest *api = [FCBaseRequest new];
     api.baseHost = @"http://www.kuaidi100.com";
     api.path = @"/query";
     api.paramters = @{@"type":@"yuantong",
