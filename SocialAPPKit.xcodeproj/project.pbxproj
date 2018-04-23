@@ -21,12 +21,14 @@
 		8194DE09208DC601003D1962 /* NSURLResponse+FCNetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8194DE05208DC601003D1962 /* NSURLResponse+FCNetRequest.m */; };
 		8194DE0C208DC7BF003D1962 /* FCBaseRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 8194DE0A208DC7BF003D1962 /* FCBaseRequest.h */; };
 		8194DE0D208DC7BF003D1962 /* FCBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8194DE0B208DC7BF003D1962 /* FCBaseRequest.m */; };
+		8194DE11208DC9D4003D1962 /* FCWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 8194DE0F208DC9D4003D1962 /* FCWebViewController.h */; };
+		8194DE12208DC9D4003D1962 /* FCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8194DE10208DC9D4003D1962 /* FCWebViewController.m */; };
+		8194DE15208DC9EF003D1962 /* FCWebViewManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 8194DE13208DC9EF003D1962 /* FCWebViewManager.h */; };
+		8194DE16208DC9EF003D1962 /* FCWebViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8194DE14208DC9EF003D1962 /* FCWebViewManager.m */; };
 		81B580CD208C99B10088BA2D /* FCCallBack.h in Headers */ = {isa = PBXBuildFile; fileRef = 81B580BE208C99B00088BA2D /* FCCallBack.h */; };
 		81B580CE208C99B10088BA2D /* FCCallBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B580BF208C99B00088BA2D /* FCCallBack.m */; };
 		81B580CF208C99B10088BA2D /* FCError.h in Headers */ = {isa = PBXBuildFile; fileRef = 81B580C0208C99B00088BA2D /* FCError.h */; };
 		81B580D0208C99B10088BA2D /* FCError.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B580C1208C99B00088BA2D /* FCError.m */; };
-		81B580D1208C99B10088BA2D /* FCWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 81B580C2208C99B00088BA2D /* FCWebViewController.h */; };
-		81B580D2208C99B10088BA2D /* FCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B580C3208C99B00088BA2D /* FCWebViewController.m */; };
 		81B580D5208C99B10088BA2D /* NSData+FCData.h in Headers */ = {isa = PBXBuildFile; fileRef = 81B580C7208C99B00088BA2D /* NSData+FCData.h */; };
 		81B580D6208C99B10088BA2D /* NSData+FCData.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B580C8208C99B00088BA2D /* NSData+FCData.m */; };
 		81B580D7208C99B10088BA2D /* NSString+FCString.h in Headers */ = {isa = PBXBuildFile; fileRef = 81B580C9208C99B00088BA2D /* NSString+FCString.h */; };
@@ -71,12 +73,14 @@
 		8194DE05208DC601003D1962 /* NSURLResponse+FCNetRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLResponse+FCNetRequest.m"; sourceTree = "<group>"; };
 		8194DE0A208DC7BF003D1962 /* FCBaseRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCBaseRequest.h; sourceTree = "<group>"; };
 		8194DE0B208DC7BF003D1962 /* FCBaseRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCBaseRequest.m; sourceTree = "<group>"; };
+		8194DE0F208DC9D4003D1962 /* FCWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCWebViewController.h; sourceTree = "<group>"; };
+		8194DE10208DC9D4003D1962 /* FCWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCWebViewController.m; sourceTree = "<group>"; };
+		8194DE13208DC9EF003D1962 /* FCWebViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCWebViewManager.h; sourceTree = "<group>"; };
+		8194DE14208DC9EF003D1962 /* FCWebViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCWebViewManager.m; sourceTree = "<group>"; };
 		81B580BE208C99B00088BA2D /* FCCallBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCCallBack.h; sourceTree = "<group>"; };
 		81B580BF208C99B00088BA2D /* FCCallBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCCallBack.m; sourceTree = "<group>"; };
 		81B580C0208C99B00088BA2D /* FCError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCError.h; sourceTree = "<group>"; };
 		81B580C1208C99B00088BA2D /* FCError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCError.m; sourceTree = "<group>"; };
-		81B580C2208C99B00088BA2D /* FCWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCWebViewController.h; sourceTree = "<group>"; };
-		81B580C3208C99B00088BA2D /* FCWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCWebViewController.m; sourceTree = "<group>"; };
 		81B580C7208C99B00088BA2D /* NSData+FCData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+FCData.h"; sourceTree = "<group>"; };
 		81B580C8208C99B00088BA2D /* NSData+FCData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+FCData.m"; sourceTree = "<group>"; };
 		81B580C9208C99B00088BA2D /* NSString+FCString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FCString.h"; sourceTree = "<group>"; };
@@ -193,16 +197,26 @@
 			path = BaseRequest;
 			sourceTree = "<group>";
 		};
+		8194DE0E208DC9BA003D1962 /* WebManager */ = {
+			isa = PBXGroup;
+			children = (
+				8194DE0F208DC9D4003D1962 /* FCWebViewController.h */,
+				8194DE10208DC9D4003D1962 /* FCWebViewController.m */,
+				8194DE13208DC9EF003D1962 /* FCWebViewManager.h */,
+				8194DE14208DC9EF003D1962 /* FCWebViewManager.m */,
+			);
+			path = WebManager;
+			sourceTree = "<group>";
+		};
 		81B580BD208C99B00088BA2D /* SocialAppCore */ = {
 			isa = PBXGroup;
 			children = (
+				8194DE0E208DC9BA003D1962 /* WebManager */,
 				8194DE01208DC601003D1962 /* BaseRequest */,
 				81B580BE208C99B00088BA2D /* FCCallBack.h */,
 				81B580BF208C99B00088BA2D /* FCCallBack.m */,
 				81B580C0208C99B00088BA2D /* FCError.h */,
 				81B580C1208C99B00088BA2D /* FCError.m */,
-				81B580C2208C99B00088BA2D /* FCWebViewController.h */,
-				81B580C3208C99B00088BA2D /* FCWebViewController.m */,
 				81B580C7208C99B00088BA2D /* NSData+FCData.h */,
 				81B580C8208C99B00088BA2D /* NSData+FCData.m */,
 				81B580C9208C99B00088BA2D /* NSString+FCString.h */,
@@ -290,13 +304,14 @@
 				8194DE0C208DC7BF003D1962 /* FCBaseRequest.h in Headers */,
 				81F6A707208996DF00AB6A7E /* FCWechatAppKit.h in Headers */,
 				81B580D7208C99B10088BA2D /* NSString+FCString.h in Headers */,
+				8194DE15208DC9EF003D1962 /* FCWebViewManager.h in Headers */,
 				81F6A7232089DDB100AB6A7E /* FCTwitterAppKit.h in Headers */,
 				81F6A71F2089DDB100AB6A7E /* FCFaceBookAppKit.h in Headers */,
+				8194DE11208DC9D4003D1962 /* FCWebViewController.h in Headers */,
 				81F6A7112089CDBA00AB6A7E /* FCTencentQQAppKit.h in Headers */,
 				81F6A7212089DDB100AB6A7E /* FCSinaWeiBoAppKit.h in Headers */,
 				8194DE08208DC601003D1962 /* NSURLResponse+FCNetRequest.h in Headers */,
 				81B580D9208C99B10088BA2D /* UIView+FCViewFrame.h in Headers */,
-				81B580D1208C99B10088BA2D /* FCWebViewController.h in Headers */,
 				817DB75820885B2C00E77082 /* SocialAPPKit.h in Headers */,
 				81B580D5208C99B10088BA2D /* NSData+FCData.h in Headers */,
 				81B580CF208C99B10088BA2D /* FCError.h in Headers */,
@@ -448,6 +463,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8194DE09208DC601003D1962 /* NSURLResponse+FCNetRequest.m in Sources */,
+				8194DE16208DC9EF003D1962 /* FCWebViewManager.m in Sources */,
 				8194DE0D208DC7BF003D1962 /* FCBaseRequest.m in Sources */,
 				81F6A7262089DDB100AB6A7E /* FCAlipayAppKit.m in Sources */,
 				81F6A708208996DF00AB6A7E /* FCWechatAppKit.m in Sources */,
@@ -457,9 +473,9 @@
 				81B580CE208C99B10088BA2D /* FCCallBack.m in Sources */,
 				81B580DA208C99B10088BA2D /* UIView+FCViewFrame.m in Sources */,
 				81F6A7222089DDB100AB6A7E /* FCSinaWeiBoAppKit.m in Sources */,
-				81B580D2208C99B10088BA2D /* FCWebViewController.m in Sources */,
 				81B580D8208C99B10088BA2D /* NSString+FCString.m in Sources */,
 				81B580D0208C99B10088BA2D /* FCError.m in Sources */,
+				8194DE12208DC9D4003D1962 /* FCWebViewController.m in Sources */,
 				81B580D6208C99B10088BA2D /* NSData+FCData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
