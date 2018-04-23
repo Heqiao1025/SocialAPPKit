@@ -23,7 +23,7 @@
     FCCallBack *callBack = [FCCallBack new];
     if (![self isAvailableURL]) {
         FCError *urlError = [FCError errorWithMessage:@"不可用的URL"];
-        [callBack afterSendError:urlError];
+        [callBack delaySendError:urlError];
         return callBack;
     }
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.requestURL];
