@@ -10,4 +10,6 @@
 
 @interface FCWebViewController : UIViewController
 
+@property (nonatomic, copy) NSString *webURLString;
+
 @end

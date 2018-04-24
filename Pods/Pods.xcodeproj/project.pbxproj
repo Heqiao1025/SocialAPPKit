@@ -23,15 +23,12 @@
 		6269B6698743D7E76948568B3009B7D6 /* Pods-RunDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RunDemo-acknowledgements.plist"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		8527D88470264DAA93369383641F93B3 /* Pods-RunDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RunDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		85A8AECB3ABCCD4280B9EBE0AF11990E /* libWeChatSDK.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libWeChatSDK.a; path = WeChatAPI/libWeChatSDK.a; sourceTree = "<group>"; };
 		8A8467D94998E9959AF762107857E476 /* Pods-SocialAPPKit-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SocialAPPKit-acknowledgements.plist"; sourceTree = "<group>"; };
 		9049C754A0D7C3B1CC69432827C788C6 /* Pods-RunDemo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RunDemo-resources.sh"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		998A8C5F172D39A15BBF5FC24D423854 /* WXApiObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WXApiObject.h; path = WeChatAPI/WXApiObject.h; sourceTree = "<group>"; };
 		9C0AC3A83E4C896A2A7E34FAA11AAE1D /* Pods-RunDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RunDemo.release.xcconfig"; sourceTree = "<group>"; };
 		ADDBEE48372C49BBDEB1F49B8BC2AC42 /* libPods-RunDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-RunDemo.a"; path = "libPods-RunDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0348960BB33FC7DCFAE3049794D1BEE /* Pods-RunDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RunDemo-dummy.m"; sourceTree = "<group>"; };
-		C5D10531A92EC8C0498A425AAE049E3F /* WXApi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WXApi.h; path = WeChatAPI/WXApi.h; sourceTree = "<group>"; };
 		D5B3A4FB3F6338F0FB59B7D9CF7A721F /* Pods-RunDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RunDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
 		FF299E77E32BC7D7ADA10E1283053C08 /* libPods-SocialAPPKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-SocialAPPKit.a"; path = "libPods-SocialAPPKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -70,28 +67,11 @@
 			path = "Target Support Files/Pods-SocialAPPKit";
 			sourceTree = "<group>";
 		};
-		367018C9336701E9743CB860795D6C69 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E246A93E82A461F1D39AF60CF7E18B3A /* WeChat */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		42CA9CEB77CB5856AB6F5C8617D0D485 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				85A8AECB3ABCCD4280B9EBE0AF11990E /* libWeChatSDK.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				367018C9336701E9743CB860795D6C69 /* Pods */,
 				F86869EC5F0AE6768561531306C62966 /* Products */,
 				FDC55408F214F5AB9C7ACBFBCC2D9ADD /* Targets Support Files */,
 			);
@@ -111,17 +91,6 @@
 				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		E246A93E82A461F1D39AF60CF7E18B3A /* WeChat */ = {
-			isa = PBXGroup;
-			children = (
-				C5D10531A92EC8C0498A425AAE049E3F /* WXApi.h */,
-				998A8C5F172D39A15BBF5FC24D423854 /* WXApiObject.h */,
-				42CA9CEB77CB5856AB6F5C8617D0D485 /* Frameworks */,
-			);
-			name = WeChat;
-			path = WeChat;
 			sourceTree = "<group>";
 		};
 		F317D708EFE3091A8BAA0A2A9667EBCD /* Pods-RunDemo */ = {

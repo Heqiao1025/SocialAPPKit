@@ -17,6 +17,6 @@ end
 target 'RunDemo' do
     
     socialKit_pods
-    pod 'WeChat', '~> 1.0.1'    
+    
 
 end

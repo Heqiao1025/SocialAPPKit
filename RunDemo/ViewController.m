@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "FCBaseRequest.h"
+#import <SafariServices/SafariServices.h>
 
 @interface ViewController ()
 
@@ -17,9 +18,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    NSLog(@"1");
-    [self testNetWork];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self testWebView];
+}
+
+- (void)testWebView {
+
 }
 
 - (void)testNetWork {
@@ -35,7 +41,6 @@
     }];
     
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

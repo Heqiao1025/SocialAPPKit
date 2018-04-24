@@ -1,16 +1,3 @@
-PODS:
-  - WeChat (1.0.1)
-
-DEPENDENCIES:
-  - WeChat (~> 1.0.1)
-
-SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - WeChat
-
-SPEC CHECKSUMS:
-  WeChat: 93915b3be360b5bdfe48e8a9d64ff0315a28c240
-
-PODFILE CHECKSUM: 86e210c9a507afdac373b8279d534ea1eecae3ed
+PODFILE CHECKSUM: 5287732ae17cedc180e9b9f0fb82ad7bc48b2e52
 
 COCOAPODS: 1.5.0
