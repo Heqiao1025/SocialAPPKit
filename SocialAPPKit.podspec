@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SocialAPPKit"
-  s.version      = "0.1.1"
+  s.version      = "0.1.3"
   s.summary      = "社交化APP轻量级功能组件"
   s.homepage     = "https://github.com/Heqiao1025/SocialAPPKit"
   s.license      = {
