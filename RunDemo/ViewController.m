@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "FCBaseRequest.h"
-#import <SafariServices/SafariServices.h>
+#import "FCWebViewController.h"
 
 @interface ViewController ()
 
@@ -25,7 +25,9 @@
 }
 
 - (void)testWebView {
-
+    FCWebViewController *vc = [FCWebViewController new];
+    vc.webURLString = @"http://www.baidu.com";
+    [vc showWebController];
 }
 
 - (void)testNetWork {

@@ -7,9 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FCCallBack.h"
+
+typedef enum : NSUInteger {
+    FCSocialWebTypeWechat,
+    FCSocialWebTypeTencentQQ,
+    FCSocialWebTypeSinaWeibo,
+    FCSocialWebTypeAlipay,
+    FCSocialWebTypeFaceBook,
+    FCSocialWebTypeTwitter
+} FCSocialWebType;
 
 @interface FCWebViewController : UIViewController
 
 @property (nonatomic, copy) NSString *webURLString;
+
+@property (nonatomic, copy) NSDictionary *webHeader;
+
+@property (nonatomic, assign) FCSocialWebType socialType;
+
+@property (nonatomic, strong) FCCallBack *callBack;
+
+- (void)showWebController;
 
 @end
