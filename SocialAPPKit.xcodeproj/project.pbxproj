@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		059884C0AD259C5750B9DC5C /* libPods-RunDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 201565641CB4E7B0C8EC3F03 /* libPods-RunDemo.a */; };
+		811D95C92091EC2600AB31E1 /* FCTwitterAppSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 811D95C32091EC2500AB31E1 /* FCTwitterAppSession.m */; };
+		811D95CA2091EC2600AB31E1 /* FCTwitterAppCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 811D95C42091EC2500AB31E1 /* FCTwitterAppCore.h */; };
+		811D95CB2091EC2600AB31E1 /* FCTwitterAppSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 811D95C52091EC2600AB31E1 /* FCTwitterAppSession.h */; };
+		811D95CC2091EC2600AB31E1 /* FCTwitterAppCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 811D95C62091EC2600AB31E1 /* FCTwitterAppCore.m */; };
+		811D95CD2091EC2600AB31E1 /* FCTwitterAppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 811D95C72091EC2600AB31E1 /* FCTwitterAppConfig.m */; };
+		811D95CE2091EC2600AB31E1 /* FCTwitterAppConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 811D95C82091EC2600AB31E1 /* FCTwitterAppConfig.h */; };
 		817DB75820885B2C00E77082 /* SocialAPPKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 817DB75620885B2C00E77082 /* SocialAPPKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		817DB76620885B6900E77082 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 817DB76520885B6900E77082 /* AppDelegate.m */; };
 		817DB76920885B6900E77082 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 817DB76820885B6900E77082 /* ViewController.m */; };
@@ -49,6 +55,12 @@
 		201565641CB4E7B0C8EC3F03 /* libPods-RunDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RunDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2445E2113B16A93A5AF339AA /* libPods-SocialAPPKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SocialAPPKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FB35EC163BCFC198EA45B57 /* Pods-SocialAPPKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialAPPKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialAPPKit/Pods-SocialAPPKit.release.xcconfig"; sourceTree = "<group>"; };
+		811D95C32091EC2500AB31E1 /* FCTwitterAppSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCTwitterAppSession.m; sourceTree = "<group>"; };
+		811D95C42091EC2500AB31E1 /* FCTwitterAppCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCTwitterAppCore.h; sourceTree = "<group>"; };
+		811D95C52091EC2600AB31E1 /* FCTwitterAppSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCTwitterAppSession.h; sourceTree = "<group>"; };
+		811D95C62091EC2600AB31E1 /* FCTwitterAppCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCTwitterAppCore.m; sourceTree = "<group>"; };
+		811D95C72091EC2600AB31E1 /* FCTwitterAppConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCTwitterAppConfig.m; sourceTree = "<group>"; };
+		811D95C82091EC2600AB31E1 /* FCTwitterAppConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCTwitterAppConfig.h; sourceTree = "<group>"; };
 		817DB75320885B2C00E77082 /* SocialAPPKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SocialAPPKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		817DB75620885B2C00E77082 /* SocialAPPKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocialAPPKit.h; sourceTree = "<group>"; };
 		817DB75720885B2C00E77082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -234,6 +246,12 @@
 			children = (
 				81F6A71A2089DDB100AB6A7E /* FCTwitterAppKit.h */,
 				81F6A71B2089DDB100AB6A7E /* FCTwitterAppKit.m */,
+				811D95C82091EC2600AB31E1 /* FCTwitterAppConfig.h */,
+				811D95C72091EC2600AB31E1 /* FCTwitterAppConfig.m */,
+				811D95C42091EC2500AB31E1 /* FCTwitterAppCore.h */,
+				811D95C62091EC2600AB31E1 /* FCTwitterAppCore.m */,
+				811D95C52091EC2600AB31E1 /* FCTwitterAppSession.h */,
+				811D95C32091EC2500AB31E1 /* FCTwitterAppSession.m */,
 			);
 			path = TwitterAppKit;
 			sourceTree = "<group>";
@@ -265,6 +283,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				811D95CA2091EC2600AB31E1 /* FCTwitterAppCore.h in Headers */,
 				81B580CD208C99B10088BA2D /* FCCallBack.h in Headers */,
 				81920603208F5C0F0093637F /* FCWebViewController.h in Headers */,
 				81F6A7252089DDB100AB6A7E /* FCAlipayAppKit.h in Headers */,
@@ -275,7 +294,9 @@
 				81F6A7112089CDBA00AB6A7E /* FCTencentQQAppKit.h in Headers */,
 				81920604208F5C0F0093637F /* FCBaseRequest.h in Headers */,
 				81F6A7212089DDB100AB6A7E /* FCSinaWeiBoAppKit.h in Headers */,
+				811D95CB2091EC2600AB31E1 /* FCTwitterAppSession.h in Headers */,
 				817DB75820885B2C00E77082 /* SocialAPPKit.h in Headers */,
+				811D95CE2091EC2600AB31E1 /* FCTwitterAppConfig.h in Headers */,
 				81B580D5208C99B10088BA2D /* NSData+FCData.h in Headers */,
 				81B580CF208C99B10088BA2D /* FCError.h in Headers */,
 			);
@@ -428,7 +449,10 @@
 				81F6A7262089DDB100AB6A7E /* FCAlipayAppKit.m in Sources */,
 				81F6A708208996DF00AB6A7E /* FCWechatAppKit.m in Sources */,
 				81F6A7242089DDB100AB6A7E /* FCTwitterAppKit.m in Sources */,
+				811D95CC2091EC2600AB31E1 /* FCTwitterAppCore.m in Sources */,
+				811D95CD2091EC2600AB31E1 /* FCTwitterAppConfig.m in Sources */,
 				81920601208F5C0F0093637F /* FCBaseRequest.m in Sources */,
+				811D95C92091EC2600AB31E1 /* FCTwitterAppSession.m in Sources */,
 				81F6A7202089DDB100AB6A7E /* FCFaceBookAppKit.m in Sources */,
 				81F6A7122089CDBA00AB6A7E /* FCTencentQQAppKit.m in Sources */,
 				81B580CE208C99B10088BA2D /* FCCallBack.m in Sources */,
