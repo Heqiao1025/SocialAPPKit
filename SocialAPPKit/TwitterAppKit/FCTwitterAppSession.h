@@ -10,4 +10,12 @@
 
 @interface FCTwitterAppSession : NSObject
 
+@property (nonatomic, copy, readonly) NSString *auth_Token;
+
+@property (nonatomic, copy, readonly) NSString *auth_Secret;
+
+@property (nonatomic, copy, readonly) NSString *auth_UserID;
+
+@property (nonatomic, copy, readonly) NSString *auth_UserName;
+
 @end

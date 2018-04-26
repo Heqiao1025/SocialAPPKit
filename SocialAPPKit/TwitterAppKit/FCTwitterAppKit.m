@@ -22,17 +22,12 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         twitterKit = [self new];
-        [twitterKit configModel];
     });
     return twitterKit;
 }
 
-- (void)configModel {
-    self.appConfigModel = [FCTwitterAppConfig new];
-}
-
 - (void)registerAppKey: (NSString *)appkey appSecret: (NSString *)appSecret redirectUrl: (NSString *)redirectUrl {
-    [self.appConfigModel setAppKey:appkey appSecret:appSecret redirectUrl:redirectUrl];
+    self.appConfigModel = [FCTwitterAppConfig initWithConsumerKey:appkey consumerSecret:appSecret redirectUrl:redirectUrl];
 }
 
 - (void)registerAppKey: (NSString *)appkey appSecret: (NSString *)appSecret {

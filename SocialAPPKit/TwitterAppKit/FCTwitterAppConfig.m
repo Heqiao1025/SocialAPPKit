@@ -20,10 +20,12 @@
 
 @implementation FCTwitterAppConfig
 
-- (void)setAppKey: (NSString *)appkey       appSecret: (NSString *)appSecret redirectUrl: (NSString *)redirectUrl {
-    self.appKey = appkey;
-    self.appSecret = appSecret;
-    self.redirectUrl = redirectUrl;
++ (instancetype)initWithConsumerKey: (NSString *)appkey consumerSecret: (NSString *)appSecret redirectUrl: (NSString *)redirectUrl {
+    FCTwitterAppConfig *configModel = [self new];
+    configModel.appKey = appkey;
+    configModel.appSecret = appSecret;
+    configModel.redirectUrl = redirectUrl;
+    return configModel;
 }
 
 @end

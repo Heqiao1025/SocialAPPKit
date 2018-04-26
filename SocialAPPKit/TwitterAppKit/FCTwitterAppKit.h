@@ -11,8 +11,6 @@
 
 @interface FCTwitterAppKit : NSObject
 
-
-
 + (instancetype)shareInstance;
 
 - (void)registerAppKey: (NSString *)appkey appSecret: (NSString *)appSecret redirectUrl: (NSString *)redirectUrl;

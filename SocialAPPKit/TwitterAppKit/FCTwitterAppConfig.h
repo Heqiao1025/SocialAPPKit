@@ -16,6 +16,6 @@
 
 @property (nonatomic, copy, readonly) NSString *redirectUrl;
 
-- (void)setAppKey: (NSString *)appkey       appSecret: (NSString *)appSecret redirectUrl: (NSString *)redirectUrl;
++ (instancetype)initWithConsumerKey: (NSString *)appkey consumerSecret: (NSString *)appSecret redirectUrl: (NSString *)redirectUrl;
 
 @end
