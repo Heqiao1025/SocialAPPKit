@@ -38,4 +38,8 @@
     return YES;
 }
 
+- (void)loginInCompletion: (void(^)(FCTwitterAppSession *authSession, FCError *error))completion {
+    
+}
+
 @end
