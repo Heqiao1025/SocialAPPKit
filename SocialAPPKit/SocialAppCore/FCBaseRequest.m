@@ -79,7 +79,13 @@
 }
 
 - (NSURL *)requestURL {
-    return [NSURL URLWithString:[self.baseHost appendAbsolutString:self.path]];
+    return [NSURL URLWithString:self.absoluteUrl];
+}
+
+- (NSString *)absoluteUrl {
+    if (_absoluteUrl.length)
+        return _absoluteUrl;
+    return [self.baseHost appendAbsolutString:self.path];
 }
 
 @end
