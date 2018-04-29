@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+@class FCCallBack;
+@class FCTwitterAppConfig;
 
 @interface FCTwitterAppCore : NSObject
+
+- (instancetype)initWithConfigModel: (FCTwitterAppConfig *)appConfig;
+
+@property (nonatomic) BOOL isNeedUserID;
+
+- (FCCallBack *)startAuth;
 
 @end

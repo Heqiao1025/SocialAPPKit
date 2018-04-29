@@ -248,10 +248,10 @@
 				81F6A71B2089DDB100AB6A7E /* FCTwitterAppKit.m */,
 				811D95C82091EC2600AB31E1 /* FCTwitterAppConfig.h */,
 				811D95C72091EC2600AB31E1 /* FCTwitterAppConfig.m */,
-				811D95C42091EC2500AB31E1 /* FCTwitterAppCore.h */,
-				811D95C62091EC2600AB31E1 /* FCTwitterAppCore.m */,
 				811D95C52091EC2600AB31E1 /* FCTwitterAppSession.h */,
 				811D95C32091EC2500AB31E1 /* FCTwitterAppSession.m */,
+				811D95C42091EC2500AB31E1 /* FCTwitterAppCore.h */,
+				811D95C62091EC2600AB31E1 /* FCTwitterAppCore.m */,
 			);
 			path = TwitterAppKit;
 			sourceTree = "<group>";

@@ -8,10 +8,15 @@
 
 #import "FCTwitterAppKit.h"
 #import "FCTwitterAppConfig.h"
+#import "FCTwitterAppCore.h"
 
 @interface FCTwitterAppKit ()
 
 @property (nonatomic, strong) FCTwitterAppConfig *appConfigModel;
+
+@property (nonatomic, strong) FCTwitterAppCore *twitterManager;
+
+@property (nonatomic, assign) BOOL isQuick;
 
 @end
 
@@ -38,8 +43,21 @@
     return YES;
 }
 
-- (void)loginInCompletion: (void(^)(FCTwitterAppSession *authSession, FCError *error))completion {
-    
+- (FCCallBack *)logIn {
+    return [self.twitterManager startAuth];
+}
+
+- (FCCallBack *)quickLogIn {
+    self.isQuick = YES;
+    return [self logIn];
+}
+
+- (FCTwitterAppCore *)twitterManager {
+    if (!_twitterManager) {
+        _twitterManager = [[FCTwitterAppCore alloc] initWithConfigModel:self.appConfigModel];
+        _twitterManager.isNeedUserID = !_isQuick;
+    }
+    return _twitterManager;
 }
 
 @end

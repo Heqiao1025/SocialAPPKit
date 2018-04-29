@@ -22,7 +22,7 @@
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options;
 
-
+// sso level：app auth -> web auth
 /**
  login
  Consumer can get more information
@@ -32,7 +32,7 @@
 
 /**
  login
- Consumer can get information
+ Consumer can get information (require twitter app authorization to take effect)
  format: username. auth_token. auth_secret
  */
 - (FCCallBack *)quickLogIn;
