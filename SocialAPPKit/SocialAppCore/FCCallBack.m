@@ -30,15 +30,15 @@
 - (void)sendError :(FCError *)error {
     if (self.errorCallBack) {
         self.errorCallBack(error);
-        self.errorCallBack = nil;
     }
+    [self clearSubscriber];
 }
 
 - (void)sendSuccess :(id)success {
     if (self.successCallBack) {
         self.successCallBack(success);
-        self.successCallBack = nil;
     }
+    [self clearSubscriber];
 }
 
 - (void)delaySendError :(FCError *)error {
@@ -51,6 +51,11 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self sendSuccess:success];
     });
+}
+
+- (void)clearSubscriber {
+    self.errorCallBack = nil;
+    self.successCallBack = nil;
 }
 
 @end
