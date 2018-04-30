@@ -9,21 +9,21 @@
 #import "FCTwitterAppCore.h"
 #import "FCWebViewController.h"
 #import "FCTwitterAppConfig.h"
+#import "FCBaseRequest.h"
 #import "FCCallBack.h"
+#import "FCWebViewController.h"
+
+#define TwitterAuthTokenUrl  @"https://api.twitter.com/oauth/request_token"
+#define TwitterAccessTokenUrl  @"https://api.twitter.com/oauth/access_token"
+#define TwitterWebUrl(auth_token) [NSString stringWithFormat:@"https://api.twitter.com/oauth/authenticate?oauth_token=%@", auth_token]
 
 @interface FCTwitterAppCore ()
-
-@property (nonatomic, strong) FCCallBack *authCallBack;
 
 @property (nonatomic, copy) FCTwitterAppConfig *appConfig;
 
 @end
 
 @implementation FCTwitterAppCore
-
-static NSString *authTokenUrl = @"https://api.twitter.com/oauth/request_token";
-static NSString *accessTokenUrl = @"https://api.twitter.com/oauth/access_token";
-static NSString *webUrl = @"https://api.twitter.com/oauth/authenticate?oauth_token";
 
 - (instancetype)initWithConfigModel: (FCTwitterAppConfig *)appConfig {
     self = [super init];
@@ -42,24 +42,35 @@ static NSString *webUrl = @"https://api.twitter.com/oauth/authenticate?oauth_tok
     
 }
 
-- (FCCallBack *)startAuth {
-    if (!_appConfig) {
-        [self.authCallBack delaySendError:[FCError errorWithMessage:@"lack of configuration"]];
-        return self.authCallBack;
-    }
-    if ([self isCanOpenTwitter])
-        [self authWithNative];
-    else
-        [self authWithWeb];
-    return self.authCallBack;
+- (FCCallBack *)requestAuthToken {
+    FCBaseRequest *api = [FCBaseRequest new];
+    api.absoluteUrl = TwitterAuthTokenUrl;
+    
+    return [api startRequest];
 }
 
-- (BOOL)isCanOpenTwitter {
-    return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[self titterOpenUrl]]];
+- (FCCallBack *)requestAccessToken {
+    FCBaseRequest *api = [FCBaseRequest new];
+    api.absoluteUrl = TwitterAccessTokenUrl;
+    
+    return [api startRequest];
 }
 
-- (NSString *)titterOpenUrl {
-    return [NSString stringWithFormat:@"twitterauth://authorize?consumer_key=%@&consumer_secret=%@&oauth_callback=twitterkit-%@", self.appConfig.appKey, self.appConfig.appSecret, self.appConfig.redirectUrl];
+- (FCCallBack *)displayWebView {
+    FCWebViewController *webController = [FCWebViewController new];
+    return webController.callBack;
+}
+
+
+- (NSMutableDictionary *)apiBaseParamters {
+    NSMutableDictionary *paramters = [NSMutableDictionary dictionary];
+    paramters[@"oauth_version"] = @"1.0";
+    paramters[@"oauth_signature_method"] = @"HMAC-SHA1";
+    paramters[@"oauth_consumer_key"] = self.appConfig.appKey;
+    paramters[@"oauth_callback"] = self.appConfig.redirectUrl;
+    paramters[@"oauth_timestamp"] = @((int)[[NSDate date] timeIntervalSince1970]);
+    paramters[@"oauth_nonce"] = [[NSUUID UUID] UUIDString];
+    return paramters;
 }
 
 @end

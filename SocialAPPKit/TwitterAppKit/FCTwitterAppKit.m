@@ -12,7 +12,7 @@
 
 @interface FCTwitterAppKit ()
 
-@property (nonatomic, strong) FCTwitterAppConfig *appConfigModel;
+@property (nonatomic, strong) FCTwitterAppConfig *appConfig;
 
 @property (nonatomic, strong) FCTwitterAppCore *twitterManager;
 
@@ -32,7 +32,7 @@
 }
 
 - (void)registerAppKey: (NSString *)appkey appSecret: (NSString *)appSecret redirectUrl: (NSString *)redirectUrl {
-    self.appConfigModel = [FCTwitterAppConfig initWithConsumerKey:appkey consumerSecret:appSecret redirectUrl:redirectUrl];
+    self.appConfig = [FCTwitterAppConfig initWithConsumerKey:appkey consumerSecret:appSecret redirectUrl:redirectUrl];
 }
 
 - (void)registerAppKey: (NSString *)appkey appSecret: (NSString *)appSecret {
@@ -44,7 +44,7 @@
 }
 
 - (FCCallBack *)logIn {
-    return [self.twitterManager startAuth];
+    return [self startTitterAuth];
 }
 
 - (FCCallBack *)quickLogIn {
@@ -52,9 +52,35 @@
     return [self logIn];
 }
 
+#pragma mark Private
+- (FCCallBack *)startTitterAuth {
+    if (![self isAvailableConfig]) {
+        FCCallBack *authCallBack = [FCCallBack new];
+        [authCallBack delaySendError:[FCError errorWithMessage:@"lack of configuration"]];
+        return authCallBack;
+    }
+    if ([self isCanOpenTwitter])
+        [self.twitterManager authWithNative];
+    else
+        [self.twitterManager authWithWeb];
+    return self.twitterManager.authCallBack;
+}
+
+- (BOOL)isAvailableConfig {
+    return self.appConfig.appKey.length && self.appConfig.appSecret.length;
+}
+
+- (BOOL)isCanOpenTwitter {
+    return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[self titterOpenUrl]]];
+}
+
+- (NSString *)titterOpenUrl {
+    return [NSString stringWithFormat:@"twitterauth://authorize?consumer_key=%@&consumer_secret=%@&oauth_callback=twitterkit-%@", self.appConfig.appKey, self.appConfig.appSecret, self.appConfig.redirectUrl];
+}
+
 - (FCTwitterAppCore *)twitterManager {
     if (!_twitterManager) {
-        _twitterManager = [[FCTwitterAppCore alloc] initWithConfigModel:self.appConfigModel];
+        _twitterManager = [[FCTwitterAppCore alloc] initWithConfigModel:self.appConfig];
         _twitterManager.isNeedUserID = !_isQuick;
     }
     return _twitterManager;

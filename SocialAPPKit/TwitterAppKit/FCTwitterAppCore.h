@@ -14,8 +14,12 @@
 
 @property (nonatomic) BOOL isNeedUserID;
 
+@property (nonatomic, strong) FCCallBack *authCallBack;
+
 - (instancetype)initWithConfigModel: (FCTwitterAppConfig *)appConfig;
 
-- (FCCallBack *)startAuth;
+- (void)authWithWeb;
+
+- (void)authWithNative;
 
 @end

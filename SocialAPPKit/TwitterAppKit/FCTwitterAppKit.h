@@ -12,6 +12,8 @@
 #import "FCError.h"
 #import "FCCallBack.h"
 
+#define TwitterInstance [FCTwitterAppKit shareInstance]
+
 @interface FCTwitterAppKit : NSObject
 
 + (instancetype)shareInstance;
