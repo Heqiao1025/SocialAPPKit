@@ -24,14 +24,14 @@
 
 // sso level：app auth -> web auth
 /**
- login
+ OAuth
  Consumer can get more information
  format: username. userID. auth_token. auth_secret.
  */
 - (FCCallBack *)logIn;
 
 /**
- login
+ OAuth
  Consumer can get information (require twitter app authorization to take effect)
  format: username. auth_token. auth_secret
  */

@@ -12,9 +12,9 @@
 
 @interface FCTwitterAppCore : NSObject
 
-- (instancetype)initWithConfigModel: (FCTwitterAppConfig *)appConfig;
-
 @property (nonatomic) BOOL isNeedUserID;
+
+- (instancetype)initWithConfigModel: (FCTwitterAppConfig *)appConfig;
 
 - (FCCallBack *)startAuth;
 

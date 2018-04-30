@@ -42,11 +42,24 @@ static NSString *webUrl = @"https://api.twitter.com/oauth/authenticate?oauth_tok
     
 }
 
-
 - (FCCallBack *)startAuth {
-    
+    if (!_appConfig) {
+        [self.authCallBack delaySendError:[FCError errorWithMessage:@"lack of configuration"]];
+        return self.authCallBack;
+    }
+    if ([self isCanOpenTwitter])
+        [self authWithNative];
+    else
+        [self authWithWeb];
     return self.authCallBack;
 }
 
+- (BOOL)isCanOpenTwitter {
+    return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[self titterOpenUrl]]];
+}
+
+- (NSString *)titterOpenUrl {
+    return [NSString stringWithFormat:@"twitterauth://authorize?consumer_key=%@&consumer_secret=%@&oauth_callback=twitterkit-%@", self.appConfig.appKey, self.appConfig.appSecret, self.appConfig.redirectUrl];
+}
 
 @end
