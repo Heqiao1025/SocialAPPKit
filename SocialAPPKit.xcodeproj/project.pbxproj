@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		059884C0AD259C5750B9DC5C /* libPods-RunDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 201565641CB4E7B0C8EC3F03 /* libPods-RunDemo.a */; };
+		811CA829209722AB0007916C /* NSString+FCTwitterSign.h in Headers */ = {isa = PBXBuildFile; fileRef = 811CA827209722AB0007916C /* NSString+FCTwitterSign.h */; };
+		811CA82A209722AB0007916C /* NSString+FCTwitterSign.m in Sources */ = {isa = PBXBuildFile; fileRef = 811CA828209722AB0007916C /* NSString+FCTwitterSign.m */; };
+		811CA82D2097239E0007916C /* NSDictionary+FCDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 811CA82B2097239E0007916C /* NSDictionary+FCDictionary.h */; };
+		811CA82E2097239E0007916C /* NSDictionary+FCDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 811CA82C2097239E0007916C /* NSDictionary+FCDictionary.m */; };
 		811D95C92091EC2600AB31E1 /* FCTwitterAppSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 811D95C32091EC2500AB31E1 /* FCTwitterAppSession.m */; };
 		811D95CA2091EC2600AB31E1 /* FCTwitterAppCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 811D95C42091EC2500AB31E1 /* FCTwitterAppCore.h */; };
 		811D95CB2091EC2600AB31E1 /* FCTwitterAppSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 811D95C52091EC2600AB31E1 /* FCTwitterAppSession.h */; };
@@ -55,6 +59,10 @@
 		201565641CB4E7B0C8EC3F03 /* libPods-RunDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RunDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2445E2113B16A93A5AF339AA /* libPods-SocialAPPKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SocialAPPKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FB35EC163BCFC198EA45B57 /* Pods-SocialAPPKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialAPPKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialAPPKit/Pods-SocialAPPKit.release.xcconfig"; sourceTree = "<group>"; };
+		811CA827209722AB0007916C /* NSString+FCTwitterSign.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+FCTwitterSign.h"; sourceTree = "<group>"; };
+		811CA828209722AB0007916C /* NSString+FCTwitterSign.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+FCTwitterSign.m"; sourceTree = "<group>"; };
+		811CA82B2097239E0007916C /* NSDictionary+FCDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+FCDictionary.h"; sourceTree = "<group>"; };
+		811CA82C2097239E0007916C /* NSDictionary+FCDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+FCDictionary.m"; sourceTree = "<group>"; };
 		811D95C32091EC2500AB31E1 /* FCTwitterAppSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCTwitterAppSession.m; sourceTree = "<group>"; };
 		811D95C42091EC2500AB31E1 /* FCTwitterAppCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCTwitterAppCore.h; sourceTree = "<group>"; };
 		811D95C52091EC2600AB31E1 /* FCTwitterAppSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCTwitterAppSession.h; sourceTree = "<group>"; };
@@ -201,6 +209,8 @@
 				81B580C8208C99B00088BA2D /* NSData+FCData.m */,
 				81B580C9208C99B00088BA2D /* NSString+FCString.h */,
 				81B580CA208C99B00088BA2D /* NSString+FCString.m */,
+				811CA82B2097239E0007916C /* NSDictionary+FCDictionary.h */,
+				811CA82C2097239E0007916C /* NSDictionary+FCDictionary.m */,
 			);
 			path = SocialAppCore;
 			sourceTree = "<group>";
@@ -252,6 +262,8 @@
 				811D95C32091EC2500AB31E1 /* FCTwitterAppSession.m */,
 				811D95C42091EC2500AB31E1 /* FCTwitterAppCore.h */,
 				811D95C62091EC2600AB31E1 /* FCTwitterAppCore.m */,
+				811CA827209722AB0007916C /* NSString+FCTwitterSign.h */,
+				811CA828209722AB0007916C /* NSString+FCTwitterSign.m */,
 			);
 			path = TwitterAppKit;
 			sourceTree = "<group>";
@@ -287,6 +299,7 @@
 				81B580CD208C99B10088BA2D /* FCCallBack.h in Headers */,
 				81920603208F5C0F0093637F /* FCWebViewController.h in Headers */,
 				81F6A7252089DDB100AB6A7E /* FCAlipayAppKit.h in Headers */,
+				811CA82D2097239E0007916C /* NSDictionary+FCDictionary.h in Headers */,
 				81F6A707208996DF00AB6A7E /* FCWechatAppKit.h in Headers */,
 				81B580D7208C99B10088BA2D /* NSString+FCString.h in Headers */,
 				81F6A7232089DDB100AB6A7E /* FCTwitterAppKit.h in Headers */,
@@ -295,6 +308,7 @@
 				81920604208F5C0F0093637F /* FCBaseRequest.h in Headers */,
 				81F6A7212089DDB100AB6A7E /* FCSinaWeiBoAppKit.h in Headers */,
 				811D95CB2091EC2600AB31E1 /* FCTwitterAppSession.h in Headers */,
+				811CA829209722AB0007916C /* NSString+FCTwitterSign.h in Headers */,
 				817DB75820885B2C00E77082 /* SocialAPPKit.h in Headers */,
 				811D95CE2091EC2600AB31E1 /* FCTwitterAppConfig.h in Headers */,
 				81B580D5208C99B10088BA2D /* NSData+FCData.h in Headers */,
@@ -449,6 +463,8 @@
 				81F6A7262089DDB100AB6A7E /* FCAlipayAppKit.m in Sources */,
 				81F6A708208996DF00AB6A7E /* FCWechatAppKit.m in Sources */,
 				81F6A7242089DDB100AB6A7E /* FCTwitterAppKit.m in Sources */,
+				811CA82E2097239E0007916C /* NSDictionary+FCDictionary.m in Sources */,
+				811CA82A209722AB0007916C /* NSString+FCTwitterSign.m in Sources */,
 				811D95CC2091EC2600AB31E1 /* FCTwitterAppCore.m in Sources */,
 				811D95CD2091EC2600AB31E1 /* FCTwitterAppConfig.m in Sources */,
 				81920601208F5C0F0093637F /* FCBaseRequest.m in Sources */,

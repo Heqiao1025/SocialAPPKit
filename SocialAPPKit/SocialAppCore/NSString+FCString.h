@@ -12,10 +12,10 @@
 
 - (NSString *)appendAbsolutString: (NSString *)path;
 
-+ (NSString *)getRequestBodyString: (NSDictionary *)paramters;
-
 - (BOOL)isAvailablePath;
 
 - (NSString *)subStringToSecondLast;
+
+- (NSString *)encodedString;
 
 @end

@@ -12,4 +12,6 @@
 
 - (NSDictionary *)transformData;
 
+- (NSString *)base64EncodedString;
+
 @end

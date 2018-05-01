@@ -14,5 +14,9 @@
     return nil;
 }
 
+- (NSString *)base64EncodedString {
+    if (![self length]) return nil;
+    return [self base64EncodedStringWithOptions:(NSDataBase64EncodingOptions)0];
+}
 
 @end

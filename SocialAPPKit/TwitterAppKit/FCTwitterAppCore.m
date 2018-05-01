@@ -12,6 +12,8 @@
 #import "FCBaseRequest.h"
 #import "FCCallBack.h"
 #import "FCWebViewController.h"
+#import "NSString+FCTwitterSign.h"
+#import "NSDictionary+FCDictionary.h"
 
 #define TwitterAuthTokenUrl  @"https://api.twitter.com/oauth/request_token"
 #define TwitterAccessTokenUrl  @"https://api.twitter.com/oauth/access_token"
@@ -49,11 +51,15 @@
     return [api startRequest];
 }
 
-- (FCCallBack *)requestAccessToken {
+- (void)requestAccessToken {
     FCBaseRequest *api = [FCBaseRequest new];
     api.absoluteUrl = TwitterAccessTokenUrl;
     
-    return [api startRequest];
+    [[api startRequest] subscriberSuccess:^(id x) {
+        
+    } error:^(FCError *error) {
+        
+    }];
 }
 
 - (FCCallBack *)displayWebView {

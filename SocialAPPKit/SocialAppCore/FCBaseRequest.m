@@ -9,6 +9,7 @@
 #import "FCBaseRequest.h"
 #import "NSData+FCData.h"
 #import "NSString+FCString.h"
+#import "NSDictionary+FCDictionary.h"
 
 @interface FCBaseRequest()
 
@@ -63,7 +64,7 @@
 }
 
 - (NSData *)httpParamters {
-    NSString *requestParamters = [NSString getRequestBodyString:self.paramters];
+    NSString *requestParamters = [[self.paramters transformPathFormat] subStringToSecondLast];
     if (!requestParamters.length) {
         return nil;
     }

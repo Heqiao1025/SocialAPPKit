@@ -8,6 +8,7 @@
 
 #import "NSString+FCString.h"
 
+
 @implementation NSString (FCString)
 
 #pragma mark public
@@ -20,16 +21,12 @@
     return [self hasPrefix:@"/"];
 }
 
-+ (NSString *)getRequestBodyString: (NSDictionary *)paramters {
-    NSString *bodyString = [NSString string];
-    for (NSString *key in paramters.allKeys) {
-        [bodyString stringByAppendingFormat:@"%@=%@&", key, paramters[key]];
-    }
-    return [bodyString subStringToSecondLast];
-}
-
 - (NSString *)subStringToSecondLast {
     return self.length ? [self substringToIndex:self.length-1] : nil;
+}
+
+- (NSString *)encodedString {
+    return [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"\n:#/%?@!$&'()*+,;="].invertedSet];
 }
 
 #pragma mark Private
