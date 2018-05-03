@@ -15,10 +15,10 @@
 
 @implementation NSString (FCTwitterSign)
 
-- (NSData *)hashStrSign: (NSString *)signBody {
++ (NSData *)hashStrSign: (NSString *)signBody signKey: (NSString *)signKey {
     NSData *hashData = [signBody dataUsingEncoding:NSUTF8StringEncoding];
     unsigned char *digest = malloc(CC_SHA1_DIGEST_LENGTH);
-    const char *cKey = [self cStringUsingEncoding:NSUTF8StringEncoding];
+    const char *cKey = [signKey cStringUsingEncoding:NSUTF8StringEncoding];
     CCHmac(kCCHmacAlgSHA1, cKey, strlen(cKey), [hashData bytes], [hashData length], digest);
     NSData *signData = [NSData dataWithBytes:digest length:20];
     free(digest);
@@ -27,7 +27,7 @@
 }
 
 - (NSString *)twitter_signStrWithSignBody: (NSString *)signBody {
-    NSData *signData = [self hashStrSign:signBody];
+    NSData *signData = [NSString hashStrSign:signBody signKey:self];
     return [signData base64EncodedString];
 }
 
@@ -42,7 +42,6 @@
 
 + (NSString *)twitter_authEncodeWithParamter: (NSMutableDictionary *)paramters {
     NSArray *sortKeys = [paramters sortKeyArr];
-    
     NSString *paraString = [[[paramters encodeAllValue] transformToEncodeFormatWithSortKey:sortKeys] subStringToSecondLast];
     return [@"OAuth " stringByAppendingString:paraString];
 }
