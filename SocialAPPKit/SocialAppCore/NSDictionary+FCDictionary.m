@@ -19,7 +19,7 @@
 }
 
 - (NSString *)transformToPathFormat {
-    return [self transformPathFormatWithSortKey:self.allKeys];
+    return [self transformToPathFormatWithSortKey:self.allKeys];
 }
 
 - (NSMutableDictionary *)encodeAllValue {

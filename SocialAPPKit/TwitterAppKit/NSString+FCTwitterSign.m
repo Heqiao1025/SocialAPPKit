@@ -34,7 +34,7 @@
 - (NSString *)twitter_signBodyWithParamter: (NSMutableDictionary *)paramters {
     NSArray *sortKeys = [paramters sortKeyArr];
     NSMutableDictionary *encodeParamters = [paramters encodeAllValue];
-    NSString *path = [[encodeParamters transformPathFormatWithSortKey:sortKeys] subStringToSecondLast];
+    NSString *path = [[encodeParamters transformToPathFormatWithSortKey:sortKeys] subStringToSecondLast];
     NSString *encodePath = [path encodedString];
     NSString *encodeHost = [self encodedString];
     return [NSString stringWithFormat:@"POST&%@&%@", encodeHost, encodePath];
@@ -43,7 +43,7 @@
 + (NSString *)twitter_authEncodeWithParamter: (NSMutableDictionary *)paramters {
     NSArray *sortKeys = [paramters sortKeyArr];
     
-    NSString *paraString = [[[paramters encodeAllValue] transformEncodeFormatWithSortKey:sortKeys] subStringToSecondLast];
+    NSString *paraString = [[[paramters encodeAllValue] transformToEncodeFormatWithSortKey:sortKeys] subStringToSecondLast];
     return [@"OAuth " stringByAppendingString:paraString];
 }
 

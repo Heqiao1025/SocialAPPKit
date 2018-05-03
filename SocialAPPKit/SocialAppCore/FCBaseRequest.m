@@ -60,7 +60,7 @@
 }
 
 - (NSData *)httpParamters {
-    NSString *requestParamters = [[self.paramters transformPathFormat] subStringToSecondLast];
+    NSString *requestParamters = [[self.paramters transformToPathFormat] subStringToSecondLast];
     if (!requestParamters.length) {
         return nil;
     }
