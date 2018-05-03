@@ -14,10 +14,10 @@
 
 - (NSMutableDictionary *)encodeAllValue;
 
-- (NSString *)transformPathFormat;
+- (NSString *)transformToPathFormat;
 
-- (NSString *)transformPathFormatWithSortKey: (NSArray *)sortKey;
+- (NSString *)transformToPathFormatWithSortKey: (NSArray *)sortKey;
 
-- (NSString *)transformEncodeFormatWithSortKey: (NSArray *)sortKey;
+- (NSString *)transformToEncodeFormatWithSortKey: (NSArray *)sortKey;
 
 @end

@@ -18,7 +18,7 @@
     }];
 }
 
-- (NSString *)transformPathFormat {
+- (NSString *)transformToPathFormat {
     return [self transformPathFormatWithSortKey:self.allKeys];
 }
 
@@ -31,7 +31,7 @@
     return resultDic;
 }
 
-- (NSString *)transformPathFormatWithSortKey: (NSArray *)sortKey {
+- (NSString *)transformToPathFormatWithSortKey: (NSArray *)sortKey {
     NSString *resultStr = [NSString string];
     for (NSString *key in sortKey) {
         NSString *value = self[key];
@@ -40,7 +40,7 @@
     return resultStr;
 }
 
-- (NSString *)transformEncodeFormatWithSortKey: (NSArray *)sortKey {
+- (NSString *)transformToEncodeFormatWithSortKey: (NSArray *)sortKey {
     NSString *resultStr = [NSString string];
     for (NSString *key in sortKey) {
         NSString *value = self[key];
