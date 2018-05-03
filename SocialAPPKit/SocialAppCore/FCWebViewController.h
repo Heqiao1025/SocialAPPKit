@@ -28,6 +28,8 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, strong) FCCallBack *callBack;
 
+@property (nonatomic, strong) NSString *callBackKey;
+
 - (void)showWebController;
 
 @end

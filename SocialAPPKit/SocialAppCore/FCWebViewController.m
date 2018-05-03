@@ -31,6 +31,8 @@
     [self configWebView];
     
     [self configProgress];
+    
+    [self configCallBack];
 }
 
 - (void)cancelAction {
@@ -71,7 +73,9 @@
 }
 
 - (void)webView: (WKWebView *)webView didStartProvisionalNavigation: (null_unspecified WKNavigation *)navigation {
-    
+    if (![webView.URL.absoluteString containsString:self.callBackKey]) {
+        [self.callBack sendSuccess:webView.URL.absoluteString];
+    }
 }
 
 #pragma mark UI
@@ -107,10 +111,16 @@
     }
 }
 
+- (void)configCallBack {
+    self.callBack = [FCCallBack new];
+}
+
 - (void)showWebController {
-    UINavigationController *naviagtion = [[UINavigationController alloc] initWithRootViewController:self];
-    naviagtion.navigationBar.translucent = NO;
-    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:naviagtion animated:YES completion:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UINavigationController *naviagtion = [[UINavigationController alloc] initWithRootViewController:self];
+        naviagtion.navigationBar.translucent = NO;
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:naviagtion animated:YES completion:nil];
+    });
 }
 
 - (void)didReceiveMemoryWarning {

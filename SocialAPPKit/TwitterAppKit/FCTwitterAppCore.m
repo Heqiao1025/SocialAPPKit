@@ -16,6 +16,9 @@
 #import "NSString+FCString.h"
 #import "NSDictionary+FCDictionary.h"
 
+#define FCWeakSelf  __weak typeof(self) WeakSelf = self;
+#define FCStrongSelf  __strong typeof(self) self = WeakSelf;
+
 #define TwitterAuthTokenUrl  @"https://api.twitter.com/oauth/request_token"
 #define TwitterAccessTokenUrl  @"https://api.twitter.com/oauth/access_token"
 #define TwitterWebUrl(auth_token) [NSString stringWithFormat:@"https://api.twitter.com/oauth/authenticate?oauth_token=%@", auth_token]
@@ -25,6 +28,8 @@
 @property (nonatomic, copy) FCTwitterAppConfig *appConfig;
 
 @property (nonatomic, copy) NSString *signKey;
+
+@property (nonatomic, copy) NSString *requestToken;
 
 @end
 
@@ -40,10 +45,15 @@
 }
 
 - (void)authWithWeb {
-    [[self requestAuthToken] subscriberSuccess:^(id x) {
-        NSLog(@"1");
+    FCWeakSelf
+    [[self requestAuthToken] subscriberSuccess:^(NSDictionary *response) {
+        FCStrongSelf
+        self.requestToken = response[@"oauth_token"];
+        [[self displayWebView] subscriberSuccess:^(id x) {
+            NSLog(@"1");
+        }];
     } error:^(NSError *error) {
-        NSLog(@"1");
+        [self.authCallBack sendError:error];
     }];
 }
 
@@ -65,6 +75,10 @@
 
 - (FCCallBack *)displayWebView {
     FCWebViewController *webController = [FCWebViewController new];
+    webController.webURLString = TwitterWebUrl(self.requestToken);
+    webController.socialType = FCSocialWebTypeTwitter;
+    webController.callBackKey = self.appConfig.redirectUrl.length ? self.appConfig.redirectUrl : @"oauth_verifier";
+    [webController showWebController];
     return webController.callBack;
 }
 
@@ -95,4 +109,3 @@
 }
 
 @end
-
