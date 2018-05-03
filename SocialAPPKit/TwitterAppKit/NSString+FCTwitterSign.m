@@ -15,10 +15,10 @@
 
 @implementation NSString (FCTwitterSign)
 
-- (NSData *)hashStrSign: (NSString *)hmacKey {
-    NSData *hashData = [self dataUsingEncoding:NSUTF8StringEncoding];
+- (NSData *)hashStrSign: (NSString *)signBody {
+    NSData *hashData = [signBody dataUsingEncoding:NSUTF8StringEncoding];
     unsigned char *digest = malloc(CC_SHA1_DIGEST_LENGTH);
-    const char *cKey = [hmacKey cStringUsingEncoding:NSUTF8StringEncoding];
+    const char *cKey = [self cStringUsingEncoding:NSUTF8StringEncoding];
     CCHmac(kCCHmacAlgSHA1, cKey, strlen(cKey), [hashData bytes], [hashData length], digest);
     NSData *signData = [NSData dataWithBytes:digest length:20];
     free(digest);
@@ -33,7 +33,9 @@
 
 - (NSString *)twitter_signBodyWithParamter: (NSMutableDictionary *)paramters {
     NSArray *sortKeys = [paramters sortKeyArr];
-    NSString *encodePath = [[[paramters encodeAllValue] transformPathFormatWithSortKey:sortKeys] subStringToSecondLast];
+    NSMutableDictionary *encodeParamters = [paramters encodeAllValue];
+    NSString *path = [[encodeParamters transformPathFormatWithSortKey:sortKeys] subStringToSecondLast];
+    NSString *encodePath = [path encodedString];
     NSString *encodeHost = [self encodedString];
     return [NSString stringWithFormat:@"POST&%@&%@", encodeHost, encodePath];
 }

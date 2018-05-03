@@ -25,7 +25,7 @@
 - (NSMutableDictionary *)encodeAllValue {
     NSMutableDictionary *resultDic = [NSMutableDictionary dictionaryWithCapacity:self.allKeys.count];
     for (NSString *key in self.allKeys) {
-        NSString *value = safeString(self[key]);
+        NSString *value = [NSString safeString:self[key]];
         resultDic[key] = [value encodedString];
     }
     return resultDic;

@@ -13,6 +13,7 @@
 #import "FCCallBack.h"
 #import "FCWebViewController.h"
 #import "NSString+FCTwitterSign.h"
+#import "NSString+FCString.h"
 #import "NSDictionary+FCDictionary.h"
 
 #define TwitterAuthTokenUrl  @"https://api.twitter.com/oauth/request_token"
@@ -22,6 +23,8 @@
 @interface FCTwitterAppCore ()
 
 @property (nonatomic, copy) FCTwitterAppConfig *appConfig;
+
+@property (nonatomic, copy) NSString *signKey;
 
 @end
 
@@ -37,7 +40,11 @@
 }
 
 - (void)authWithWeb {
-    
+    [[self requestAuthToken] subscriberSuccess:^(id x) {
+        NSLog(@"1");
+    } error:^(FCError *error) {
+        NSLog(@"1");
+    }];
 }
 
 - (void)authWithNative {
@@ -47,8 +54,18 @@
 - (FCCallBack *)requestAuthToken {
     FCBaseRequest *api = [FCBaseRequest new];
     api.absoluteUrl = TwitterAuthTokenUrl;
-    
+    api.httpMethod = FCHttpMethodPOST;
+    NSMutableDictionary *paramters = [self apiBaseParamters];
+    NSString *signBody = [api.absoluteUrl twitter_signBodyWithParamter:paramters];
+    paramters[@"oauth_signature"] = [self.signKey twitter_signStrWithSignBody:signBody];
+    NSString *header = [NSString twitter_authEncodeWithParamter:paramters];
+    api.httpHeader = @{@"Authorization":header};
     return [api startRequest];
+}
+
+- (FCCallBack *)displayWebView {
+    FCWebViewController *webController = [FCWebViewController new];
+    return webController.callBack;
 }
 
 - (void)requestAccessToken {
@@ -62,12 +79,6 @@
     }];
 }
 
-- (FCCallBack *)displayWebView {
-    FCWebViewController *webController = [FCWebViewController new];
-    return webController.callBack;
-}
-
-
 - (NSMutableDictionary *)apiBaseParamters {
     NSMutableDictionary *paramters = [NSMutableDictionary dictionary];
     paramters[@"oauth_version"] = @"1.0";
@@ -75,8 +86,16 @@
     paramters[@"oauth_consumer_key"] = self.appConfig.appKey;
     paramters[@"oauth_callback"] = self.appConfig.redirectUrl;
     paramters[@"oauth_timestamp"] = @((int)[[NSDate date] timeIntervalSince1970]);
+//    @"1525311506";
     paramters[@"oauth_nonce"] = [[NSUUID UUID] UUIDString];
+//    @"EA551ED6-D05F-412A-8030-17AB9A925354";
+    
     return paramters;
 }
 
+- (NSString *)signKey {
+    return [self.appConfig.appSecret stringByAppendingString:@"&"];
+}
+
 @end
+
