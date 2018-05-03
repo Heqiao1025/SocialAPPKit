@@ -12,6 +12,8 @@
 
 - (NSArray *)sortKeyArr;
 
+- (NSMutableDictionary *)encodeAllValue;
+
 - (NSString *)transformPathFormat;
 
 - (NSString *)transformPathFormatWithSortKey: (NSArray *)sortKey;

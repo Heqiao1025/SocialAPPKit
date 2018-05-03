@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "FCTwitterAppKit.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +17,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+//    [TwitterInstance registerAppKey:@"HyjS1LXB00MCPibyxWVQ6aryX" appSecret:@"ZvB0idM0dfldEbaFPS90aYB2SpYBHcg85LyHnTtOmdyuCizlfD" redirectUrl:@"http://www.SocialApp.com"];
+    [TwitterInstance registerAppKey:@"Ra9irghYlTm6BNURTUDZ9oLtI" appSecret:@"1arZZgZlXS4Hgk1FvG4JAPyHjwduon6GomEn79g0MQffGcatr2" redirectUrl:@"http://www.zywawa.com"];
     return YES;
 }
 

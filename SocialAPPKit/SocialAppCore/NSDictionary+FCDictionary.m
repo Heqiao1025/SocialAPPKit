@@ -7,6 +7,7 @@
 //
 
 #import "NSDictionary+FCDictionary.h"
+#import "NSString+FCString.h"
 
 @implementation NSDictionary (FCDictionary)
 
@@ -19,6 +20,15 @@
 
 - (NSString *)transformPathFormat {
     return [self transformPathFormatWithSortKey:self.allKeys];
+}
+
+- (NSMutableDictionary *)encodeAllValue {
+    NSMutableDictionary *resultDic = [NSMutableDictionary dictionaryWithCapacity:self.allKeys.count];
+    for (NSString *key in self.allKeys) {
+        NSString *value = safeString(self[key]);
+        resultDic[key] = [value encodedString];
+    }
+    return resultDic;
 }
 
 - (NSString *)transformPathFormatWithSortKey: (NSArray *)sortKey {

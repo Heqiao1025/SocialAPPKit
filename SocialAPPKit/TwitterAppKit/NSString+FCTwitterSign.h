@@ -10,6 +10,10 @@
 
 @interface NSString (FCTwitterSign)
 
-- (NSString *)twitter_signStrWithParamters: (NSMutableDictionary *)paramters signKey: (NSString *)signKey;
+- (NSString *)twitter_signStrWithSignBody: (NSString *)signBody;
+
+- (NSString *)twitter_signBodyWithParamter: (NSMutableDictionary *)paramters;
+
++ (NSString *)twitter_authEncodeWithParamter: (NSMutableDictionary *)paramters;
 
 @end

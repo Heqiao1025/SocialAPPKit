@@ -8,10 +8,17 @@
 
 #import "NSString+FCString.h"
 
-
 @implementation NSString (FCString)
 
 #pragma mark public
+
++ (NSString *)safeString: (id)str {
+    if ([str isKindOfClass:[NSNull class]] || str == NULL || str == nil) {
+        return @"";
+    }
+    return [NSString stringWithFormat:@"%@",str];
+}
+
 - (NSString *)appendAbsolutString: (NSString *)path {
     NSString *absolutStr = [self stringByAppendingFormat:@"%@%@", [path getAppendString], path];
     return [absolutStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

@@ -15,7 +15,9 @@
 }
 
 + (instancetype)errorWithCode: (NSInteger)code message: (NSString *)message {
-    return [[self class] errorWithDomain:@"FCERROR" code:code userInfo:@{@"message":message}];
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+    userInfo[@"message"] = message;
+    return [[self class] errorWithDomain:@"FCERROR" code:code userInfo:userInfo];
 }
 
 - (NSString *)message {

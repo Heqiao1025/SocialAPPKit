@@ -26,18 +26,23 @@
     return signData;
 }
 
-- (NSString *)twitter_signStrWithParamters: (NSMutableDictionary *)paramters signKey: (NSString *)signKey {
-    NSString *signBody = [self signBodyWithParamter:paramters];
-    NSData *signData = [signKey hashStrSign:signBody];
+- (NSString *)twitter_signStrWithSignBody: (NSString *)signBody {
+    NSData *signData = [self hashStrSign:signBody];
     return [signData base64EncodedString];
 }
 
-- (NSString *)signBodyWithParamter: (NSMutableDictionary *)paramters {
+- (NSString *)twitter_signBodyWithParamter: (NSMutableDictionary *)paramters {
     NSArray *sortKeys = [paramters sortKeyArr];
-    NSString *path = [[paramters transformPathFormatWithSortKey:sortKeys] subStringToSecondLast];
-    NSString *encodePath = [path encodedString];
+    NSString *encodePath = [[[paramters encodeAllValue] transformPathFormatWithSortKey:sortKeys] subStringToSecondLast];
     NSString *encodeHost = [self encodedString];
     return [NSString stringWithFormat:@"POST&%@&%@", encodeHost, encodePath];
+}
+
++ (NSString *)twitter_authEncodeWithParamter: (NSMutableDictionary *)paramters {
+    NSArray *sortKeys = [paramters sortKeyArr];
+    
+    NSString *paraString = [[[paramters encodeAllValue] transformEncodeFormatWithSortKey:sortKeys] subStringToSecondLast];
+    return [@"OAuth " stringByAppendingString:paraString];
 }
 
 @end

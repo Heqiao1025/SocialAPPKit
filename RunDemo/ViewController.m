@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "FCBaseRequest.h"
 #import "FCWebViewController.h"
+#import "FCTwitterAppKit.h"
 
 @interface ViewController ()
 
@@ -21,7 +22,15 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self testWebView];
+    [self testTitterAuth];
+}
+
+- (void)testTitterAuth {
+    [[TwitterInstance logIn] subscriberSuccess:^(id x) {
+        
+    } error:^(FCError *error) {
+        
+    }];
 }
 
 - (void)testWebView {
