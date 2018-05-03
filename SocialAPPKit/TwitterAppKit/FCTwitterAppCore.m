@@ -86,10 +86,7 @@
     paramters[@"oauth_consumer_key"] = self.appConfig.appKey;
     paramters[@"oauth_callback"] = self.appConfig.redirectUrl;
     paramters[@"oauth_timestamp"] = @((int)[[NSDate date] timeIntervalSince1970]);
-//    @"1525311506";
     paramters[@"oauth_nonce"] = [[NSUUID UUID] UUIDString];
-//    @"EA551ED6-D05F-412A-8030-17AB9A925354";
-    
     return paramters;
 }
 

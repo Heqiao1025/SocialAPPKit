@@ -36,6 +36,24 @@
     return [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"\n:#/%?@!$&'()*+,;="].invertedSet];
 }
 
+- (BOOL)isURLPathFormat {
+    return [self containsString:@"="] || [self containsString:@"&"];
+}
+
+- (NSDictionary *)urlPathFormatTransformMap {
+    NSMutableDictionary *resultDic = [NSMutableDictionary dictionary];
+    NSString *urlPaths = [self componentsSeparatedByString:@"?"].lastObject;
+    NSArray *pathArray = [urlPaths componentsSeparatedByString:@"&"];
+    for (NSString *pathAbsolute in pathArray) {
+        NSArray *path = [pathAbsolute componentsSeparatedByString:@"="];
+        if (!path.count) {
+            continue;
+        }
+        resultDic[path.firstObject] = path.lastObject;
+    }
+    return resultDic;
+}
+
 #pragma mark Private
 - (NSString *)getAppendString {
     return [self isAvailablePath] ? @"" : @"/";

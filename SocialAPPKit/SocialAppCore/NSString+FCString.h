@@ -20,4 +20,8 @@
 
 - (NSString *)encodedString;
 
+- (BOOL)isURLPathFormat;
+
+- (NSDictionary *)urlPathFormatTransformMap;
+
 @end

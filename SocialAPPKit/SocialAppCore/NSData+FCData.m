@@ -7,11 +7,17 @@
 //
 
 #import "NSData+FCData.h"
+#import "NSString+FCString.h"
 
 @implementation NSData (FCData)
 
-- (NSDictionary *)transformData {
-    return nil;
+- (NSDictionary *)transformToMap {
+    NSString *verifyString = [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
+    if ([verifyString isURLPathFormat]) {
+        return [verifyString urlPathFormatTransformMap];
+    }
+    NSDictionary *verifyMap = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
+    return verifyMap;
 }
 
 - (NSString *)base64EncodedString {

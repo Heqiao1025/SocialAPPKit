@@ -11,7 +11,7 @@
 #import "NSString+FCString.h"
 #import "NSDictionary+FCDictionary.h"
 
-@interface FCBaseRequest()
+@interface FCBaseRequest ()
 
 @property (nonatomic, copy) NSURL *requestURL;
 
@@ -35,14 +35,13 @@
     [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
             [callBack sendError:error];
-        } else if (![weakSelf verifyRequestResult:response]) {
-            NSHTTPURLResponse *httpResponse = [weakSelf checkReponseClass:response];
-            NSInteger errorCode = httpResponse ? httpResponse.statusCode : -1;
-            FCError *customError = [FCError errorWithCode:errorCode message:@""];
-            [callBack sendError:customError];
         } else {
-            //            NSDictionary *json = [data transformData];
-            [callBack sendSuccess:data];
+            if (![weakSelf verifyRequestResult:response]) {
+                FCError *customError = [FCError errorWithCode:-1 message:@"auth failed"];
+                [callBack sendError:customError];
+            } else {
+                [callBack sendSuccess:[data transformToMap]];
+            }
         }
     }] resume];
     return callBack;
