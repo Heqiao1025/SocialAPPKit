@@ -27,9 +27,9 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, copy) NSString *absoluteUrl;
 
-@property (nonatomic, copy) NSDictionary  *httpHeader;
+@property (nonatomic, copy) NSDictionary *httpHeader;
 
-@property (nonatomic, copy) NSDictionary  *paramters;
+@property (nonatomic, copy) NSDictionary *paramters;
 
 - (FCCallBack *)startRequest;
 

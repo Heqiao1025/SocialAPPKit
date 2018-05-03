@@ -27,14 +27,18 @@
         return callBack;
     }
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.requestURL];
-    request.HTTPMethod = [self HttpMethodString];
+    request.HTTPMethod = [self httpMethodString];
     [self configRequestHeader:request];
     request.HTTPBody = [self httpParamters];
     
     __weak typeof(self) weakSelf = self;
     [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if (error || ![weakSelf requestSuccess:response]) {
-            FCError *customError = [FCError errorWithCode:0 message:error.userInfo[@"message"]];
+        if (error) {
+            [callBack sendError:error];
+        } else if (![weakSelf verifyRequestResult:response]) {
+            NSHTTPURLResponse *httpResponse = [weakSelf checkReponseClass:response];
+            NSInteger errorCode = httpResponse ? httpResponse.statusCode : -1;
+            FCError *customError = [FCError errorWithCode:errorCode message:@""];
             [callBack sendError:customError];
         } else {
             //            NSDictionary *json = [data transformData];
@@ -49,15 +53,7 @@
     return self.requestURL.absoluteString.length ? YES : NO;
 }
 
-- (BOOL)requestSuccess: (NSURLResponse *)reponse {
-    if (![reponse isKindOfClass:[NSHTTPURLResponse class]]) {
-        return YES;
-    }
-    NSHTTPURLResponse *httpReponse = (NSHTTPURLResponse *)reponse;
-    return (httpReponse.statusCode >= 200 || httpReponse.statusCode < 300);
-}
-
-#pragma mark Private HttpConfig
+#pragma mark Private Config
 - (void)configRequestHeader: (NSMutableURLRequest *)request {
     for (NSString *key in self.httpHeader) {
         [request setValue:self.httpHeader[key] forHTTPHeaderField:key];
@@ -72,7 +68,7 @@
     return [requestParamters dataUsingEncoding:NSUTF8StringEncoding];
 }
 
-- (NSString *)HttpMethodString {
+- (NSString *)httpMethodString {
     if (self.httpMethod == FCHttpMethodGet) {
         return @"GET";
     } else {
@@ -90,5 +86,20 @@
     return [self.baseHost appendAbsolutString:self.path];
 }
 
-@end
+- (BOOL)verifyRequestResult: (NSURLResponse *)response {
+    NSHTTPURLResponse *urlResponse = [self checkReponseClass:response];
+    if (!urlResponse) {
+        return YES;
+    }
+    return (urlResponse.statusCode >= 200 || urlResponse.statusCode < 300);
+}
 
+- (NSHTTPURLResponse *)checkReponseClass: (NSURLResponse *)reponse {
+    if ([reponse isKindOfClass:[NSHTTPURLResponse class]]) {
+        NSHTTPURLResponse *httpReponse = (NSHTTPURLResponse *)reponse;
+        return httpReponse;
+    }
+    return nil;
+}
+
+@end

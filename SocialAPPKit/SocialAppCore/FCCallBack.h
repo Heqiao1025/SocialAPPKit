@@ -13,13 +13,13 @@
 
 - (void)subscriberSuccess :(void (^)(id x))successCallBack;
 
-- (void)subscriberSuccess :(void (^)(id x))successCallBack error :(void (^) (FCError *error))errorCallBlock;
+- (void)subscriberSuccess :(void (^)(id x))successCallBack error :(void (^) (NSError *error))errorCallBlock;
 
-- (void)sendError :(FCError *)error;
+- (void)sendError :(NSError *)error;
 
 - (void)sendSuccess :(id)success;
 
-- (void)delaySendError :(FCError *)error;
+- (void)delaySendError :(NSError *)error;
 
 - (void)delaySendSuccess :(id)success;
 

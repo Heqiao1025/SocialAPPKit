@@ -42,7 +42,7 @@
 - (void)authWithWeb {
     [[self requestAuthToken] subscriberSuccess:^(id x) {
         NSLog(@"1");
-    } error:^(FCError *error) {
+    } error:^(NSError *error) {
         NSLog(@"1");
     }];
 }
@@ -74,7 +74,7 @@
     
     [[api startRequest] subscriberSuccess:^(id x) {
         
-    } error:^(FCError *error) {
+    } error:^(NSError *error) {
         
     }];
 }

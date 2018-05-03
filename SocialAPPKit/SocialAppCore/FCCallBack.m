@@ -12,7 +12,7 @@
 
 @property (nonatomic, copy) void (^successCallBack)(id x);
 
-@property (nonatomic, copy) void (^errorCallBack) (FCError *);
+@property (nonatomic, copy) void (^errorCallBack) (NSError *);
 
 @end
 
@@ -22,12 +22,12 @@
     [self subscriberSuccess:successCallBack error:nil];
 }
 
-- (void)subscriberSuccess :(void (^)(id x))successCallBack error :(void (^) (FCError *error))errorCallBlock {
+- (void)subscriberSuccess :(void (^)(id x))successCallBack error :(void (^) (NSError *error))errorCallBlock {
     self.successCallBack = successCallBack;
     self.errorCallBack = errorCallBlock;
 }
 
-- (void)sendError :(FCError *)error {
+- (void)sendError :(NSError *)error {
     if (self.errorCallBack) {
         self.errorCallBack(error);
     }
@@ -41,7 +41,7 @@
     [self clearSubscriber];
 }
 
-- (void)delaySendError :(FCError *)error {
+- (void)delaySendError :(NSError *)error {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self sendError:error];
     });

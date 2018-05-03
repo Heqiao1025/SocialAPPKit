@@ -28,7 +28,7 @@
 - (void)testTitterAuth {
     [[TwitterInstance logIn] subscriberSuccess:^(id x) {
         
-    } error:^(FCError *error) {
+    } error:^(NSError *error) {
         
     }];
 }
@@ -47,7 +47,7 @@
                       @"postid":@"11111111111"};
     [[api startRequest] subscriberSuccess:^(id x) {
         NSLog(@"1");
-    } error:^(FCError *error) {
+    } error:^(NSError *error) {
         NSLog(@"2");
     }];
     
