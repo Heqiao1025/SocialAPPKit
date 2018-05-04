@@ -17,6 +17,10 @@
 + (instancetype)errorWithCode: (NSInteger)code message: (NSString *)message {
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
     userInfo[@"message"] = message;
+    return [self errorWithCode:-1 userInfo:userInfo];
+}
+
++ (instancetype)errorWithCode: (NSInteger)code userInfo: (NSDictionary *)userInfo {
     return [[self class] errorWithDomain:@"FCError" code:code userInfo:userInfo];
 }
 

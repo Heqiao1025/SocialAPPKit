@@ -1,19 +1,19 @@
 //
-//  NSString+FCTwitterSign.m
+//  FCCategory.m
 //  SocialAPPKit
 //
-//  Created by ForC on 2018/4/30.
+//  Created by ForC on 2018/5/4.
 //  Copyright © 2018年 ForC. All rights reserved.
 //
 
-#import "NSString+FCTwitterSign.h"
+#import "FCCategory.h"
 #import "NSDictionary+FCDictionary.h"
 #import "NSString+FCString.h"
 #import "NSData+FCData.h"
 #import <CommonCrypto/CommonHMAC.h>
 #import <CommonCrypto/CommonCryptor.h>
 
-@implementation NSString (FCTwitterSign)
+@implementation NSString (TiwtterString)
 
 + (NSData *)hashStrSign: (NSString *)signBody signKey: (NSString *)signKey {
     NSData *hashData = [signBody dataUsingEncoding:NSUTF8StringEncoding];
@@ -44,6 +44,27 @@
     NSArray *sortKeys = [paramters sortKeyArr];
     NSString *paraString = [[[paramters encodeAllValue] transformToEncodeFormatWithSortKey:sortKeys] subStringToSecondLast];
     return [@"OAuth " stringByAppendingString:paraString];
+}
+
+@end
+
+@implementation NSData (TwitterData)
+
+- (NSDictionary *)twitter_responseDataMap {
+    NSString *verifyString = [self transformToString];
+    if (verifyString.length) {
+        if ([verifyString isURLPathFormat]) {
+            return [verifyString urlPathFormatTransformMap];
+        } else {
+            NSString *message = verifyString.length?verifyString:@"授权失败";
+            return @{@"error":@{@"message":message},@"messgae":message};
+        }
+    }
+    NSMutableDictionary *verifyDic = [NSJSONSerialization JSONObjectWithData:self options:0 error:nil];
+    if ([verifyDic.allKeys containsObject:@"error"]) {
+        verifyDic[@"message"] = verifyDic[@"error"][@"message"];
+    }
+    return verifyDic;
 }
 
 @end

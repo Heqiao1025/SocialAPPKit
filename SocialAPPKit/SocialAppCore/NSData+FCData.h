@@ -10,6 +10,8 @@
 
 @interface NSData (FCData)
 
+- (NSString *)transformToString;
+
 - (NSDictionary *)transformToMap;
 
 - (NSString *)base64EncodedString;

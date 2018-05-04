@@ -8,14 +8,14 @@
 
 #import "FCTwitterAppCore.h"
 #import "FCWebViewController.h"
+#import "FCWebViewController.h"
 #import "FCTwitterAppConfig.h"
+#import "FCTwitterAppSession.h"
 #import "FCBaseRequest.h"
 #import "FCCallBack.h"
-#import "FCWebViewController.h"
-#import "NSString+FCTwitterSign.h"
+#import "FCCategory.h"
 #import "NSString+FCString.h"
 #import "NSDictionary+FCDictionary.h"
-#import "FCTwitterAppSession.h"
 
 #define FCWeakSelf  __weak typeof(self) WeakSelf = self;
 #define FCStrongSelf  __strong typeof(self) self = WeakSelf;
@@ -46,17 +46,21 @@
 }
 
 - (void)authWithWeb {
-    FCWeakSelf
-    [[self requestAuthToken] subscriberSuccess:^(NSDictionary *response) {
-        FCStrongSelf
-        NSString *requestToken = response[@"oauth_token"];
-        [[self requestWebLogin:requestToken] subscriberSuccess:^(NSString *redirectParamterStr) {
-            NSDictionary *paramter = [redirectParamterStr urlPathFormatTransformMap];
-            [self.webController dismissViewControllerAnimated:YES completion:nil];
-            [self requestAccessToken:paramter[@"oauth_token"] verify:paramter[@"oauth_verifier"]];
-        } error:^(NSError *error) {
-            [self.authCallBack sendError:error];
-        }];
+    [[self requestAuthToken] subscriberSuccess:^(NSData *data) {
+        NSDictionary *responseDic = [data twitter_responseDataMap];
+        if ([responseDic.allKeys containsObject:@"error"]) {
+            FCError *customError = [FCError errorWithCode:-1 userInfo:responseDic];
+            [self.authCallBack sendError:customError];
+        } else {
+            NSString *requestToken = responseDic[@"oauth_token"];
+            [[self requestWebLogin:requestToken] subscriberSuccess:^(NSString *redirectParamterStr) {
+                NSDictionary *paramter = [redirectParamterStr urlPathFormatTransformMap];
+                [self.webController dismissViewControllerAnimated:YES completion:nil];
+                [self requestAccessToken:paramter[@"oauth_token"] verify:paramter[@"oauth_verifier"]];
+            } error:^(NSError *error) {
+                [self.authCallBack sendError:error];
+            }];
+        }
     } error:^(NSError *error) {
         [self.authCallBack sendError:error];
     }];
@@ -87,9 +91,15 @@
     NSDictionary *paramters = @{@"oauth_verifier":verifier,
                                 @"oauth_token":token};
     FCBaseRequest *api = [self baseRequestApi:paramters url:TwitterAccessTokenUrl];
-    [[api startRequest] subscriberSuccess:^(NSDictionary *dic) {
-        FCTwitterAppSession *session = [FCTwitterAppSession initWithAuthToken:dic[@"oauth_token"] secret:dic[@"oauth_token_secret"] userID:dic[@"user_id"] userName:dic[@"screen_name"]];
-        [self.authCallBack sendSuccess:session];
+    [[api startRequest] subscriberSuccess:^(NSData *data) {
+        NSDictionary *responseDic = [data twitter_responseDataMap];
+        if ([responseDic.allKeys containsObject:@"error"]) {
+            FCError *customError = [FCError errorWithCode:-1 userInfo:responseDic];
+            [self.authCallBack sendError:customError];
+        } else {
+            FCTwitterAppSession *session = [FCTwitterAppSession initWithAuthToken:responseDic[@"oauth_token"] secret:responseDic[@"oauth_token_secret"] userID:responseDic[@"user_id"] userName:responseDic[@"screen_name"]];
+            [self.authCallBack sendSuccess:session];
+        }
     } error:^(NSError *error) {
         [self.authCallBack sendError:error];
     }];

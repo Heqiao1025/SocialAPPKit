@@ -1,19 +1,29 @@
 //
-//  NSString+FCTwitterSign.h
+//  FCCategory.h
 //  SocialAPPKit
 //
-//  Created by ForC on 2018/4/30.
+//  Created by ForC on 2018/5/4.
 //  Copyright © 2018年 ForC. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (FCTwitterSign)
+/**
+ twitter特有category
+ */
+
+@interface NSString (TiwtterString)
 
 - (NSString *)twitter_signStrWithSignBody: (NSString *)signBody;
 
 - (NSString *)twitter_signBodyWithParamter: (NSMutableDictionary *)paramters;
 
 + (NSString *)twitter_authEncodeWithParamter: (NSMutableDictionary *)paramters;
+
+@end
+
+@interface NSData (TwitterData)
+
+- (NSDictionary *)twitter_responseDataMap;
 
 @end
