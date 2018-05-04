@@ -22,7 +22,7 @@
 
 #define TwitterAuthTokenUrl  @"https://api.twitter.com/oauth/request_token"
 #define TwitterAccessTokenUrl  @"https://api.twitter.com/oauth/access_token"
-#define TwitterWebUrl(auth_token) [NSString stringWithFormat:@"https://api.twitter.com/oauth/authenticate?oauth_token=%@", auth_token]
+#define TwitterWebUrl(auth_token) [NSString stringWithFormat:@"https://api.twitter.com/oauth/authorize?oauth_token=%@", auth_token]
 
 @interface FCTwitterAppCore ()
 
@@ -50,8 +50,7 @@
     [[self requestAuthToken] subscriberSuccess:^(NSDictionary *response) {
         FCStrongSelf
         NSString *requestToken = response[@"oauth_token"];
-        NSAssert(requestToken, @"requestToken参数丢失");
-        [[self showWebView:requestToken] subscriberSuccess:^(NSString *redirectParamterStr) {
+        [[self requestWebLogin:requestToken] subscriberSuccess:^(NSString *redirectParamterStr) {
             NSDictionary *paramter = [redirectParamterStr urlPathFormatTransformMap];
             [self.webController dismissViewControllerAnimated:YES completion:nil];
             [self requestAccessToken:paramter[@"oauth_token"] verify:paramter[@"oauth_verifier"]];
@@ -67,12 +66,13 @@
     
 }
 
+#pragma mark Private authRequest
 - (FCCallBack *)requestAuthToken {
-    FCBaseRequest *api = [self baseRequestApi:nil];
+    FCBaseRequest *api = [self baseRequestApi:nil url:TwitterAuthTokenUrl];
     return [api startRequest];
 }
 
-- (FCCallBack *)showWebView: (NSString *)requestToken {
+- (FCCallBack *)requestWebLogin: (NSString *)requestToken {
     FCWebViewController *webController = [FCWebViewController new];
     webController.webURLString = TwitterWebUrl(requestToken);
     webController.socialType = FCSocialWebTypeTwitter;
@@ -86,24 +86,23 @@
     NSAssert(verifier.length && token.length, @"web页面参数丢失");
     NSDictionary *paramters = @{@"oauth_verifier":verifier,
                                 @"oauth_token":token};
-    FCBaseRequest *api = [self baseRequestApi:paramters];
-    [[api startRequest] subscriberSuccess:^(NSDictionary *map) {
-        FCTwitterAppSession *session = [FCTwitterAppSession new];
-        
-        
+    FCBaseRequest *api = [self baseRequestApi:paramters url:TwitterAccessTokenUrl];
+    [[api startRequest] subscriberSuccess:^(NSDictionary *dic) {
+        FCTwitterAppSession *session = [FCTwitterAppSession initWithAuthToken:dic[@"oauth_token"] secret:dic[@"oauth_token_secret"] userID:dic[@"user_id"] userName:dic[@"screen_name"]];
+        [self.authCallBack sendSuccess:session];
     } error:^(NSError *error) {
         [self.authCallBack sendError:error];
     }];
 }
 
 #pragma mark private getApi
-- (FCBaseRequest *)baseRequestApi: (NSDictionary *)customParamters {
+- (FCBaseRequest *)baseRequestApi: (NSDictionary *)customParamters url: (NSString *)url {
     FCBaseRequest *api = [FCBaseRequest new];
-    api.absoluteUrl = TwitterAuthTokenUrl;
+    api.absoluteUrl = url;
     api.httpMethod = FCHttpMethodPOST;
     NSMutableDictionary *paramters = [self apiBaseParamters];
-    NSString *signBody = [api.absoluteUrl twitter_signBodyWithParamter:paramters];
     [paramters addEntriesFromDictionary:customParamters];
+    NSString *signBody = [api.absoluteUrl twitter_signBodyWithParamter:paramters];
     paramters[@"oauth_signature"] = [self.signKey twitter_signStrWithSignBody:signBody];
     NSString *header = [NSString twitter_authEncodeWithParamter:paramters];
     api.httpHeader = @{@"Authorization":header};

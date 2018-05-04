@@ -26,10 +26,10 @@
 }
 
 - (void)testTwitterAuth {
-    [[TwitterInstance logIn] subscriberSuccess:^(id x) {
-        
+    [[TwitterInstance logIn] subscriberSuccess:^(FCTwitterAppSession *session) {
+        NSLog(@"1");
     } error:^(NSError *error) {
-        
+        NSLog(@"1");
     }];
 }
 

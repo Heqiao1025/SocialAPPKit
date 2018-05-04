@@ -18,4 +18,8 @@
 
 @property (nonatomic, copy, readonly) NSString *auth_UserName;
 
++ (instancetype)initWithAuthToken: (NSString *)token secret: (NSString *)secret userName: (NSString *)userName;
+
++ (instancetype)initWithAuthToken: (NSString *)token secret: (NSString *)secret userID: (NSString *)userID userName: (NSString *)userName;
+
 @end

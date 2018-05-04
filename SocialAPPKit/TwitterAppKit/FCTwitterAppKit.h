@@ -27,15 +27,14 @@
 // sso level：app auth -> web auth
 /**
  OAuth
- Consumer can get more information
- format: username. userID. auth_token. auth_secret.
+ 返回数据FCTwitterAppSession类包含: username. userID. auth_token. auth_secret.
  */
 - (FCCallBack *)logIn;
 
 /**
  OAuth
- Consumer can get information (require twitter app authorization to take effect)
- format: username. auth_token. auth_secret
+ 快速登录(只在iphone中包含twitterapp有效)
+ 返回数据FCTwitterAppSession类包含: username. auth_token. auth_secret
  */
 - (FCCallBack *)quickLogIn;
 

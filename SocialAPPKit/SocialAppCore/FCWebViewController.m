@@ -40,6 +40,8 @@
     [self configWebView];
     
     [self configProgress];
+    
+    [self clearCookie];
 }
 
 - (void)cancelAction {
@@ -80,7 +82,7 @@
 }
 
 - (void)webView: (WKWebView *)webView didStartProvisionalNavigation: (null_unspecified WKNavigation *)navigation {
-    if ([webView.URL.absoluteString containsString:self.callBackKey]) {
+    if ([webView.URL.absoluteString containsString:[self.callBackKey lowercaseString]]) {
         [self.callBack sendSuccess:webView.URL.query];
     }
 }
@@ -116,6 +118,13 @@
     for (NSString *key in self.webHeader) {
         [request setValue:self.webHeader[key] forHTTPHeaderField:key];
     }
+}
+
+- (void)clearCookie {
+    NSArray *types = @[WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache];
+    NSSet *set = [NSSet setWithArray:types];
+    [[WKWebsiteDataStore defaultDataStore] removeDataOfTypes:set modifiedSince:[NSDate dateWithTimeIntervalSince1970:0] completionHandler:^{
+    }];
 }
 
 - (void)showWebController {
