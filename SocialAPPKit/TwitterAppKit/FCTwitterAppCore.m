@@ -15,6 +15,7 @@
 #import "NSString+FCTwitterSign.h"
 #import "NSString+FCString.h"
 #import "NSDictionary+FCDictionary.h"
+#import "FCTwitterAppSession.h"
 
 #define FCWeakSelf  __weak typeof(self) WeakSelf = self;
 #define FCStrongSelf  __strong typeof(self) self = WeakSelf;
@@ -29,7 +30,7 @@
 
 @property (nonatomic, copy) NSString *signKey;
 
-@property (nonatomic, copy) NSString *requestToken;
+@property (nonatomic, weak) FCWebViewController *webController;
 
 @end
 
@@ -48,9 +49,14 @@
     FCWeakSelf
     [[self requestAuthToken] subscriberSuccess:^(NSDictionary *response) {
         FCStrongSelf
-        self.requestToken = response[@"oauth_token"];
-        [[self displayWebView] subscriberSuccess:^(id x) {
-            NSLog(@"1");
+        NSString *requestToken = response[@"oauth_token"];
+        NSAssert(requestToken, @"requestToken参数丢失");
+        [[self showWebView:requestToken] subscriberSuccess:^(NSString *redirectParamterStr) {
+            NSDictionary *paramter = [redirectParamterStr urlPathFormatTransformMap];
+            [self.webController dismissViewControllerAnimated:YES completion:nil];
+            [self requestAccessToken:paramter[@"oauth_token"] verify:paramter[@"oauth_verifier"]];
+        } error:^(NSError *error) {
+            [self.authCallBack sendError:error];
         }];
     } error:^(NSError *error) {
         [self.authCallBack sendError:error];
@@ -62,37 +68,49 @@
 }
 
 - (FCCallBack *)requestAuthToken {
+    FCBaseRequest *api = [self baseRequestApi:nil];
+    return [api startRequest];
+}
+
+- (FCCallBack *)showWebView: (NSString *)requestToken {
+    FCWebViewController *webController = [FCWebViewController new];
+    webController.webURLString = TwitterWebUrl(requestToken);
+    webController.socialType = FCSocialWebTypeTwitter;
+    webController.callBackKey = self.appConfig.redirectUrl.length ? self.appConfig.redirectUrl : @"oauth_verifier";
+    [webController showWebController];
+    self.webController = webController;
+    return webController.callBack;
+}
+
+- (void)requestAccessToken: (NSString *)token verify: (NSString *)verifier {
+    NSAssert(verifier.length && token.length, @"web页面参数丢失");
+    NSDictionary *paramters = @{@"oauth_verifier":verifier,
+                                @"oauth_token":token};
+    FCBaseRequest *api = [self baseRequestApi:paramters];
+    [[api startRequest] subscriberSuccess:^(NSDictionary *map) {
+        FCTwitterAppSession *session = [FCTwitterAppSession new];
+        
+        
+    } error:^(NSError *error) {
+        [self.authCallBack sendError:error];
+    }];
+}
+
+#pragma mark private getApi
+- (FCBaseRequest *)baseRequestApi: (NSDictionary *)customParamters {
     FCBaseRequest *api = [FCBaseRequest new];
     api.absoluteUrl = TwitterAuthTokenUrl;
     api.httpMethod = FCHttpMethodPOST;
     NSMutableDictionary *paramters = [self apiBaseParamters];
     NSString *signBody = [api.absoluteUrl twitter_signBodyWithParamter:paramters];
+    [paramters addEntriesFromDictionary:customParamters];
     paramters[@"oauth_signature"] = [self.signKey twitter_signStrWithSignBody:signBody];
     NSString *header = [NSString twitter_authEncodeWithParamter:paramters];
     api.httpHeader = @{@"Authorization":header};
-    return [api startRequest];
+    return api;
 }
 
-- (FCCallBack *)displayWebView {
-    FCWebViewController *webController = [FCWebViewController new];
-    webController.webURLString = TwitterWebUrl(self.requestToken);
-    webController.socialType = FCSocialWebTypeTwitter;
-    webController.callBackKey = self.appConfig.redirectUrl.length ? self.appConfig.redirectUrl : @"oauth_verifier";
-    [webController showWebController];
-    return webController.callBack;
-}
-
-- (void)requestAccessToken {
-    FCBaseRequest *api = [FCBaseRequest new];
-    api.absoluteUrl = TwitterAccessTokenUrl;
-    
-    [[api startRequest] subscriberSuccess:^(id x) {
-        
-    } error:^(NSError *error) {
-        
-    }];
-}
-
+#pragma mark Private httpConfig
 - (NSMutableDictionary *)apiBaseParamters {
     NSMutableDictionary *paramters = [NSMutableDictionary dictionary];
     paramters[@"oauth_version"] = @"1.0";

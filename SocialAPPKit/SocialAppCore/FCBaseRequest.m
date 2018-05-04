@@ -31,13 +31,11 @@
     [self configRequestHeader:request];
     request.HTTPBody = [self httpParamters];
     
-    __weak __typeof(self) weakSelf = self;
     [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        __strong __typeof(weakSelf)strongSelf = weakSelf;
         if (error) {
             [callBack sendError:error];
         } else {
-            if (![strongSelf verifyRequestResult:response]) {
+            if (![self verifyRequestResult:response]) {
                 FCError *customError = [FCError errorWithCode:-1 message:@"auth failed"];
                 [callBack sendError:customError];
             } else {

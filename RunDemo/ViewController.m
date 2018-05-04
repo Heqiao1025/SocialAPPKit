@@ -22,10 +22,10 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self testTitterAuth];
+    [self testTwitterAuth];
 }
 
-- (void)testTitterAuth {
+- (void)testTwitterAuth {
     [[TwitterInstance logIn] subscriberSuccess:^(id x) {
         
     } error:^(NSError *error) {

@@ -21,6 +21,15 @@
 
 @implementation FCWebViewController
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.callBack = [FCCallBack new];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -31,8 +40,6 @@
     [self configWebView];
     
     [self configProgress];
-    
-    [self configCallBack];
 }
 
 - (void)cancelAction {
@@ -73,8 +80,8 @@
 }
 
 - (void)webView: (WKWebView *)webView didStartProvisionalNavigation: (null_unspecified WKNavigation *)navigation {
-    if (![webView.URL.absoluteString containsString:self.callBackKey]) {
-        [self.callBack sendSuccess:webView.URL.absoluteString];
+    if ([webView.URL.absoluteString containsString:self.callBackKey]) {
+        [self.callBack sendSuccess:webView.URL.query];
     }
 }
 
@@ -109,10 +116,6 @@
     for (NSString *key in self.webHeader) {
         [request setValue:self.webHeader[key] forHTTPHeaderField:key];
     }
-}
-
-- (void)configCallBack {
-    self.callBack = [FCCallBack new];
 }
 
 - (void)showWebController {
