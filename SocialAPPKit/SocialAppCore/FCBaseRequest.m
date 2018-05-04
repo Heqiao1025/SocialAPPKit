@@ -35,12 +35,7 @@
         if (error) {
             [callBack sendError:error];
         } else {
-            if (![self verifyRequestResult:response]) {
-                FCError *customError = [FCError errorWithCode:-1 message:@"auth failed"];
-                [callBack sendError:customError];
-            } else {
-                [callBack sendSuccess:[data transformToMap]];
-            }
+            [callBack sendSuccess:data];
         }
     }] resume];
     return callBack;
