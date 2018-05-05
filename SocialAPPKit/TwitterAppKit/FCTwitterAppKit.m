@@ -60,24 +60,22 @@
         return authCallBack;
     }
     if ([self isCanOpenTwitter])
-        [self.twitterManager authWithNative];
+        [self.twitterManager authWithDeepLink];
     else
         [self.twitterManager authWithWeb];
     return self.twitterManager.authCallBack;
 }
 
+#pragma mark verify
 - (BOOL)isAvailableConfig {
     return self.appConfig.appKey.length && self.appConfig.appSecret.length;
 }
 
 - (BOOL)isCanOpenTwitter {
-    return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[self titterOpenUrl]]];
+    return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:self.twitterManager.twitterOpenUrl]];
 }
 
-- (NSString *)titterOpenUrl {
-    return [NSString stringWithFormat:@"twitterauth://authorize?consumer_key=%@&consumer_secret=%@&oauth_callback=twitterkit-%@", self.appConfig.appKey, self.appConfig.appSecret, self.appConfig.redirectUrl];
-}
-
+#pragma mark getter
 - (FCTwitterAppCore *)twitterManager {
     if (!_twitterManager) {
         _twitterManager = [[FCTwitterAppCore alloc] initWithConfigModel:self.appConfig];

@@ -66,8 +66,8 @@
     }];
 }
 
-- (void)authWithNative {
-    
+- (void)authWithDeepLink {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.twitterOpenUrl] options:@{} completionHandler:nil];
 }
 
 #pragma mark Private authRequest
@@ -133,6 +133,11 @@
 
 - (NSString *)signKey {
     return [self.appConfig.appSecret stringByAppendingString:@"&"];
+}
+
+#pragma mark getter
+- (NSString *)twitterOpenUrl {
+    return [NSString stringWithFormat:@"twitterauth://authorize?consumer_key=%@&consumer_secret=%@&oauth_callback=twitterkit-%@", self.appConfig.appKey, self.appConfig.appSecret, self.appConfig.redirectUrl];
 }
 
 @end

@@ -14,12 +14,14 @@
 
 @property (nonatomic) BOOL isNeedUserID;
 
+@property (nonatomic, strong) NSString *twitterOpenUrl;
+
 @property (nonatomic, strong) FCCallBack *authCallBack;
 
 - (instancetype)initWithConfigModel: (FCTwitterAppConfig *)appConfig;
 
 - (void)authWithWeb;
 
-- (void)authWithNative;
+- (void)authWithDeepLink;
 
 @end
