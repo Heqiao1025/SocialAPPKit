@@ -18,13 +18,6 @@ typedef enum : NSUInteger {
 
 @property (nonatomic) FCHttpMethod httpMethod;
 
-/**
- ip/scheme
- */
-@property (nonatomic, copy) NSString *baseHost;
-
-@property (nonatomic, copy) NSString *path;
-
 @property (nonatomic, copy) NSString *absoluteUrl;
 
 @property (nonatomic, copy) NSDictionary *httpHeader;

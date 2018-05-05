@@ -12,8 +12,6 @@
 
 + (NSString *)safeString: (id)str;
 
-- (NSString *)appendAbsolutString: (NSString *)path;
-
 - (BOOL)isAvailablePath;
 
 - (NSString *)subStringToSecondLast;

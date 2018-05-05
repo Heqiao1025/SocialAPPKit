@@ -19,11 +19,6 @@
     return [NSString stringWithFormat:@"%@",str];
 }
 
-- (NSString *)appendAbsolutString: (NSString *)path {
-    NSString *absolutStr = [self stringByAppendingFormat:@"%@%@", [path getAppendString], path];
-    return [absolutStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-}
-
 - (BOOL)isAvailablePath {
     return [self hasPrefix:@"/"];
 }
@@ -52,11 +47,6 @@
         resultDic[path.firstObject] = path.lastObject;
     }
     return resultDic;
-}
-
-#pragma mark Private
-- (NSString *)getAppendString {
-    return [self isAvailablePath] ? @"" : @"/";
 }
 
 @end

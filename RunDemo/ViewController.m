@@ -41,8 +41,7 @@
 
 - (void)testNetWork {
     FCBaseRequest *api = [FCBaseRequest new];
-    api.baseHost = @"http://www.kuaidi100.com";
-    api.path = @"/query";
+//    api.baseHost = @"http://www.kuaidi100.com/query";
     api.paramters = @{@"type":@"yuantong",
                       @"postid":@"11111111111"};
     [[api startRequest] subscriberSuccess:^(id x) {
