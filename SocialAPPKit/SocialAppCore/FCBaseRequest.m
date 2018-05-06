@@ -62,7 +62,7 @@
 }
 
 - (NSString *)httpMethodString {
-    if (self.httpMethod == FCHttpMethodGet) {
+    if (self.httpMethod == FCHttpMethodGET) {
         return @"GET";
     } else {
         return @"POST";

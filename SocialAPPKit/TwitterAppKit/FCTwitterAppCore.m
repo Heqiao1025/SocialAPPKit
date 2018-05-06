@@ -22,15 +22,18 @@
 
 #define TwitterAuthTokenUrl  @"https://api.twitter.com/oauth/request_token"
 #define TwitterAccessTokenUrl  @"https://api.twitter.com/oauth/access_token"
+#define TwitterSessionVerifyUrl @"https://api.twitter.com/1.1/account/verify_credentials.json"
 #define TwitterWebUrl(auth_token) [NSString stringWithFormat:@"https://api.twitter.com/oauth/authorize?oauth_token=%@", auth_token]
 
 @interface FCTwitterAppCore ()
 
 @property (nonatomic, copy) FCTwitterAppConfig *appConfig;
 
-@property (nonatomic, copy) NSString *signKey;
-
 @property (nonatomic, weak) FCWebViewController *webController;
+
+@property (nonatomic, copy) NSString *authSecret;
+
+@property (nonatomic, copy) NSString *signKey;
 
 @end
 
@@ -67,12 +70,27 @@
 }
 
 - (void)authWithDeepLink {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.twitterOpenUrl] options:@{} completionHandler:nil];
+    [[UIApplication sharedApplication] openURL:self.twitterOpenUrl options:@{} completionHandler:nil];
+}
+
+- (void)deeplinkURLDataMap: (NSURL *)deeplinkURL {
+    if (!deeplinkURL.query.length) {
+        FCError *error = [FCError errorWithMessage:@"用户取消授权"];
+        [self.authCallBack sendError:error];
+        return;
+    }
+    NSDictionary *responseDic = [deeplinkURL.query urlPathFormatTransformMap];
+    FCTwitterAppSession *session = [FCTwitterAppSession initWithAuthToken:responseDic[@"token"] secret:responseDic[@"secret"] userID:nil userName:responseDic[@"username"]];
+    if (_isNeedUserID) {
+        [self requestUserSession:session];
+        return;
+    }
+    [self.authCallBack sendSuccess:session];
 }
 
 #pragma mark Private authRequest
 - (FCCallBack *)requestAuthToken {
-    FCBaseRequest *api = [self baseRequestApi:nil url:TwitterAuthTokenUrl];
+    FCBaseRequest *api = [self baseRequestApi:TwitterAuthTokenUrl paramters:nil httpMethod:FCHttpMethodPOST];
     return [api startRequest];
 }
 
@@ -90,7 +108,7 @@
     NSAssert(verifier.length && token.length, @"web页面参数丢失");
     NSDictionary *paramters = @{@"oauth_verifier":verifier,
                                 @"oauth_token":token};
-    FCBaseRequest *api = [self baseRequestApi:paramters url:TwitterAccessTokenUrl];
+    FCBaseRequest *api = [self baseRequestApi:TwitterAccessTokenUrl paramters:paramters httpMethod:FCHttpMethodPOST];
     [[api startRequest] subscriberSuccess:^(NSData *data) {
         NSDictionary *responseDic = [data twitter_responseDataMap];
         if ([responseDic.allKeys containsObject:@"error"]) {
@@ -105,11 +123,23 @@
     }];
 }
 
+- (void)requestUserSession: (FCTwitterAppSession *)userSession {
+    NSAssert(userSession.auth_Token.length, @"deeplink参数缺失");
+    NSDictionary *paramters = @{@"oauth_token":userSession.auth_Token};
+    self.authSecret = userSession.auth_Secret;
+    FCBaseRequest *api = [self baseRequestApi:TwitterSessionVerifyUrl paramters:paramters httpMethod:FCHttpMethodGET];
+    [[api startRequest] subscriberSuccess:^(NSData *data) {
+        NSLog(@"1");
+    } error:^(NSError *error) {
+        NSLog(@"1");
+    }];
+}
+
 #pragma mark private getApi
-- (FCBaseRequest *)baseRequestApi: (NSDictionary *)customParamters url: (NSString *)url {
+- (FCBaseRequest *)baseRequestApi: (NSString *)url paramters: (NSDictionary *)customParamters httpMethod: (FCHttpMethod)method {
     FCBaseRequest *api = [FCBaseRequest new];
     api.absoluteUrl = url;
-    api.httpMethod = FCHttpMethodPOST;
+    api.httpMethod = method;
     NSMutableDictionary *paramters = [self apiBaseParamters];
     [paramters addEntriesFromDictionary:customParamters];
     NSString *signBody = [api.absoluteUrl twitter_signBodyWithParamter:paramters];
@@ -132,12 +162,14 @@
 }
 
 - (NSString *)signKey {
-    return [self.appConfig.appSecret stringByAppendingString:@"&"];
+    NSString *signkey = [self.appConfig.appSecret stringByAppendingFormat:@"&%@", self.authSecret];
+    self.authSecret = nil;
+    return signkey;
 }
 
 #pragma mark getter
-- (NSString *)twitterOpenUrl {
-    return [NSString stringWithFormat:@"twitterauth://authorize?consumer_key=%@&consumer_secret=%@&oauth_callback=twitterkit-%@", self.appConfig.appKey, self.appConfig.appSecret, self.appConfig.redirectUrl];
+- (NSURL *)twitterOpenUrl {
+    return [NSURL URLWithString:[NSString stringWithFormat:@"twitterauth://authorize?consumer_key=%@&consumer_secret=%@&oauth_callback=twitterkit-%@", self.appConfig.appKey, self.appConfig.appSecret, self.appConfig.redirectUrl]];
 }
 
 @end

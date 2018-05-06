@@ -19,6 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -26,7 +28,7 @@
 }
 
 - (void)displayAlert: (NSString *)message {
-    UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"displayer" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"display" message:message preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"cancel" style:UIAlertActionStyleCancel handler:nil];
     [vc addAction:action];
     [self presentViewController:vc animated:YES completion:nil];
@@ -34,7 +36,7 @@
 
 - (void)testTwitterAuth {
     __weak typeof(self) weakSelf = self;
-    [[TwitterInstance logIn] subscriberSuccess:^(FCTwitterAppSession *session) {
+    [[TwitterInstance quickLogIn] subscriberSuccess:^(FCTwitterAppSession *session) {
         [weakSelf displayAlert:[NSString stringWithFormat:@"token:%@\nsecret:%@\nusername:%@\nuserid:%@", session.auth_Token, session.auth_Secret, session.auth_UserName, session.auth_UserID]];
     } error:^(NSError *error) {
         [weakSelf displayAlert:error.userInfo[@"message"]];

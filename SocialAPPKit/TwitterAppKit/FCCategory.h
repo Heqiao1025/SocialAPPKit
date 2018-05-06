@@ -20,6 +20,10 @@
 
 + (NSString *)twitter_authEncodeWithParamter: (NSMutableDictionary *)paramters;
 
+- (BOOL)twitter_verifySourceApplication;
+
+- (BOOL)twitter_verifyURLSechme: (NSString *)configSechme;
+
 @end
 
 @interface NSData (TwitterData)

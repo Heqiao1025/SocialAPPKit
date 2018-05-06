@@ -46,6 +46,15 @@
     return [@"OAuth " stringByAppendingString:paraString];
 }
 
+- (BOOL)twitter_verifyURLSechme: (NSString *)configSechme {
+    return [self caseInsensitiveCompare:configSechme] == NSOrderedSame;
+}
+
+- (BOOL)twitter_verifySourceApplication {
+    NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
+    return [self hasPrefix:@"com.atebits"] || [self hasPrefix:@"com.twitter"] || [self hasPrefix:@"com.apple"] || [self isEqualToString:bundleID];
+}
+
 @end
 
 @implementation NSData (TwitterData)

@@ -9,6 +9,7 @@
 #import "FCTwitterAppKit.h"
 #import "FCTwitterAppConfig.h"
 #import "FCTwitterAppCore.h"
+#import "FCCategory.h"
 
 @interface FCTwitterAppKit ()
 
@@ -40,7 +41,13 @@
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
-    return YES;
+    NSString *source = options[UIApplicationOpenURLOptionsSourceApplicationKey];
+    BOOL isTwitterSource = [source twitter_verifySourceApplication];
+    BOOL isSechme = [url.scheme twitter_verifyURLSechme:[self twitterKitURLScheme]];
+    if ((isSechme || isTwitterSource)){
+        [_twitterManager deeplinkURLDataMap:url];
+    }
+    return isSechme || isTwitterSource;
 }
 
 - (FCCallBack *)logIn {
@@ -72,7 +79,7 @@
 }
 
 - (BOOL)isCanOpenTwitter {
-    return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:self.twitterManager.twitterOpenUrl]];
+    return [[UIApplication sharedApplication] canOpenURL:self.twitterManager.twitterOpenUrl];
 }
 
 #pragma mark getter
@@ -82,6 +89,10 @@
         _twitterManager.isNeedUserID = !_isQuick;
     }
     return _twitterManager;
+}
+
+- (NSString *)twitterKitURLScheme {
+    return [NSString stringWithFormat:@"twitterkit-%@", self.appConfig.appKey];
 }
 
 @end

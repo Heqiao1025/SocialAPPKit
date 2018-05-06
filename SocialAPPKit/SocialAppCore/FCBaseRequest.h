@@ -10,7 +10,7 @@
 #import "FCCallBack.h"
 
 typedef enum : NSUInteger {
-    FCHttpMethodGet,
+    FCHttpMethodGET,
     FCHttpMethodPOST,
 } FCHttpMethod;
 

@@ -14,7 +14,7 @@
 
 @property (nonatomic) BOOL isNeedUserID;
 
-@property (nonatomic, strong) NSString *twitterOpenUrl;
+@property (nonatomic, strong) NSURL *twitterOpenUrl;
 
 @property (nonatomic, strong) FCCallBack *authCallBack;
 
@@ -23,5 +23,7 @@
 - (void)authWithWeb;
 
 - (void)authWithDeepLink;
+
+- (void)deeplinkURLDataMap: (NSURL *)deeplinkURL;
 
 @end
