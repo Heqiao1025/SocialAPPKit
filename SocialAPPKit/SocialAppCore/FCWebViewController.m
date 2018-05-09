@@ -82,7 +82,7 @@
 }
 
 - (void)webView: (WKWebView *)webView didStartProvisionalNavigation: (null_unspecified WKNavigation *)navigation {
-    if ([webView.URL.absoluteString containsString:[self.callBackKey lowercaseString]]) {
+    if ([webView.URL.absoluteString caseInsensitiveCompare:self.callBackKey] == NSOrderedSame) {
         [self.callBack sendSuccess:webView.URL.query];
     }
 }
