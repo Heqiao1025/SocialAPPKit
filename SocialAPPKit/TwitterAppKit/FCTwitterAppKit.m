@@ -66,10 +66,10 @@
         [authCallBack delaySendError:[FCError errorWithMessage:@"lack of configuration"]];
         return authCallBack;
     }
-    if ([self isCanOpenTwitter])
-        [self.twitterManager authWithDeepLink];
-    else
-        [self.twitterManager authWithWeb];
+//    if ([self isCanOpenTwitter])
+//        [self.twitterManager authWithDeepLink];
+//    else
+//        [self.twitterManager authWithWeb];
     return self.twitterManager.authCallBack;
 }
 

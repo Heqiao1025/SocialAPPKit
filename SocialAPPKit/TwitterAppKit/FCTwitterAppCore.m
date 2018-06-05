@@ -74,12 +74,12 @@
 }
 
 - (void)deeplinkURLDataMap: (NSURL *)deeplinkURL {
-    if (!deeplinkURL.query.length) {
+    if (!deeplinkURL.host.length) {
         FCError *error = [FCError errorWithMessage:@"用户取消授权"];
         [self.authCallBack sendError:error];
         return;
     }
-    NSDictionary *responseDic = [deeplinkURL.query urlPathFormatTransformMap];
+    NSDictionary *responseDic = [deeplinkURL.host urlPathFormatTransformMap];
     FCTwitterAppSession *session = [FCTwitterAppSession initWithAuthToken:responseDic[@"token"] secret:responseDic[@"secret"] userID:nil userName:responseDic[@"username"]];
     if (_isNeedUserID) {
         [self requestUserSession:session];
@@ -135,6 +135,19 @@
     }];
 }
 
+//(lldb) po signatureSecret
+//ZvB0idM0dfldEbaFPS90aYB2SpYBHcg85LyHnTtOmdyuCizlfD&GPUoxd53wKlOLSTg85bFzS5XCsdbzbMTrj4cwx0KEM3i0
+//
+//(lldb) po OAuthParameters
+//{
+//    "oauth_consumer_key" = HyjS1LXB00MCPibyxWVQ6aryX;
+//    "oauth_nonce" = "4C8416C1-0477-4308-A367-92573458E421";
+//    "oauth_signature_method" = "HMAC-SHA1";
+//    "oauth_timestamp" = 1525662611;
+//    "oauth_token" = "971303193052434432-bwMfLP9pQgunP0HdL8rFyssTBZfjc3M";
+//    "oauth_version" = "1.0";
+//}
+
 #pragma mark private getApi
 - (FCBaseRequest *)baseRequestApi: (NSString *)url paramters: (NSDictionary *)customParamters httpMethod: (FCHttpMethod)method {
     FCBaseRequest *api = [FCBaseRequest new];
@@ -145,7 +158,8 @@
     NSString *signBody = [api.absoluteUrl twitter_signBodyWithParamter:paramters];
     paramters[@"oauth_signature"] = [self.signKey twitter_signStrWithSignBody:signBody];
     NSString *header = [NSString twitter_authEncodeWithParamter:paramters];
-    api.httpHeader = @{@"Authorization":header};
+    api.httpHeader = @{@"Authorization":header,
+                       @"Accept-Encoding":@"gzip"};
     return api;
 }
 
