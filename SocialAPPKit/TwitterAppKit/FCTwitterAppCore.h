@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-@class FCCallBack;
 @class FCTwitterAppConfig;
+@class FCTwitterAppSession;
+typedef void(^FCTwitterLoginCompletion)(FCTwitterAppSession *session, NSError *loginError);
 
 @interface FCTwitterAppCore : NSObject
 
@@ -16,9 +17,9 @@
 
 @property (nonatomic, strong) NSURL *twitterOpenUrl;
 
-@property (nonatomic, strong) FCCallBack *authCallBack;
+@property (nonatomic, copy) FCTwitterLoginCompletion LoginCompletion;
 
-- (instancetype)initWithConfigModel: (FCTwitterAppConfig *)appConfig;
+- (instancetype)initWithConfigModel:(FCTwitterAppConfig *)appConfig;
 
 - (void)authWithWeb;
 

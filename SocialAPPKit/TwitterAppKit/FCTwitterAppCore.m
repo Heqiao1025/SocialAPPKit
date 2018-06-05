@@ -8,11 +8,10 @@
 
 #import "FCTwitterAppCore.h"
 #import "FCWebViewController.h"
-#import "FCWebViewController.h"
 #import "FCTwitterAppConfig.h"
 #import "FCTwitterAppSession.h"
 #import "FCBaseRequest.h"
-#import "FCCallBack.h"
+#import "FCError.h"
 #import "FCCategory.h"
 #import "NSString+FCString.h"
 #import "NSDictionary+FCDictionary.h"
@@ -39,33 +38,38 @@
 
 @implementation FCTwitterAppCore
 
-- (instancetype)initWithConfigModel: (FCTwitterAppConfig *)appConfig {
+- (instancetype)initWithConfigModel:(FCTwitterAppConfig *)appConfig {
     self = [super init];
     if (self) {
-        _authCallBack = [FCCallBack new];
         _appConfig = appConfig;
     }
     return self;
 }
 
 - (void)authWithWeb {
-    [[self requestAuthToken] subscriberSuccess:^(NSData *data) {
-        NSDictionary *responseDic = [data twitter_responseDataMap];
+    [self requestAuthTokenWithRequestCallBack:^(NSData *response, NSError *error) {
+        NSDictionary *responseDic = [response twitter_responseDataMap];
         if ([responseDic.allKeys containsObject:@"error"]) {
             FCError *customError = [FCError errorWithCode:-1 userInfo:responseDic];
-            [self.authCallBack sendError:customError];
+            [self loginCompletionCallBackWithSession:nil error:customError];
+        } else if (error) {
+            [self loginCompletionCallBackWithSession:nil error:error];
         } else {
             NSString *requestToken = responseDic[@"oauth_token"];
-            [[self requestWebLogin:requestToken] subscriberSuccess:^(NSString *redirectParamterStr) {
-                NSDictionary *paramter = [redirectParamterStr urlPathFormatTransformMap];
-                [self.webController dismissViewControllerAnimated:YES completion:nil];
-                [self requestAccessToken:paramter[@"oauth_token"] verify:paramter[@"oauth_verifier"]];
-            } error:^(NSError *error) {
-                [self.authCallBack sendError:error];
+            [self requestWebLogin:requestToken webCallBack:^(id response, NSError *error) {
+                if (error) {
+                    [self loginCompletionCallBackWithSession:nil error:error];
+                } else if (![response isKindOfClass:[NSString class]]) {
+                    FCError *customError = [FCError errorWithMessage:@"web登录格式错误"];
+                    [self loginCompletionCallBackWithSession:nil error:customError];
+                } else {
+                    NSString *redirectParamterStr = (NSString *)response;
+                    NSDictionary *paramter = [redirectParamterStr urlPathFormatTransformMap];
+                    [self.webController dismissViewControllerAnimated:YES completion:nil];
+                    [self requestAccessToken:paramter[@"oauth_token"] verify:paramter[@"oauth_verifier"]];
+                }
             }];
         }
-    } error:^(NSError *error) {
-        [self.authCallBack sendError:error];
     }];
 }
 
@@ -76,7 +80,7 @@
 - (void)deeplinkURLDataMap: (NSURL *)deeplinkURL {
     if (!deeplinkURL.host.length) {
         FCError *error = [FCError errorWithMessage:@"用户取消授权"];
-        [self.authCallBack sendError:error];
+        [self loginCompletionCallBackWithSession:nil error:error];
         return;
     }
     NSDictionary *responseDic = [deeplinkURL.host urlPathFormatTransformMap];
@@ -85,52 +89,50 @@
         [self requestUserSession:session];
         return;
     }
-    [self.authCallBack sendSuccess:session];
+    [self loginCompletionCallBackWithSession:session error:nil];
 }
 
 #pragma mark Private authRequest
-- (FCCallBack *)requestAuthToken {
+- (void)requestAuthTokenWithRequestCallBack:(RequestCallBack)callBack {
     FCBaseRequest *api = [self baseRequestApi:TwitterAuthTokenUrl paramters:nil httpMethod:FCHttpMethodPOST];
-    return [api startRequest];
+    [api startRequest:callBack];
 }
 
-- (FCCallBack *)requestWebLogin: (NSString *)requestToken {
+- (void)requestWebLogin:(NSString *)requestToken webCallBack:(WebCallBack)callback {
     FCWebViewController *webController = [FCWebViewController new];
     webController.webURLString = TwitterWebUrl(requestToken);
     webController.socialType = FCSocialWebTypeTwitter;
     webController.callBackKey = self.appConfig.redirectUrl.length ? self.appConfig.redirectUrl : @"oauth_verifier";
     [webController showWebController];
+    webController.callBack = callback;
     self.webController = webController;
-    return webController.callBack;
 }
 
-- (void)requestAccessToken: (NSString *)token verify: (NSString *)verifier {
+- (void)requestAccessToken:(NSString *)token verify:(NSString *)verifier {
     NSAssert(verifier.length && token.length, @"web页面参数丢失");
     NSDictionary *paramters = @{@"oauth_verifier":verifier,
                                 @"oauth_token":token};
     FCBaseRequest *api = [self baseRequestApi:TwitterAccessTokenUrl paramters:paramters httpMethod:FCHttpMethodPOST];
-    [[api startRequest] subscriberSuccess:^(NSData *data) {
-        NSDictionary *responseDic = [data twitter_responseDataMap];
+    [api startRequest:^(NSData *response, NSError *error) {
+        NSDictionary *responseDic = [response twitter_responseDataMap];
         if ([responseDic.allKeys containsObject:@"error"]) {
             FCError *customError = [FCError errorWithCode:-1 userInfo:responseDic];
-            [self.authCallBack sendError:customError];
+            [self loginCompletionCallBackWithSession:nil error:customError];
+        } else if (error) {
+            [self loginCompletionCallBackWithSession:nil error:error];
         } else {
             FCTwitterAppSession *session = [FCTwitterAppSession initWithAuthToken:responseDic[@"oauth_token"] secret:responseDic[@"oauth_token_secret"] userID:responseDic[@"user_id"] userName:responseDic[@"screen_name"]];
-            [self.authCallBack sendSuccess:session];
+            [self loginCompletionCallBackWithSession:session error:nil];
         }
-    } error:^(NSError *error) {
-        [self.authCallBack sendError:error];
     }];
 }
 
-- (void)requestUserSession: (FCTwitterAppSession *)userSession {
+- (void)requestUserSession:(FCTwitterAppSession *)userSession {
     NSAssert(userSession.auth_Token.length, @"deeplink参数缺失");
     NSDictionary *paramters = @{@"oauth_token":userSession.auth_Token};
     self.authSecret = userSession.auth_Secret;
     FCBaseRequest *api = [self baseRequestApi:TwitterSessionVerifyUrl paramters:paramters httpMethod:FCHttpMethodGET];
-    [[api startRequest] subscriberSuccess:^(NSData *data) {
-        NSLog(@"1");
-    } error:^(NSError *error) {
+    [api startRequest:^(NSData *response, NSError *error) {
         NSLog(@"1");
     }];
 }
@@ -153,7 +155,7 @@
     FCBaseRequest *api = [FCBaseRequest new];
     api.absoluteUrl = url;
     api.httpMethod = method;
-    NSMutableDictionary *paramters = [self apiBaseParamters];
+    NSMutableDictionary *paramters = [self getApiBaseParamters];
     [paramters addEntriesFromDictionary:customParamters];
     NSString *signBody = [api.absoluteUrl twitter_signBodyWithParamter:paramters];
     paramters[@"oauth_signature"] = [self.signKey twitter_signStrWithSignBody:signBody];
@@ -164,7 +166,7 @@
 }
 
 #pragma mark Private httpConfig
-- (NSMutableDictionary *)apiBaseParamters {
+- (NSMutableDictionary *)getApiBaseParamters {
     NSMutableDictionary *paramters = [NSMutableDictionary dictionary];
     paramters[@"oauth_version"] = @"1.0";
     paramters[@"oauth_signature_method"] = @"HMAC-SHA1";
@@ -179,6 +181,12 @@
     NSString *signkey = [self.appConfig.appSecret stringByAppendingFormat:@"&%@", self.authSecret];
     self.authSecret = nil;
     return signkey;
+}
+
+- (void)loginCompletionCallBackWithSession:(FCTwitterAppSession *)session error:(NSError *)error {
+    if (self.LoginCompletion) {
+        self.LoginCompletion(session, error);
+    }
 }
 
 #pragma mark getter

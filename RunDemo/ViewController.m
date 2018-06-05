@@ -48,10 +48,12 @@
 
 - (void)testTwitterAuth {
     __weak typeof(self) weakSelf = self;
-    [[TwitterInstance logIn] subscriberSuccess:^(FCTwitterAppSession *session) {
-        [weakSelf displayAlert:[NSString stringWithFormat:@"token:%@\nsecret:%@\nusername:%@\nuserid:%@", session.auth_Token, session.auth_Secret, session.auth_UserName, session.auth_UserID]];
-    } error:^(NSError *error) {
-        [weakSelf displayAlert:error.userInfo[@"message"]];
+    [TwitterInstance logInWithCompletion:^(FCTwitterAppSession *session, NSError *loginError) {
+        if (loginError) {
+            [weakSelf displayAlert:loginError.userInfo[@"message"]];
+        } else {
+            [weakSelf displayAlert:[NSString stringWithFormat:@"token:%@\nsecret:%@\nusername:%@\nuserid:%@", session.auth_Token, session.auth_Secret, session.auth_UserName, session.auth_UserID]];
+        }
     }];
 }
 
@@ -66,12 +68,9 @@
     //    api.baseHost = @"http://www.kuaidi100.com/query?type=yuantong&postid=11111111111";
     api.paramters = @{@"type":@"yuantong",
                       @"postid":@"11111111111"};
-    [[api startRequest] subscriberSuccess:^(id x) {
+    [api startRequest:^(NSData *response, NSError *error) {
         NSLog(@"1");
-    } error:^(NSError *error) {
-        NSLog(@"2");
     }];
-    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -21,15 +21,6 @@
 
 @implementation FCWebViewController
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.callBack = [FCCallBack new];
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -74,7 +65,9 @@
 
 #pragma mark Delegate
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
-    [self.callBack sendError:error];
+    if (self.callBack) {
+        self.callBack(nil, error);
+    }
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
@@ -83,7 +76,9 @@
 
 - (void)webView: (WKWebView *)webView didStartProvisionalNavigation: (null_unspecified WKNavigation *)navigation {
     if ([webView.URL.absoluteString caseInsensitiveCompare:self.callBackKey] == NSOrderedSame) {
-        [self.callBack sendSuccess:webView.URL.query];
+        if (self.callBack) {
+            self.callBack(webView.URL.query, nil);
+        }
     }
 }
 

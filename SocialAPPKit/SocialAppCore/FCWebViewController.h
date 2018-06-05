@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FCCallBack.h"
 
+typedef void(^WebCallBack)(id response, NSError *error);
 typedef enum : NSUInteger {
     FCSocialWebTypeWechat,
     FCSocialWebTypeTencentQQ,
@@ -26,7 +26,7 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, assign) FCSocialWebType socialType;
 
-@property (nonatomic, strong) FCCallBack *callBack;
+@property (nonatomic, copy) WebCallBack callBack;
 
 @property (nonatomic, strong) NSString *callBackKey;
 

@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FCCallBack.h"
 
+typedef void(^RequestCallBack)(NSData *response, NSError *error);
 typedef enum : NSUInteger {
     FCHttpMethodGET,
     FCHttpMethodPOST,
@@ -24,6 +24,6 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, copy) NSDictionary *paramters;
 
-- (FCCallBack *)startRequest;
+- (void)startRequest:(RequestCallBack)callBack;
 
 @end

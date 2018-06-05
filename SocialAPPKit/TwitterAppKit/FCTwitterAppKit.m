@@ -50,27 +50,27 @@
     return isSechme || isTwitterSource;
 }
 
-- (FCCallBack *)logIn {
-    return [self startTitterAuth];
+- (void)logInWithCompletion:(FCTwitterLoginCompletion)LoginCompletion {
+    [self startTitterAuth:LoginCompletion];
 }
 
-- (FCCallBack *)quickLogIn {
+- (void)quickLogInWithCompletion:(FCTwitterLoginCompletion)LoginCompletion {
     self.isQuick = YES;
-    return [self logIn];
+    [self logInWithCompletion:LoginCompletion];
 }
 
 #pragma mark Private
-- (FCCallBack *)startTitterAuth {
-    if (![self isAvailableConfig]) {
-        FCCallBack *authCallBack = [FCCallBack new];
-        [authCallBack delaySendError:[FCError errorWithMessage:@"lack of configuration"]];
-        return authCallBack;
+- (void)startTitterAuth:(FCTwitterLoginCompletion)loginCompletion {
+    if (![self isAvailableConfig] && loginCompletion) {
+        FCError *error = [FCError errorWithMessage:@"lack of configuration"];
+        loginCompletion(nil, error);
+        return;
     }
-//    if ([self isCanOpenTwitter])
-//        [self.twitterManager authWithDeepLink];
-//    else
-//        [self.twitterManager authWithWeb];
-    return self.twitterManager.authCallBack;
+    if ([self isCanOpenTwitter])
+        [self.twitterManager authWithDeepLink];
+    else
+        [self.twitterManager authWithWeb];
+    self.twitterManager.LoginCompletion = loginCompletion;
 }
 
 #pragma mark verify

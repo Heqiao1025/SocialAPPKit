@@ -10,9 +10,9 @@
 #import <UIKit/UIKit.h>
 #import "FCTwitterAppSession.h"
 #import "FCError.h"
-#import "FCCallBack.h"
 
 #define TwitterInstance [FCTwitterAppKit shareInstance]
+typedef void(^FCTwitterLoginCompletion)(FCTwitterAppSession *session, NSError *loginError);
 
 @interface FCTwitterAppKit : NSObject
 
@@ -29,13 +29,13 @@
  OAuth
  返回数据FCTwitterAppSession类包含: username. userID. auth_token. auth_secret.
  */
-- (FCCallBack *)logIn;
+- (void)logInWithCompletion:(FCTwitterLoginCompletion)LoginCompletion;
 
 /**
  OAuth
  快速登录(只在iphone中包含twitterapp有效)
  返回数据FCTwitterAppSession类包含: username. auth_token. auth_secret
  */
-- (FCCallBack *)quickLogIn;
+- (void)quickLogInWithCompletion:(FCTwitterLoginCompletion)LoginCompletion;
 
 @end

@@ -10,6 +10,7 @@
 #import "NSData+FCData.h"
 #import "NSString+FCString.h"
 #import "NSDictionary+FCDictionary.h"
+#import "FCError.h"
 
 @interface FCBaseRequest ()
 
@@ -19,12 +20,10 @@
 
 @implementation FCBaseRequest
 
-- (FCCallBack *)startRequest {
-    FCCallBack *callBack = [FCCallBack new];
-    if (![self isAvailableURL]) {
+- (void)startRequest:(RequestCallBack)callBack {
+    if (![self isAvailableURL] && callBack) {
         FCError *urlError = [FCError errorWithMessage:@"不可用的URL"];
-        [callBack delaySendError:urlError];
-        return callBack;
+        callBack(nil, urlError);
     }
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.requestURL];
     request.HTTPMethod = [self httpMethodString];
@@ -32,13 +31,8 @@
     request.HTTPBody = [self httpParamters];
     
     [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if (error) {
-            [callBack sendError:error];
-        } else {
-            [callBack sendSuccess:data];
-        }
+        callBack(data, error);
     }] resume];
-    return callBack;
 }
 
 #pragma mark Private Profession
@@ -71,22 +65,6 @@
 
 - (NSURL *)requestURL {
     return [NSURL URLWithString:self.absoluteUrl];
-}
-
-- (BOOL)verifyRequestResult: (NSURLResponse *)response {
-    NSHTTPURLResponse *urlResponse = [self checkReponseClass:response];
-    if (!urlResponse) {
-        return YES;
-    }
-    return (urlResponse.statusCode >= 200 || urlResponse.statusCode < 300);
-}
-
-- (NSHTTPURLResponse *)checkReponseClass: (NSURLResponse *)reponse {
-    if ([reponse isKindOfClass:[NSHTTPURLResponse class]]) {
-        NSHTTPURLResponse *httpReponse = (NSHTTPURLResponse *)reponse;
-        return httpReponse;
-    }
-    return nil;
 }
 
 @end
